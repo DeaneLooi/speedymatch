@@ -9,8 +9,7 @@ body{
 .navbarButtons{
 	position:absolute;
 	top:0;
-	right:0;
-	margin-right:50px;
+	right:50px;
 	padding-top:12px;
 }
 
@@ -20,8 +19,9 @@ body{
 }
 
 #logoName{
-	position:relative;
-	right:100px;
+	position:absolute;
+	top:0px;
+	left:50px;
 	padding-top:5px;
 	color:#fff;
 	font-size:1em;
