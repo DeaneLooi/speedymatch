@@ -9,7 +9,7 @@
 			 More info: h5bp.com/b/378 -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-<title>Speedy Match</title>
+<title>Speedy Match Online Cinema</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <meta name="author" content="humans.txt">
@@ -166,10 +166,10 @@
 							</h4>
 						</li>
 						<li>
-					<h4>
-						<a href="#"><i class="icon-heart"></i>Love Meter</a>
-					</h4>
-				</li>
+							<h4>
+								<a href="#"><i class="icon-heart"></i>Love Meter</a>
+							</h4>
+						</li>
 
 
 
@@ -185,18 +185,55 @@
 	<section class="nine columns push_one" id="docs-content">
 
 		<div class="left-center">
-		
+
 			<div class="row">
-		<h1 class="lead"><!-- Header here --></h1>
-		<div class="row">
-			
-			<!-- Content here -->
-			
+				<h1 class="lead">
+					<!-- Header here -->
+					Online Cinema
+				</h1>
+				<div class="row">
+
+					<!-- Content here -->
+
+					<form>
+
+						<label for="movie">Select movie</label>
+
+						<div class="picker">
+							<select id="movie" name="movie">
+								<option value="#" disabled>Select movie</option>
+								<option>EXTERMINATE</option>
+								<option>EXTERMINATE</option>
+								<option>EXTERMINATE</option>
+								<option>EXTERMINATE</option>
+								<option>EXTERMINATE</option>
+								<option>EXTERMINATE</option>
+								<option>EXTERMINATE</option>
+								<option>EXTERMINATE</option>
+							</select>
+						</div>
+
+						<label for="friend">Select friend</label>
+
+						<div class="picker">
+							<select id="friend" name="friend">
+								<option value="#" disabled>Select friend</option>
+								<option>Samuel Ong K.C</option>
+							</select>
+						</div>
+						<br>
+						<div class="medium primary btn">
+							<!-- <input type="submit" value="send request" />	 -->
+							<a href="#">send request</a>
+						</div>
+						
+					</form>
+
+				</div>
 			</div>
-		</div>
 
 
-			
+
 		</div>
 
 
