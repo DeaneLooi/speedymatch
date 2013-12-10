@@ -95,7 +95,7 @@
 						<ul>
 
 							<li><h5>
-									<a href="#">profile</a>
+									<a href="profile.jsp">profile</a>
 								</h5></li>
 							<li><h5>
 									<a href="speedymatch.jsp">sign out</a>
@@ -119,20 +119,20 @@
 				</div>
 				<div class="dropdown friendActivities">
 					<ul>
-
 						<li><h6>
-								<a href="#">Send Message</a>
+								<a href="message.jsp">Send Message</a>
 							</h6></li>
 						<li><h6>
 								<a href="cinemaForm.jsp">Invite for movie</a>
+							</h6></li>
+						<li><h6>
+								<a href="inviteSystem.jsp">Member Invite</a>
 							</h6></li>
 					</ul>
 				</div>
 
 			</li>
 		</ul>
-
-
 	</div>
 
 	<div class="wrapper nopad" id="nav-sidebar">
@@ -149,7 +149,7 @@
 
 						<li>
 							<h4>
-								<a href="#"><i class="icon-chat"></i>Messaging</a>
+								<a href="message.jsp"><i class="icon-chat"></i>Messaging</a>
 							</h4>
 						</li>
 
@@ -170,9 +170,17 @@
 						<a href="#"><i class="icon-heart"></i>Love Meter</a>
 					</h4>
 				</li>
-
-
-
+				      	<li>
+							<h4>
+								<a href="inviteSystem.jsp"><i class="fa fa-check-square"></i> Member Invites</a>
+							</h4>
+						</li>
+						
+						<li>
+							<h4>
+								<a href="recommendation.jsp"><i class="fa fa-thumbs-o-up"></i>Recommends</a>
+							</h4>
+						</li>  
 
 					</ul>
 				</nav>
