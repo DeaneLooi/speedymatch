@@ -165,6 +165,11 @@
 									Chat</a>
 							</h4>
 						</li>
+						<li>
+					<h4>
+						<a href="#"><i class="icon-heart"></i>Love Meter</a>
+					</h4>
+				</li>
 
 
 
