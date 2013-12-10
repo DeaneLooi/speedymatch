@@ -42,6 +42,7 @@
 	href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
 	rel="stylesheet">
 
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="gumby/js/libs/modernizr-2.6.2.min.js"></script>
 </head>
 
@@ -80,11 +81,11 @@
 					</h4></li>
 
 
-				<li class="nav-fields"><div id="friends">
-						<h4>
-							<a href="#"><i class="fa fa-users"></i>&nbsp;Friends</a>
-						</h4>
-					</div></li>
+				<li class="nav-fields" id="friendsTab">
+					<h4>
+						<a href="#"><i class="fa fa-users"></i>&nbsp;Friends</a>
+					</h4>
+				</li>
 
 				<li class="nav-fields">
 					<h4>
@@ -108,58 +109,93 @@
 	</div>
 
 
+	<div id="friends" class="navbar">
 
+		<ul class="twelve columns">
+
+			<li class="nav-fields">
+				<div class="friendList">
+					<p class="friend">Samuel Ong K.C</p>
+				</div>
+				<div class="dropdown friendActivities">
+					<ul>
+
+						<li><h6>
+								<a href="#">Send Message</a>
+							</h6></li>
+						<li><h6>
+								<a href="#">Invite for movie</a>
+							</h6></li>
+					</ul>
+				</div>
+
+			</li>
+		</ul>
+
+
+	</div>
 
 	<div class="wrapper nopad" id="nav-sidebar">
 		<div class="row">
-			<section class="four columns"> <nav id="sidebar-nav-holder"
-				class="vertical-nav">
-			<ul id="sidebar-nav">
+			<section class="four columns">
+				<nav id="sidebar-nav-holder" class="vertical-nav">
+					<ul id="sidebar-nav">
 
-				<li>
-					<h4>
-						<a href="#"><i class="fa fa-calendar"></i>&nbsp;Date Planner</a>
-					</h4>
-				</li>
+						<li>
+							<h4>
+								<a href="#"><i class="fa fa-calendar"></i>&nbsp;Date Planner</a>
+							</h4>
+						</li>
 
-				<li>
-					<h4>
-						<a href="#"><i class="icon-chat"></i>Messaging</a>
-					</h4>
-				</li>
+						<li>
+							<h4>
+								<a href="#"><i class="icon-chat"></i>Messaging</a>
+							</h4>
+						</li>
 
-				<li>
-					<h4>
-						<a href="#"><i class="icon-basket"></i>Store</a>
-					</h4>
-				</li>
+						<li>
+							<h4>
+								<a href="#"><i class="icon-basket"></i>Store</a>
+							</h4>
+						</li>
 
-				<li>
-					<h4>
-						<a href="#"><i class="fa fa-video-camera"></i>&nbsp;Video Chat</a>
-					</h4>
-				</li>
+						<li>
+							<h4>
+								<a href="#"><i class="fa fa-video-camera"></i>&nbsp;Video
+									Chat</a>
+							</h4>
+						</li>
 
 
 
 
-			</ul>
-			</nav> </section>
+					</ul>
+				</nav>
+			</section>
 		</div>
 	</div>
-	
 
-	
+
+
 	<section class="nine columns push_one" id="docs-content">
 
-	<div class="left-center">
-		
-		<!-- Content here -->
-	</div>
+		<div class="left-center">
+
+			<!-- Content here -->
+		</div>
 
 
 	</section>
 
+
+	<script>
+		$(document).ready(function() {
+			$("#friendsTab").click(function() {
+				$("#friends").slideToggle("fast");
+			});
+
+		});
+	</script>
 	<!-- Grab Google CDN's jQuery, fall back to local if offline -->
 	<!-- 2.0 for modern browsers, 1.10 for .oldie -->
 	<script>
@@ -185,7 +221,7 @@
 		}
 	</script>
 
-        
+
 	<!--
 	Include gumby.js followed by UI modules followed by gumby.init.js
 	Or concatenate and minify into a single file -->
@@ -224,7 +260,7 @@
 	</script> -->
 
 	<script src="gumby/js/plugins.js"></script>
-				<script src="gumby/js/main.js"></script>
+	<script src="gumby/js/main.js"></script>
 
 	<!-- Change UA-XXXXX-X to be your site's ID -->
 	<!--<script>

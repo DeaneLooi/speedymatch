@@ -94,6 +94,31 @@ body{
 	color:#fff;
 }
 
+#friends{
+	display:none;
+	background-color:red;
+	width:200px;
+	height:100%;
+	position:absolute;
+	right:0;
+	top:60px;
+	margin-top:-60px;
+}
+
+.friendList{
+	cursor:pointer;
+	padding:5px;
+	border-bottom-style:solid;
+	border-bottom-width:1px;
+	border-bottom-color:black;
+}
+
+.friend{
+	padding-top:11px;
+	padding-left:10px;
+}
+
+
 /* search bar  */
 /* #searchUsers{
 	width:200px;
