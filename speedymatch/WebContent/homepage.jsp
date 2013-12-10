@@ -70,7 +70,7 @@
 				</li> -->
 
 				<li class="nav-fields"><h4>
-						<a href="#"><i class="fa fa-search"></i>&nbsp;Search</a>
+						<a href="WebContent/search.jsp"><i class="fa fa-search"></i>&nbsp;Search</a>
 					</h4></li>
 
 
