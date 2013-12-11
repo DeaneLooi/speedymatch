@@ -89,22 +89,23 @@
 		<div class="left-center">
 			<!-- put content here -->
 
-			<form class="loginForm">
+			<form class="loginForm" method="post" action="loginForm.jsp">
 
 				<h1>
 					<span class="log-in">Log in</span>
 				</h1>
 				<p class="field">
 					<label for="login"><i class="fa fa-user"></i>&nbsp;Username</label> 
-					<input type="text" class="text input" name="login" placeholder="Username or email">
+					<input type="text" class="text input" name="username" placeholder="Username">
 				</p>
 				<p class="field">
 					<label for="password"><i class="fa fa-lock"></i>&nbsp;Password</label> 
 					<input type="password" class="password input" name="password" placeholder="Password">
 				</p>
 					<div id="facebook" class="medium info btn icon-right icon-facebook-squared"><a href="#">log in with</a></div>
-					<div class="medium primary btn"><a href="homepage.jsp">log in</a></div>
-					<a id="pass" href="forgotPass.jsp">forgot pass?</a>
+					<div class="medium primary btn"><input type="submit" value="log in"></div>
+					<br>
+					<a id="pass" href="forgotPass.jsp">Forgot password?</a>
 			</form>
 
 

@@ -14,7 +14,7 @@
 <meta name="keywords" content="" />
 <meta name="author" content="humans.txt">
 
-<link rel="shortcut icon" href="images/SpeedyMatch.png"
+<link rel="shortcut icon" href="../images/SpeedyMatch.png"
 	type="image/x-icon" />
 
 <!-- Facebook Metadata /-->
@@ -33,8 +33,8 @@
 
 <!-- We highly recommend you use SASS and write your custom styles in sass/_custom.scss.
 		 However, there is a blank style.css in the css directory should you prefer -->
-<link rel="stylesheet" href="gumby/css/gumby.css">
-<link rel="stylesheet" href="css/homepage.css">
+<link rel="stylesheet" href="../gumby/css/gumby.css">
+<link rel="stylesheet" href="../css/homepage.css">
 <!-- <link rel="stylesheet" href="css/style.css"> -->
 
 <!--icons font awesome  -->
@@ -43,7 +43,7 @@
 	rel="stylesheet">
 
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="gumby/js/libs/modernizr-2.6.2.min.js"></script>
+<script src="../gumby/js/libs/modernizr-2.6.2.min.js"></script>
 </head>
 
 
@@ -55,8 +55,8 @@
 			<a class="toggle" gumby-trigger="#nav1 > .row > ul" href="#"><i
 				class="icon-menu"></i></a>
 			<h3 class="four columns logo">
-				<a id="logoName" href="homepage.jsp"> <img
-					src="images/SpeedyMatch.png" gumby-retina />speedymatch
+				<a id="logoName" href="profile.jsp"> <img
+					src="../images/SpeedyMatch.png" gumby-retina />speedymatch
 				</a>
 			</h3>
 
@@ -71,13 +71,13 @@
 				</li> -->
 
 				<li class="nav-fields"><h4>
-						<a href="WebContent/search.jsp"><i class="fa fa-search"></i>&nbsp;Search</a>
+						<a href="search.jsp"><i class="fa fa-search"></i>&nbsp;Search</a>
 					</h4></li>
 
 
 
 				<li class="nav-fields"><h4>
-						<a href="#"><i class="fa fa-cog"></i>&nbsp;Settings</a>
+						<a href="sd.jsp"><i class="fa fa-cog"></i>&nbsp;Settings</a>
 					</h4></li>
 
 
@@ -91,6 +91,7 @@
 					<h4>
 						<a href="#"><i class="fa fa-user"></i>&nbsp;Profile</a>
 					</h4>
+					<div class="default badge"><a href="ReputationPoints.jsp">300RP</a></div>
 					<div class="dropdown">
 						<ul>
 
@@ -98,7 +99,7 @@
 									<a href="profile.jsp">profile</a>
 								</h5></li>
 							<li><h5>
-									<a href="speedymatch.jsp">sign out</a>
+									<a href="../speedymatch.jsp">sign out</a>
 								</h5></li>
 						</ul>
 					</div>
@@ -143,7 +144,7 @@
 
 						<li>
 							<h4>
-								<a href="#"><i class="fa fa-calendar"></i>&nbsp;Date Planner</a>
+								<a href="datePlanner.jsp"><i class="fa fa-calendar"></i>&nbsp;Date Planner</a>
 							</h4>
 						</li>
 
@@ -155,19 +156,19 @@
 
 						<li>
 							<h4>
-								<a href="#"><i class="icon-basket"></i>Store</a>
+								<a href="store.jsp"><i class="icon-basket"></i>Store</a>
 							</h4>
 						</li>
 
-						<li>
+<!-- 						<li>
 							<h4>
 								<a href="#"><i class="fa fa-video-camera"></i>&nbsp;Video
 									Chat</a>
 							</h4>
-						</li>
+						</li> -->
 						<li>
 					<h4>
-						<a href="#"><i class="icon-heart"></i>Love Meter</a>
+						<a href="loveMeter.jsp"><i class="icon-heart"></i>Love Meter</a>
 					</h4>
 				</li>
 						<li>

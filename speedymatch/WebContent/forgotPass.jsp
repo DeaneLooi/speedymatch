@@ -44,13 +44,15 @@
 		 However, there is a blank style.css in the css directory should you prefer -->
 <link rel="stylesheet" href="gumby/css/gumby.css">
 <link rel="stylesheet" type="text/css" href="css/speedymatch.css" />
-<link rel="stylesheet" type="text/css" href="css/login.css"/>
+<link rel="stylesheet" type="text/css" href="css/forgotPass.css"/>
 <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
 <!-- <link rel="stylesheet" href="css/style.css"> -->
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
 
 <script src="gumby/js/libs/modernizr-2.6.2.min.js"></script>
+
+
 </head>
 
 
@@ -84,19 +86,25 @@
 
 		</div>
 	</div>
-<center class="content">
-<!-- content here --> 
-<div id="header"><h3>Forgot Password?</h3></div>
-<section class="steps">
-<div><h5>Follow the steps to get your new password:</h5></div>
-<form id="submit">
-Your registered email:<input type="email" name="email"><br>
-Retype email:<input type="email" name="email"> 
-<input type="submit" value="submit" name="forgotPasswordPg2.jsp">
-</form>
 
-</section>
-</center>
+<!-- content here --> 
+
+<div id="forgotPassForm">
+<h3>Forgot Password?</h3>
+
+<h5>Follow the steps to get your new password:</h5>
+<form id="submit" action="login.jsp" method="post">
+Your registered email:
+<br>
+<div class="field"><input class="wide email input" type="email" name="email"></div>
+Username:
+<div class="field"><input class="wide text input" type="text" name="username"></div>
+<br>
+<div class="medium info btn"><input type="submit" value="submit"></div>
+</form>
+</div>
+
+
 
 	<!-- Grab Google CDN's jQuery, fall back to local if offline -->
 	<!-- 2.0 for modern browsers, 1.10 for .oldie -->

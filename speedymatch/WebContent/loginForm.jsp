@@ -4,13 +4,25 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Process Login</title>
 </head>
 <body>
-<%@ include file="header.jsp" %>
-<center>
-<!-- content here -->
-</center>
-<%@ include file="footer.jsp" %>
+
+<%
+
+	String username = (String)request.getParameter("username");
+
+
+	if(username.equals("Admin")){
+		
+		response.sendRedirect("admin/adminHomepage.jsp");
+	}
+	
+	else{
+		
+		response.sendRedirect("pages/profile.jsp");
+	}
+%>
+
 </body>
 </html>

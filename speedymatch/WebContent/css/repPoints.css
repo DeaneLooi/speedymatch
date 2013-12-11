@@ -1,0 +1,26 @@
+@CHARSET "ISO-8859-1";
+
+.repPoints{
+	
+	background-color:gray;
+	padding:15px;
+	margin-bottom:10px;
+	height:100px;
+	
+}
+
+#currentRepPoint{
+
+	background-color:gray;
+	padding:10px;
+	margin-bottom:10px;
+}
+
+
+
+.repPointPrice{
+position:relative;
+left:300px;
+top:-65px;
+}
+

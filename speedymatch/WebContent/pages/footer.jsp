@@ -34,10 +34,10 @@
 		if (!window.jQuery) {
 			if (!oldieCheck) {
 				document
-						.write('<script src="gumby/js/libs/jquery-2.0.2.min.js"><\/script>');
+						.write('<script src="../gumby/js/libs/jquery-2.0.2.min.js"><\/script>');
 			} else {
 				document
-						.write('<script src="gumby/js/libs/jquery-1.10.1.min.js"><\/script>');
+						.write('<script src="../gumby/js/libs/jquery-1.10.1.min.js"><\/script>');
 			}
 		}
 	</script>
@@ -46,17 +46,17 @@
 	<!--
 	Include gumby.js followed by UI modules followed by gumby.init.js
 	Or concatenate and minify into a single file -->
-	<script gumby-touch="gumby/js/libs" src="gumby/js/libs/gumby.js"></script>
-	<script src="gumby/js/libs/ui/gumby.retina.js"></script>
-	<script src="gumby/js/libs/ui/gumby.fixed.js"></script>
-	<script src="gumby/js/libs/ui/gumby.skiplink.js"></script>
-	<script src="gumby/js/libs/ui/gumby.toggleswitch.js"></script>
-	<script src="gumby/js/libs/ui/gumby.checkbox.js"></script>
-	<script src="gumby/js/libs/ui/gumby.radiobtn.js"></script>
-	<script src="gumby/js/libs/ui/gumby.tabs.js"></script>
-	<script src="gumby/js/libs/ui/gumby.navbar.js"></script>
-	<script src="gumby/js/libs/ui/jquery.validation.js"></script>
-	<script src="gumby/js/libs/gumby.init.js"></script>
+	<script gumby-touch="../gumby/js/libs" src="../gumby/js/libs/gumby.js"></script>
+	<script src="../gumby/js/libs/ui/gumby.retina.js"></script>
+	<script src="../gumby/js/libs/ui/gumby.fixed.js"></script>
+	<script src="../gumby/js/libs/ui/gumby.skiplink.js"></script>
+	<script src="../gumby/js/libs/ui/gumby.toggleswitch.js"></script>
+	<script src="../gumby/js/libs/ui/gumby.checkbox.js"></script>
+	<script src="../gumby/js/libs/ui/gumby.radiobtn.js"></script>
+	<script src="../gumby/js/libs/ui/gumby.tabs.js"></script>
+	<script src="../gumby/js/libs/ui/gumby.navbar.js"></script>
+	<script src="../gumby/js/libs/ui/jquery.validation.js"></script>
+	<script src="../gumby/js/libs/gumby.init.js"></script>
 
 	<!--
 	Google's recommended deferred loading of JS
