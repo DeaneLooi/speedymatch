@@ -10,11 +10,11 @@
 	<%@ include file="header.jsp"%>
 	<center class="content">
 		<!-- 	</center> -->
-		<div class="picker">
+		<div class="picker" style="border-radius: 25px 2px;">
 			<div class="Himage">
 				<img id="urs" src="images\taurus-glyph.gif">
 			</div>
-
+			&nbsp;
 			<h2 style="text-align: left;">Your Horoscope:</h2>
 			<select>
 				<option id="aq">Aquarius [21 Jan - 19 Feb]</option>
@@ -29,11 +29,11 @@
 				<option id="sc">Scorpio [23 Oct - 21 Nov]</option>
 				<option id="sa">Sagittarius [22 Nov - 21 Dec]</option>
 				<option id="ca">Capricorn [22 Dec - 20 Jan]</option>
-			</select>
+			</select> &nbsp;
 			<div class="Himage">
 				<img id="his/her" src="images\aries-glyph.gif">
 			</div>
-
+			&nbsp;
 			<h2 style="text-align: left;">His/Her Horoscope:</h2>
 			<select>
 				<option id="aq">Aquarius [21 Jan - 19 Feb]</option>
@@ -50,11 +50,16 @@
 				<option id="ca">Capricorn [22 Dec - 20 Jan]</option>
 			</select>
 		</div>
+		&nbsp;
 		<div>
 			<button href=# class="pretty medium primary btn">Calculate
 				our compatibility!</button>
 		</div>
-		<div></div>
+		&nbsp; &nbsp; &nbsp;
+		<div
+			style="background: white; -webkit-box-shadow: 10px 10px 5px 0px rgba(245, 12, 71, 0.28); -moz-box-shadow: 10px 10px 5px 0px rgba(245, 12, 71, 0.28); box-shadow: 10px 10px 5px 0px rgba(245, 12, 71, 0.28);">
+			Both of you are extremely compatible with each other. Bright future
+			ahead of you! Congratulations!</div>
 		<%@ include file="footer.jsp"%>
 </body>
 </html>
