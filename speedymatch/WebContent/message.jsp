@@ -14,13 +14,16 @@
 <!-- content here -->
 	<div id="receiverName"><h4>Samuel Ong K.C</h4></div>
 	<div class="message">
-	<div id="MessageContent">Message appears here</div>
-	<div class="Content"></div>
+	<textarea id="MessageContent" disabled>7.23pm Samuel Ong K.C: ???                                                                                                     
+	9.10pm Me: U maD bro???
+	</textarea>
+	</div>
+	
 		<form id="MessageBox" method="post" action="">
 			<input type="text" class="tftextinput" name size="21" maxlength="100">
 			<input type="submit" value="post" class="tfbutton">
 		</form>
-</div>
+
 </center>
 <%@ include file="footer.jsp" %>
 </body>

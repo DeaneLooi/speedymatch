@@ -103,69 +103,34 @@ body{
 	color:#fff;
 }
 
-#receiverName{
+.contents{
 	position:relative;
-	float:left;
+	top:5%;
 }
 
-.message{
-	position:relative;
-	top:50px;
+#prefer{
+	color:SlateBlue;
 }
 
-#MessageContent{
-	margin:0px;
-	height:500px;
-	width:800px;
-	border: 1px solid #F13C73;
-	border-radius: 5px;
-background-color:white;
-	text-color:black;
+#list {
+    width: 1000px;
+    height: 500px;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 10px;
 }
 
-
-.tftextinput {
-	margin: 0;
-	font-size: 24px;
-	border: 1px solid #F13C73;
-	border-radius: 5px;
-	opacity:0.7;
-	text-align:left;
-	autocomplete:off;
-	background-color:white;
-	width:800px;
-	height:70px;
+#list ul {
+    height: auto;
+    padding: 5px 0px;
+    margin: 0px;
 }
 
-.tfbutton {
-	margin: 0;
-	padding: 12px 50px;
-	font-size: 24px;
-	outline: none;
-	cursor: pointer;
-	text-align: centre;
-	text-decoration: none;
-	color: #ffffff;
-	border: solid 1px #F13C73;
-	border-right: 0px;
-	background: #F13C73;
-	background: -webkit-gradient(linear, left top, left bottom, from(#D11434),
-		to(#F51335));
-	background: -moz-linear-gradient(top, #D11434, #F51335);
-	border-top-right-radius: 5px 5px;
-	border-bottom-right-radius: 5px 5px;
-	opacity:0.9;
-	float:middle;
+#list li { 
+display: inline; 
+padding: 10px; 
 }
 
-.tfbutton:hover {
-	text-decoration: none;
-	background: #D11434;
-	background: -webkit-gradient(linear, left top, left bottom, from(#F51335),
-		to(#D11434));
-	background: -moz-linear-gradient(top, #F51335, #D11434);
-	opacity:0.9;
-}
 /* Fixes submit button height problem in Firefox */
 .tfbutton::-moz-focus-inner {
 	border: 0;

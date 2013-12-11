@@ -104,7 +104,7 @@
 				</p>
 					<div id="facebook" class="medium info btn icon-right icon-facebook-squared"><a href="#">log in with</a></div>
 					<div class="medium primary btn"><a href="homepage.jsp">log in</a></div>
-					<div class="medium primary btn"><a href="forgotPass.jsp">forgot pass?</div>
+					<a id="pass" href="forgotPass.jsp">forgot pass?</a>
 			</form>
 
 
