@@ -1,16 +1,31 @@
 @CHARSET "ISO-8859-1";
 
-#audit{
+.field{
+	
+}
+#acl-list{
 	margin-left:200px;
 }
-.date{
+.ip-block{
 	display:inline;
 }
-.radio {
+.protocol{
 	display:inline;
 }
-.date input.xnarrow, .input.xnarrow{
-	width:200px;
+.ip-range{
+	display:inline;
+}
+.ip-block input.xnarrow, .input.xnarrow{
+	width:400px;
+}
+.protocol input.xnarrow, .input.xnarrow{
+	width:400px;
+}
+.ip-range input.xnarrow, .input.xnarrow{
+	width:190px;
+}
+.drop{
+	display:inline;
 }
 #acl-btn {
         margin: 0;
