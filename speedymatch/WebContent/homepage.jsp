@@ -171,7 +171,7 @@
 						</li>
 						<li>
 							<h4>
-								<a href="#"><i class="icon-heart"></i>Love Meter</a>
+								<a href="loveMeter.jsp"><i class="icon-heart"></i>Love Meter</a>
 							</h4>
 						</li>
 						<li>
