@@ -4,17 +4,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Love Meter</title>
 </head>
 <body>
 	<%@ include file="header.jsp"%>
 	<center class="content">
 		<!-- 	</center> -->
 		<div class="picker">
-			<div class="three columns image circle">
-				<img id="urs" src="">
+			<div class="Himage">
+				<img id="urs" src="images\taurus-glyph.gif">
 			</div>
-			<h2>Your Horoscope:</h2>
+
+			<h2 style="text-align: left;">Your Horoscope:</h2>
 			<select>
 				<option id="aq">Aquarius [21 Jan - 19 Feb]</option>
 				<option id="pi">Pisces [20 Feb - 20 Mar]</option>
@@ -28,11 +29,12 @@
 				<option id="sc">Scorpio [23 Oct - 21 Nov]</option>
 				<option id="sa">Sagittarius [22 Nov - 21 Dec]</option>
 				<option id="ca">Capricorn [22 Dec - 20 Jan]</option>
-			</select> &emsp;&emsp;&emsp;
-			<div class="three columns image circle">
-				<img id="his/her" src="">
+			</select>
+			<div class="Himage">
+				<img id="his/her" src="images\aries-glyph.gif">
 			</div>
-			<h2>His/Her Horoscope:</h2>
+
+			<h2 style="text-align: left;">His/Her Horoscope:</h2>
 			<select>
 				<option id="aq">Aquarius [21 Jan - 19 Feb]</option>
 				<option id="pi">Pisces [20 Feb - 20 Mar]</option>
@@ -48,7 +50,11 @@
 				<option id="ca">Capricorn [22 Dec - 20 Jan]</option>
 			</select>
 		</div>
-		<a href=#>Go!</a>
+		<div>
+			<button href=# class="pretty medium primary btn">Calculate
+				our compatibility!</button>
+		</div>
+		<div></div>
 		<%@ include file="footer.jsp"%>
 </body>
 </html>
