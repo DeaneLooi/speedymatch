@@ -128,7 +128,7 @@
 							</h6></li>
 						<li><h6>
 								<a href="inviteSystem.jsp">Member Invite</a>
-							</h6></li>	
+							</h6></li>
 					</ul>
 				</div>
 
@@ -146,7 +146,8 @@
 
 						<li>
 							<h4>
-								<a href="datePlanner.jsp"><i class="fa fa-calendar"></i>&nbsp;Date Planner</a>
+								<a href="datePlanner.jsp"><i class="fa fa-calendar"></i>&nbsp;Date
+									Planner</a>
 							</h4>
 						</li>
 
@@ -169,22 +170,21 @@
 							</h4>
 						</li>
 						<li>
-					<h4>
-						<a href="#"><i class="icon-heart"></i>Love Meter</a>
-					</h4>
-				</li>
-                      	<li>
 							<h4>
-								<a href="inviteSystem.jsp"><i class="fa fa-check-square"></i> Member Invites</a>
+								<a href="#"><i class="icon-heart"></i>Love Meter</a>
 							</h4>
 						</li>
-					    <li>
+						<li>
+							<h4>
+								<a href="inviteSystem.jsp"><i class="fa fa-check-square"></i>
+									Member Invites</a>
+							</h4>
+						</li>
+						<li>
 							<h4>
 								<a href="recommendation.jsp"><i class="fa fa-thumbs-o-up"></i>Recommends</a>
 							</h4>
 						</li>
-
-
 					</ul>
 				</nav>
 			</section>
@@ -196,18 +196,20 @@
 	<section class="nine columns push_one" id="docs-content">
 
 		<div class="left-center">
-		
+
 			<div class="row">
-		<h1 class="lead"><!-- Header here --></h1>
-		<div class="row">
-			
-			<!-- Content here -->
-			
+				<h1 class="lead">
+					<!-- Header here -->
+				</h1>
+				<div class="row">
+
+					<!-- Content here -->
+
+				</div>
 			</div>
-		</div>
 
 
-			
+
 		</div>
 
 
