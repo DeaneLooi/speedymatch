@@ -146,7 +146,7 @@
 
 						<li>
 							<h4>
-								<a href="#"><i class="fa fa-calendar"></i>&nbsp;Date Planner</a>
+								<a href="datePlanner.jsp"><i class="fa fa-calendar"></i>&nbsp;Date Planner</a>
 							</h4>
 						</li>
 
