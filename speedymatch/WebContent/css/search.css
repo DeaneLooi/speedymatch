@@ -1,14 +1,71 @@
 @CHARSET "ISO-8859-1";
 
-#advance{
-	height:520px;
-	width:900px;
-	border-width:2px;
-	border-style:solid;
-	color:black;
-	margin-left:320px;
-	margin-top:40px;
+.header-looking{
+	
 }
-li {
-	text-docroration:none;
+#header-s{
+	height:40px;
+	width:1000px;
+}
+#search-h{
+	font-size:40px;
+	float:left;
+	color:#555555;
+}
+#search-btn{
+	font-size:20px;
+	float:right;
+	padding:5px;
+	border: solid 1px #F13C73;
+	border-right: 0px;
+	background: #F13C73;
+	border-radius:5px;
+}	
+.search{
+/* 	border-width:1px; */
+/* 	border-style:solid; */
+/* 	color:black; */
+}
+#left-search{
+	float:left;
+	width:330px;
+	height:520px;
+}
+#right-search{
+	float:right;
+	width:600px;
+	height:520px;
+}
+#advance{
+	height:560px;
+	width:1000px;
+	margin-left:300px;
+	
+}
+.radio {
+	display:inline;
+}
+.age{
+	display:inline;
+}
+.age input.xnarrow, .input.xnarrow{
+	width:50px;
+}
+.height-weight{
+	display:inline;
+}
+.height-weight input.xnarrow, .input.xnarrow{
+	width:75px;
+}
+.checkbox{
+	display:inline;
+}
+.field{
+	padding:7px;
+}
+.drop{
+	display:inline;
+}
+.title{
+	font-weight:bold;
 }

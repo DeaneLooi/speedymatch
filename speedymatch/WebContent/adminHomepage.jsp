@@ -25,7 +25,7 @@
 			<a class="toggle" gumby-trigger="#nav1 > .row > ul" href="#"><i
 				class="icon-menu"></i></a>
 			<h3 class="four columns logo">
-				<a id="logoName" href="homepage.jsp"> <img
+				<a id="logoName" href="adminHomepage.jsp"> <img
 					src="images/SpeedyMatch.png" gumby-retina />speedymatch
 				</a>
 			</h3>
@@ -78,7 +78,7 @@
 
 				<li>
 					<h4>
-						<a href="#"><i class="fa fa-search">&nbsp;</i>Profile Search</a>
+						<a href="#"><i class="fa fa-edit">&nbsp;</i>View Report</a>
 					</h4>
 				</li>
 				
@@ -105,7 +105,7 @@
 	
 	<div id="tfheader">
 		<form id="tfnewsearch" method="get" action="http://www.google.com">
-		        <input type="text" class="tftextinput" name="" size="21" maxlength="100"><input type="submit" value="Search" class="tfbutton">
+		       <i class="fa fa-search"> <input type="text" class="tftextinput" name="" size="21" maxlength="100"><input type="submit" value="Search" class="tfbutton"></i>
 		         
 		</form>
 	</div>
