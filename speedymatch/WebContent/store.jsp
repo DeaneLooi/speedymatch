@@ -10,6 +10,83 @@
 	<%@ include file="header.jsp"%>
 	<center class="content">
 		<!-- 	</center> -->
+		<div style="background-color: rgba(84, 84, 84, 0.5)">
+			<ul>
+				<li style="display: inline-block;"><img
+					src="images/aquarius-glyph.gif">
+					<h3>Movie tickets</h3>
+					<button class="medium primary btn six columns centered" href="#">
+						<i class="fa fa-shopping-cart"></i>Purchase
+					</button></li>
+				<li style="display: inline-block;"><img
+					src="images/aquarius-glyph.gif">
+					<h3>Movie tickets</h3>
+					<button class="medium primary btn six columns centered" href="#">
+						<i class="fa fa-shopping-cart"></i>Purchase
+					</button></li>
+				<li style="display: inline-block;"><img
+					src="images/aquarius-glyph.gif">
+					<h3>Movie tickets</h3>
+					<button class="medium primary btn six columns centered" href="#">
+						<i class="fa fa-shopping-cart"></i>Purchase
+					</button></li>
+				<li style="display: inline-block;"><img
+					src="images/aquarius-glyph.gif">
+					<h3>Movie tickets</h3>
+					<button class="medium primary btn six columns centered" href="#">
+						<i class="fa fa-shopping-cart"></i>Purchase
+					</button></li>
+				<li style="display: inline-block;"><img
+					src="images/aquarius-glyph.gif">
+					<h3>Movie tickets</h3>
+					<button class="medium primary btn six columns centered" href="#">
+						<i class="fa fa-shopping-cart"></i>Purchase
+					</button></li>
+				<li style="display: inline-block;"><img
+					src="images/aquarius-glyph.gif">
+					<h3>Movie tickets</h3>
+					<button class="medium primary btn six columns centered" href="#">
+						<i class="fa fa-shopping-cart"></i>Purchase
+					</button></li>
+				<li style="display: inline-block;"><img
+					src="images/aquarius-glyph.gif">
+					<h3>Movie tickets</h3>
+					<button class="medium primary btn six columns centered" href="#">
+						<i class="fa fa-shopping-cart"></i>Purchase
+					</button></li>
+				<li style="display: inline-block;"><img
+					src="images/aquarius-glyph.gif">
+					<h3>Movie tickets</h3>
+					<button class="medium primary btn six columns centered" href="#">
+						<i class="fa fa-shopping-cart"></i>Purchase
+					</button></li>
+				<li style="display: inline-block;"><img
+					src="images/aquarius-glyph.gif">
+					<h3>Movie tickets</h3>
+					<button class="medium primary btn six columns centered" href="#">
+						<i class="fa fa-shopping-cart"></i>Purchase
+					</button></li>
+				<li style="display: inline-block;"><img
+					src="images/aquarius-glyph.gif">
+					<h3>Movie tickets</h3>
+					<button class="medium primary btn six columns centered" href="#">
+						<i class="fa fa-shopping-cart"></i>Purchase
+					</button></li>
+				<li style="display: inline-block;"><img
+					src="images/aquarius-glyph.gif">
+					<h3>Movie tickets</h3>
+					<button class="medium primary btn six columns centered" href="#">
+						<i class="fa fa-shopping-cart"></i>Purchase
+					</button></li>
+				<li style="display: inline-block;"><img
+					src="images/aquarius-glyph.gif">
+					<h3>Movie tickets</h3>
+					<button class="medium primary btn six columns centered" href="#">
+						<i class="fa fa-shopping-cart"></i>Purchase
+					</button></li>
+			</ul>
+		</div>
+
 		<%@ include file="footer.jsp"%>
 </body>
 </html>
