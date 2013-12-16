@@ -17,7 +17,7 @@
 </head>
 <body>
 	<%@ include file="header.jsp"%>
-	<center class="content">
+	<center>
 		<!-- content here -->
 		<section id="profile">
 		<div class="profileinfo">
