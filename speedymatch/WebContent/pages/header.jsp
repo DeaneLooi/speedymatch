@@ -138,6 +138,9 @@
 				<div class="dropdown friendActivities">
 					<ul>
 						<li><h6>
+								<a href="#">View Profile</a>
+							</h6></li>
+						<li><h6>
 								<a href="message.jsp">Send Message</a>
 							</h6></li>
 						<li><h6>
