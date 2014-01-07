@@ -1,7 +1,7 @@
 @CHARSET "ISO-8859-1";
 
-a :hover{
-	color:#fff;
+a :hover {
+	color: #fff;
 }
 
 /*JingNi*/
@@ -10,13 +10,13 @@ a :hover{
 	right: 0;
 	top: 13px;
 	padding: 4px 9px;
-	background: #5972a8;
+	background: #F13C73;
 	cursor: pointer;
 	border: 1px solid #1a356e;
 	color: #fff;
-	-webkit-box-shadow: inset 0 1px 0 #8a9cc2;
-	-moz-box-shadow: inset 0 1px 0 #8a9cc2;
-	box-shadow: inset 0 1px 0 #8a9cc2;
+	-webkit-box-shadow: inset 0 1px 0 #ff4d79;
+	-moz-box-shadow: inset 0 1px 0 #ff4d79;
+	box-shadow: inset 0 1px 0 #ff4d79;
 	margin-bottom: 5px;
 	margin-top: -5px;
 	display: none;
@@ -24,12 +24,12 @@ a :hover{
 
 .savebtn:hover {
 	color: #fff;
-	background: #607db7;
+	background: #ff3366;
 	text-decoration: none;
 }
 
 .savebtn:active {
-	background: #556790;
+	background: #ff4d79;
 }
 
 /* .profileinfo { */
