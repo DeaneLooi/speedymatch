@@ -126,6 +126,8 @@ body{
 	padding-left:10px;
 }
 
+
+
 ::-webkit-scrollbar {
       width: 15px;
 } /* this targets the default scrollbar (compulsory) */

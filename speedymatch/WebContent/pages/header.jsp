@@ -35,6 +35,7 @@
 		 However, there is a blank style.css in the css directory should you prefer -->
 <link rel="stylesheet" href="../gumby/css/gumby.css">
 <link rel="stylesheet" href="../css/homepage.css">
+<link rel="stylesheet" href="../css/alert.css">
 <!-- <link rel="stylesheet" href="css/style.css"> -->
 
 <!--icons font awesome  -->
@@ -76,11 +77,6 @@
 
 
 
-				<li class="nav-fields"><h4>
-						<a href="sd.jsp"><i class="fa fa-cog"></i>&nbsp;Settings</a>
-					</h4></li>
-
-
 				<li class="nav-fields" id="friendsTab">
 					<h4>
 						<a href="#"><i class="fa fa-users"></i>&nbsp;Friends</a>
@@ -91,19 +87,40 @@
 					<h4>
 						<a href="#"><i class="fa fa-user"></i>&nbsp;Profile</a>
 					</h4>
-					<div class="default badge"><a href="ReputationPoints.jsp">300RP</a></div>
 					<div class="dropdown">
 						<ul>
 
 							<li><h5>
 									<a href="profile.jsp">profile</a>
 								</h5></li>
+						<li><h5>
+									<a href="repPoints.jsp">reputation</a>
+								</h5></li>
 							<li><h5>
 									<a href="../speedymatch.jsp">sign out</a>
 								</h5></li>
 						</ul>
 					</div>
+				<li class="nav-fields" id="alert"
+					onclick="alert('someone just visit your profile!')">
+					<h4>
+						<i class="fa fa-bullhorn"></i>&nbsp;
+					</h4>
 				</li>
+				<li class="nav-fields" id="alert"
+					onclick="alert('new private message')">
+					<h4>
+						<i class="fa fa-envelope-o"></i>&nbsp;
+					</h4>
+				</li>
+				<li class="nav-fields" id="alert"
+					onclick="alert('new friend request')">
+					<h4>
+						<i class="fa fa-female"></i>
+					</h4>
+				</li>
+
+
 
 			</ul>
 		</div>
@@ -120,6 +137,9 @@
 				</div>
 				<div class="dropdown friendActivities">
 					<ul>
+						<li><h6>
+								<a href="#">View Profile</a>
+							</h6></li>
 						<li><h6>
 								<a href="message.jsp">Send Message</a>
 							</h6></li>
@@ -144,7 +164,8 @@
 
 						<li>
 							<h4>
-								<a href="datePlanner.jsp"><i class="fa fa-calendar"></i>&nbsp;Date Planner</a>
+								<a href="datePlanner.jsp"><i class="fa fa-calendar"></i>&nbsp;Date
+									Planner</a>
 							</h4>
 						</li>
 
@@ -160,22 +181,22 @@
 							</h4>
 						</li>
 
-<!-- 						<li>
+						<!-- 						<li>
 							<h4>
 								<a href="#"><i class="fa fa-video-camera"></i>&nbsp;Video
 									Chat</a>
 							</h4>
 						</li> -->
 						<li>
-					<h4>
-						<a href="loveMeter.jsp"><i class="icon-heart"></i>Love Meter</a>
-					</h4>
-				</li>
+							<h4>
+								<a href="loveMeter.jsp"><i class="icon-heart"></i>Love Meter</a>
+							</h4>
+						</li>
 						<li>
 							<h4>
 								<a href="recommendation.jsp"><i class="fa fa-thumbs-o-up"></i>Recommends</a>
 							</h4>
-						</li>  
+						</li>
 
 					</ul>
 				</nav>
@@ -188,7 +209,9 @@
 	<section class="nine columns push_one" id="docs-content">
 
 		<div class="left-center">
-		
+
 			<div class="row">
-		<h1 class="lead"><!-- Header here --></h1>
-		<div class="row">
+				<h1 class="lead">
+					<!-- Header here -->
+				</h1>
+				<div class="row">

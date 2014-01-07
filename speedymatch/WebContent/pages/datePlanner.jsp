@@ -11,14 +11,15 @@
 <body>
 <%@ include file="header.jsp" %>
 <center>
-<!-- content here -->
-        <div id="receiverName"><h4>Date with:Tan Wai Kit</h4></div>
-        <div class="date">
-        <div id="mapLocation"></div> 
+		<div id="content">
+        	<div id="receiverName"><h4>Date with:Tan Wai Kit</h4></div>
+        	<div class="date">
+        		<div id="mapLocation"></div> 
                 <div id="dateDetails">
                                 <span>Time:</span> 
                                 <label><input class="xnarrow text input" type="text"> </label>
-                </div>        
+            	</div>        
+        	</div>
         </div>
 </center>
 <%@ include file="footer.jsp" %>

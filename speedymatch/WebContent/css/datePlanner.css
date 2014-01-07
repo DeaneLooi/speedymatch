@@ -4,12 +4,10 @@
 
 #receiverName{
         position:relative;
-        float:left;
 }
 
 .date{
         position:relative;
-        top:50px;
 }
 
 .dateDetails{
@@ -26,21 +24,11 @@
         background-image:url('../images/datePlanner.jpg');
 }
 
-
-/*temp div*/
+.content {
+	bottom:100px;
+}
 
 .temp{
         text-align:center;
         padding-top:35px;
 }
-
-
-/* search bar  */
-/* #searchUsers{
-        width:200px;
-} */
-
-/* so we can use icons */
-/*  .useFontAwesome [class^="icon-"], .useFontAwesome [class*=" icon-"]{
-    font-family: fontawesome !important;
-} */

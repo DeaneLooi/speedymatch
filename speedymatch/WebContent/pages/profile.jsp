@@ -12,42 +12,48 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src="../js/profile.js"></script>
 <title>Profile</title>
-<link rel="shortcut icon" href="../images/SpeedyMatch.png" type="image/x-icon" />
+<link rel="shortcut icon" href="../images/SpeedyMatch.png"
+	type="image/x-icon" />
 <link rel="stylesheet" href="../css/profile.css">
 </head>
 <body>
 	<%@ include file="header.jsp"%>
-	<center class="content">
+	<center>
 		<!-- content here -->
 		<section id="profile">
 		<div class="profileinfo">
 			<h2>Update your Profile Info &curarr;</h2>
-			<ul>
-				<li class="gear"><label class="primary label">E-Mail:</label> <span
-					id="email" class="datainfo">myaddress@googlemail.com</span> <a
-					href="#" class="editlink">Edit Info</a> <a class="savebtn">Save</a>
-				</li>
 
-				<li class="gear"><label class="primary label">Full
-						Name:</label> <span id="fullname" class="datainfo">Tom Harris</span> <a
-					href="#" class="editlink">Edit Info</a> <a class="savebtn">Save</a>
-				</li>
+			<div class="gear">
+				<label class="primary label">E-Mail:</label> <span id="email"
+					class="datainfo">myaddress@googlemail.com</span> <a href="#"
+					class="editlink">Edit Info</a> <a class="savebtn">Save</a>
+			</div>
 
-				<li class="gear"><label class="primary label">Birthday:</label>
-					<span id="birthday" class="datainfo">August 21, 1989</span> <a
-					href="#" class="editlink">Edit Info</a> <a class="savebtn">Save</a>
-				</li>
+			<div class="gear">
+				<label class="primary label">Full Name:</label> <span id="fullname"
+					class="datainfo">Tom Harris</span> <a href="#" class="editlink">Edit
+					Info</a> <a class="savebtn">Save</a>
+			</div>
 
-				<li class="gear"><label class="primary label">City/Town:</label>
-					<span id="citytown" class="datainfo">SengKang, Singapore</span> <a
-					href="#" class="editlink">Edit Info</a> <a class="savebtn">Save</a>
-				</li>
+			<div class="gear">
+				<label class="primary label">Birthday:</label> <span id="birthday"
+					class="datainfo">August 21, 1989</span> <a href="#"
+					class="editlink">Edit Info</a> <a class="savebtn">Save</a>
+			</div>
 
-				<li class="gear"><label class="primary label">Occupation:</label>
-					<span id="occupation" class="datainfo">Freelance Web
-						Developer</span> <a href="#" class="editlink">Edit Info</a> <a
-					class="savebtn">Save</a></li>
-			</ul>
+			<div class="gear">
+				<label class="primary label">City/Town:</label> <span id="citytown"
+					class="datainfo">SengKang, Singapore</span> <a href="#"
+					class="editlink">Edit Info</a> <a class="savebtn">Save</a>
+			</div>
+
+			<div class="gear">
+				<label class="primary label">Occupation:</label> <span
+					id="occupation" class="datainfo">Freelance Web Developer</span> <a
+					href="#" class="editlink">Edit Info</a> <a class="savebtn">Save</a>
+			</div>
+
 		</div>
 		</section>
 		<!-- 		<div id="header"> -->
