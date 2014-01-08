@@ -121,7 +121,7 @@
             <h1>Registration</h1>
             <div id="wrapper">
                 <div id="steps">
-                    <form id="formElem" name="formElem" action="" method="post">
+                    <form id="formElem" name="formElem" action="${pageContext.request.contextPath}/Register" method="post">
                         <fieldset class="step">
                             <legend>Account</legend>
                             <p>
@@ -130,7 +130,7 @@
                             </p>
                             <p>
                                 <label for="email">Email</label>
-                                <input id="email" name="email" placeholder="info@tympanus.net" type="email" AUTOCOMPLETE=OFF />
+                                <input id="email" name="email" placeholder="e.g example@gmail.com" type="email" AUTOCOMPLETE=OFF />
                             </p>
                             <p>
                                 <label for="password">Password</label>
@@ -140,67 +140,73 @@
                         <fieldset class="step">
                             <legend>Personal Details</legend>
                             <p>
-                                <label for="name">Full Name</label>
-                                <input id="name" name="name" type="text" AUTOCOMPLETE=OFF />
+                                <label for="Fname">First Name</label>
+                                <input id="Fname" name="Fname" type="text" AUTOCOMPLETE=OFF />
                             </p>
                             <p>
-                                <label for="country">Country</label>
-                                <input id="country" name="country" type="text" AUTOCOMPLETE=OFF />
+                                <label for="Lname">Last Name</label>
+                                <input id="Lname" name="Lname" type="text" AUTOCOMPLETE=OFF />
                             </p>
                             <p>
-                                <label for="phone">Phone</label>
-                                <input id="phone" name="phone" placeholder="e.g. +351215555555" type="tel" AUTOCOMPLETE=OFF />
+                                <label for="gender">Gender</label>
+                                <input id="gender" name="gender" type="text" AUTOCOMPLETE=OFF />
                             </p>
                             <p>
-                                <label for="website">Website</label>
-                                <input id="website" name="website" placeholder="e.g. http://www.codrops.com" type="tel" AUTOCOMPLETE=OFF />
+                                <label for="dob">Date of Birth</label>
+                                <input id="dob" name="dob" type="text" AUTOCOMPLETE=OFF />
                             </p>
+
                         </fieldset>
                         <fieldset class="step">
-                            <legend>Payment</legend>
+                            <legend>Personal Details</legend>
                             <p>
-                                <label for="cardtype">Card</label>
-                                <select id="cardtype" name="cardtype">
-                                    <option>Visa</option>
-                                    <option>Mastercard</option>
-                                    <option>American Express</option>
+                                <label for="city">City</label>
+                                <input id="city" name="city" type="text" AUTOCOMPLETE=OFF/>
+
+                            </p>
+                            <p>
+                                <label for="prefAge">Age</label>
+                                <select id="prefAge" name="prefAge">
+                                    <option value="1">18-25</option>
+                                    <option value="2">25-35</option>
+                                    <option value="3">35-45</option>
+                                    <option value="4">45 and above</option>
+                                </select>
+                            </p>
+
+                            <p>
+                                <label for="prefSmoking">Smoking</label>
+                                <select id="prefSmoking" name="prefSmoking">
+                                    <option value="no">No</option>
+                                    <option value="occasional">Occasionally</option>
+                                    <option value="smokes">Smokes</option>
                                 </select>
                             </p>
                             <p>
-                                <label for="cardnumber">Card number</label>
-                                <input id="cardnumber" name="cardnumber" type="number" AUTOCOMPLETE=OFF />
-                            </p>
-                            <p>
-                                <label for="secure">Security code</label>
-                                <input id="secure" name="secure" type="number" AUTOCOMPLETE=OFF />
-                            </p>
-                            <p>
-                                <label for="namecard">Name on Card</label>
-                                <input id="namecard" name="namecard" type="text" AUTOCOMPLETE=OFF />
+                                <label for="prefDrinking">Drinking</label>
+                                 <select id="prefDrinking" name="prefDrinking">
+                                    <option value="no">No</option>
+                                    <option value="occasional">Occasionally</option>
+                                    <option value="drinks">Drinks</option>
+                                </select>
                             </p>
                         </fieldset>
                         <fieldset class="step">
                             <legend>Settings</legend>
                             <p>
-                                <label for="newsletter">Newsletter</label>
-                                <select id="newsletter" name="newsletter">
-                                    <option value="Daily" selected>Daily</option>
-                                    <option value="Weekly">Weekly</option>
-                                    <option value="Monthly">Monthly</option>
-                                    <option value="Never">Never</option>
+                                <label for="memType">Member Type</label>
+                                <select id="memType" name="memType">
+                                    <option value="normal" selected>Normal</option>
+                                    <option value="premium">Premium</option>
                                 </select>
+                                <a href="#" target="_new">Learn more</a>
                             </p>
                             <p>
-                                <label for="updates">Updates</label>
-                                <select id="updates" name="updates">
-                                    <option value="1" selected>Package 1</option>
-                                    <option value="2">Package 2</option>
-                                    <option value="0">Don't send updates</option>
+                                <label for="comm">Communication</label>
+                                <select id="comm" name="comm">
+                               		<option value="email" selected>Email</option>
+                               		<option value="phone">Phone</option>
                                 </select>
-                            </p>
-							<p>
-                                <label for="tagname">Newsletter Tag</label>
-                                <input id="tagname" name="tagname" type="text" AUTOCOMPLETE=OFF />
                             </p>
                         </fieldset>
 						<fieldset class="step">
@@ -220,7 +226,7 @@
                             <a href="#">Personal Details</a>
                         </li>
                         <li>
-                            <a href="#">Payment</a>
+                            <a href="#">Extra Details</a>
                         </li>
                         <li>
                             <a href="#">Settings</a>
