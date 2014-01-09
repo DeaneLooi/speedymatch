@@ -4,9 +4,7 @@
   <welcome-file-list>
     <welcome-file>speedymatch.jsp</welcome-file>
   </welcome-file-list>
-  
-<error-page>
+  <error-page>
     <location>/pages/error.jsp</location>
-</error-page>
-
+  </error-page>
 </web-app>
