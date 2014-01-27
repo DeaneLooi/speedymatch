@@ -150,7 +150,7 @@
 								<a href="inviteSystem.jsp">Member Invite</a>
 							</h6></li>
 						<li><h6>
-								<a href="inviteSystem.jsp">Video Conference</a>
+								<a href="videoConference.jsp">Video Conference</a>
 							</h6></li>
 					</ul>
 				</div>
