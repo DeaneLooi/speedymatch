@@ -68,11 +68,9 @@
 		}
 
 		ArrayList<String> friends = new ArrayList<String>();
-		
-		if(session.getAttribute("friends") != null){
-			friends = (ArrayList<String>)session.getAttribute("friends");
-			
-		}
+		FriendList f = new FriendList(username);
+		f = FriendListDAO.retrieveFriends(f);
+		friends = f.getFriendList();
 	%>
 
 	<div class="navbar" id="nav1">
@@ -167,10 +165,10 @@
 					<div class="dropdown friendActivities">
 						<ul>
 							<li><h6>
-									<a href="friendProfile.jsp">View Profile</a>
+									<a href="friendProfile.jsp?username=<%=friends.get(i)%>">View Profile</a>
 								</h6></li>
 							<li><h6>
-									<a href="message.jsp">Send Message</a>
+									<a href="message.jsp?username=<%=friends.get(i)%>">Send Message</a>
 								</h6></li>
 							<li><h6>
 									<a href="cinemaForm.jsp">Invite for movie</a>
@@ -179,7 +177,7 @@
 									<a href="inviteSystem.jsp">Member Invite</a>
 								</h6></li>
 							<li><h6>
-									<a href="#">delete Friend</a>
+									<a href="${pageContext.request.contextPath}/DeleteFriend?username=<%=username%>&friendId=<%=friends.get(i)%>">Delete Friend</a>
 								</h6></li>
 						</ul>
 					</div>

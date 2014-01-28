@@ -14,7 +14,7 @@
 
 <title>Speedy Match Private Messaging</title>
 <script>
-var url = 'GetMessage';
+var url = 'C:\Users\Tan Wai Kit\Desktop\speedymatch\speedymatch\src\speedymatch\servlets\Message';
 $(document).ready(function() {
 	$.ajaxSetup({ cache:false});
 	setInterval(function() {$("#MessageContent").load(url);}, 1000);

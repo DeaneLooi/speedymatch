@@ -13,12 +13,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/AddFriend")
-public class AddFriend extends HttpServlet {
+@WebServlet("/DeleteFriend")
+public class DeleteFriend extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
-	public AddFriend() {
+	public DeleteFriend() {
 		super();
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,9 +26,10 @@ public class AddFriend extends HttpServlet {
 		String username = request.getParameter("username");
 		String friendId = request.getParameter("friendId");
 		FriendList f = new FriendList(username);
-		FriendListDAO.addFriends(f, friendId);
+		FriendListDAO.deleteFriends(f, friendId);
 		
 		response.sendRedirect("pages/friendProfile.jsp?username="+friendId);
+	
 		
 	}
 
@@ -39,7 +40,8 @@ public class AddFriend extends HttpServlet {
 
 	response.setContentType("text/xml");
 	response.setHeader("Cache-Control", "no-cache");
-	
+
+
 	}
 	
 }

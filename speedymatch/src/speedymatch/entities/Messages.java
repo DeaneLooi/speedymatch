@@ -1,13 +1,15 @@
 
 package speedymatch.entities;
 
-public class Messages implements Comparable<Messages> {
+import java.util.Date;
+
+public class Messages {
 	private String sender;
 	private String message;
 	private String receiver;
-	private long date;
+	private Date date;
 	
-	public Messages(String sender,String receiver,String message,long date){
+	public Messages(String sender,String receiver,String message,Date date){
 		super();
 		this.sender = sender;
 		this.receiver = receiver;
@@ -23,11 +25,11 @@ public class Messages implements Comparable<Messages> {
 		this.message = message;
 	}
 
-	public long getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(long date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 
@@ -47,19 +49,19 @@ public class Messages implements Comparable<Messages> {
 		this.receiver = receiver;
 	}
 
-	@Override
-	public int compareTo(Messages m) {
-		int i = 0;
-		if(this.getDate() < m.getDate()){
-			i = -1;
-		}
-		else if(this.getDate() == m.getDate()){
-			i = 0;
-		}
-		
-		else if(this.getDate() > m.getDate()){
-			i = 1;
-		}
-		return 0;
-	}	
+//	@Override
+//	public int compareTo(Messages m) {
+//		int i = 0;
+//		if(this.getDate() < m.getDate()){
+//			i = -1;
+//		}
+//		else if(this.getDate() == m.getDate()){
+//			i = 0;
+//		}
+//		
+//		else if(this.getDate() > m.getDate()){
+//			i = 1;
+//		}
+//		return 0;
+//	}	
 }

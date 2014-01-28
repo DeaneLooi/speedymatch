@@ -15,9 +15,23 @@
 <link rel="shortcut icon" href="../images/SpeedyMatch.png"
 	type="image/x-icon" />
 <link rel="stylesheet" href="../css/friendProfile.css">
+<link
+	href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+	rel="stylesheet">
 </head>
 <body>
 	<%@ include file="header.jsp"%>
+	<%@ page import = "speedymatch.entities.Member,
+				speedymatch.entities.dao.MemberDAO,
+				java.util.Date,
+				speedymatch.utils.Algorithms" %>
+	<%
+	String userProfile = request.getParameter("username"); 
+	Member memProfile = new Member(userProfile,null);
+	memProfile = MemberDAO.retrieveAccount(memProfile);
+	Date dob = memProfile.getDob();
+			
+	%>
 	<center class=content>
 		<!-- content here -->
 		<a href="#"><img id=profilepic src="../images/male1.jpg" alt="Elina Melrose" class="first" height="500px" width="400px"></a>
@@ -26,17 +40,17 @@
 
 			<div class="gear">
 				<label class="primary label">E-Mail:</label> <span id="email"
-					class="datainfo">myaddress@googlemail.com</span> 
+					class="datainfo"><%=Algorithms.decrypt(memProfile.getEmail(), memProfile.getMemberSecurity().getSalt()) %></span> 
 			</div>
 
 			<div class="gear">
 				<label class="primary label">Full Name:</label> <span id="fullname"
-					class="datainfo">Samuel Ong K.C</span> 
+					class="datainfo"><%=memProfile.getFname()+" "+memProfile.getLname() %></span> 
 			</div>
 
 			<div class="gear">
 				<label class="primary label">Birthday:</label> <span id="birthday"
-					class="datainfo">August 21, 1989</span>
+					class="datainfo"><%=dob.getDate()+"/"+(dob.getMonth()+1)+"/"+(dob.getYear()+1900)%></span>
 			</div>
 
 			<div class="gear">
@@ -46,11 +60,35 @@
 
 			<div class="gear">
 				<label class="primary label">Occupation:</label> <span
-					id="occupation" class="datainfo">Freelance Web Developer</span> \
+					id="occupation" class="datainfo">Freelance Web Developer</span> 
 			</div>
 
 		</div>
 		</section>
+		<%
+		boolean checkFriend;
+		for(int i=0; i<friends.size();i++){ 
+			if(friends.get(i).equals(userProfile)){
+				checkFriend = true;
+			}
+		}
+		if(checkFriend = true){%>
+		
+		<div class="medium gear" id="addFriend">
+		<label class="primary label"><i class="icon-check"></i>Friends</label>
+		</div>
+		<%
+		}
+		
+		else if(checkFriend = false){%>
+		
+			<div class="medium btn primary" id="addFriend"><a href="${pageContext.request.contextPath}/AddFriend?username=<%=username%>&friendId=<%=userProfile%>">Add Friend</a></div>
+		
+		
+		<%	
+		}
+		%>
+		
 	</center> 
 		<%@ include file="footer.jsp"%>
 </body>

@@ -42,20 +42,14 @@ public class Message extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/xml");
 		response.setHeader("Cache-Control", "no-cache");
-		PrintWriter writer = response.getWriter();
+	
 		
-		Set<Messages> msg = (Set)getServletContext().getAttribute("speedymatch.msg");
 		ArrayList<Messages> messages = new ArrayList<Messages>();
 		
-		try{
-			Iterator<Messages> msgIt = msg.iterator();
-			Messages message = (Messages)msgIt.next();
-			messages.add(message);
-			
-			MessageDAO.createMessage(message);
-		} catch(Exception ex){
-			ex.printStackTrace();
-		}
+//		MessageDAO.searchMessages(receiver)
+//		} catch(Exception ex){
+//			ex.printStackTrace();
+//		}
 	}
 
 	/**
@@ -66,23 +60,19 @@ public class Message extends HttpServlet {
 		
 		
 		String message = (String)request.getParameter("msg");
-//		HttpSession session = request.getSession();
-//		Messages sender = (Messages)session.getAttribute("c");
 		
-		Set<Messages> msg = (Set)getServletContext().getAttribute("speedymatch.msg");
+//		String encryptedMessage ="";
+//		
+//		try {
+//			
+//			encryptedMessage = Algorithms.encrypt(message,"TestingSecretKey");
+//			System.out.println(encryptedMessage);
+//			
+//		} catch(Exception ex) {
+//			ex.printStackTrace();
+//		}
+		Messages pmsg = new Messages("WaiKit","Samuel",message, new Date());
 		
-		String encryptedMessage ="";
-		
-		try {
-			
-			encryptedMessage = Algorithms.encrypt(message,"TestingSecretKey");
-			System.out.println(encryptedMessage);
-			
-		} catch(Exception ex) {
-			ex.printStackTrace();
-		}
-		Messages pmsg = new Messages("WaiKit","Samuel",encryptedMessage, new Date().getTime());
-		msg.add(pmsg);
 	}
 
 }

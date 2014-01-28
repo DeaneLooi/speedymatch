@@ -120,15 +120,37 @@ public class FriendListDAO {
 		return f;
 	}
 
-	public static FriendList deleteFriends(FriendList d) {
+	public static FriendList deleteFriends(FriendList d, String friendId) {
 		Connection currentCon = db.getConnection();
+		String friendstring ="";
+		int index = 0;
 		try {
-			String query = "delete from FriendList where userId = ?";
+			
+			FriendList friends = FriendListDAO.retrieveFriends(d);
+			ArrayList<String> f = friends.getFriendList();
+			
+			for(int i=0; i<f.size(); i++){
+				String fId = f.get(i);
+				
+				System.out.println(fId);
+				if(fId.equals(friendId)){
+					f.remove(i);
+				}
+			}
+			
+			for(int i = 0; i<f.size();i++){
+				friendstring += f.get(i)+",";
+			}
+			
+			System.out.println(friendstring);
+			d.setFriendList(f);
+			String query = "update FriendList set friendId = ? where userId = ?";
 			PreparedStatement pstmt = currentCon.prepareStatement(query);
-			pstmt.setString(1, d.getUserId());
-
-
+			pstmt.setString(1, friendstring);
+			pstmt.setString(2, d.getUserId());
+			
 			pstmt.executeUpdate();
+			
 		} catch (Exception ex) {
 			System.out.println("Delete failed: An error has occured! " + ex);
 			d = null;
@@ -138,12 +160,9 @@ public class FriendListDAO {
 	
 	public static void main(String args[]){
 		
-		FriendList f = new FriendList("twk547");
+		FriendList f = new FriendList("tanwaikit");
 
-		FriendListDAO.addFriends(f, "samuel");
-		f = FriendListDAO.retrieveFriends(f);
-		for(int i=0; i<f.getFriendList().size();i++){
-			System.out.println(f.getFriendList().get(i));
-		}
+		
+		FriendListDAO.deleteFriends(f, "samuel");
 	}
 }
