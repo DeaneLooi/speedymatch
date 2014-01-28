@@ -89,7 +89,7 @@
 		<div class="left-center">
 			<!-- put content here -->
 
-			<form class="loginForm" method="post" action="loginForm.jsp">
+			<form class="loginForm" method="post" action="${pageContext.request.contextPath}/Login">
 
 				<h1>
 					<span class="log-in">Log in</span>
@@ -106,6 +106,7 @@
 					<div class="medium primary btn"><input type="submit" value="log in"></div>
 					<br>
 					<a id="pass" href="forgotPass.jsp">Forgot password?</a>
+					${loginObj}
 			</form>
 
 
