@@ -18,9 +18,9 @@ speedymatch.entities.dao.FriendListDAO,
 java.util.ArrayList" %>
 
 <% ArrayList<Movie>movies = MovieDAO.retrieveMovies(); 
-	FriendList f = new FriendList(username);
+	FriendList fl = new FriendList(username);
 	f = FriendListDAO.retrieveFriends(f);
-	ArrayList<String>friends = f.getFriendList();
+	ArrayList<String>friendList = f.getFriendList();
 %>
 		<h1 class="lead">Online Cinema</h1>
 		
