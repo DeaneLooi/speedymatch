@@ -4,10 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-
 <title>Love Meter</title>
 <link rel="shortcut icon" href="../images/SpeedyMatch.png"
 	type="image/x-icon" />
+
+<script>
+	function displayTraits() {
+
+	}
+</script>
 
 </head>
 <body>
@@ -70,16 +75,17 @@
 				</tr>
 				<tr>
 					<td><span class="adjoined">Your Traits</span></td>
-					<td><div>Imaginative and sensitive Compassionate and
-							kind Selfless and unworldly Intuitive and sympathetic Escapist
-							and idealistic Secretive and vague Weak-willed and easily led</div></td>
+					<td><div id="u1Traits">Imaginative and sensitive
+							Compassionate and kind Selfless and unworldly Intuitive and
+							sympathetic Escapist and idealistic Secretive and vague
+							Weak-willed and easily led</div></td>
 				</tr>
 				<tr>
 					<td><span class="adjoined">His/Her Traits</span></td>
-					<td><div>Adventurous and energetic Pioneering and
-							courageous Enthusiastic and confident Dynamic and quick-witted
-							Selfish and quick-tempered Impulsive and impatient Foolhardy and
-							daredevil</div></td>
+					<td><div id="u2Traits">Adventurous and energetic
+							Pioneering and courageous Enthusiastic and confident Dynamic and
+							quick-witted Selfish and quick-tempered Impulsive and impatient
+							Foolhardy and daredevil</div></td>
 				</tr>
 				<tr>
 					<td><span class="adjoined">Compatibility</span></td>
