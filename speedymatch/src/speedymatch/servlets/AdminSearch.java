@@ -58,7 +58,6 @@ public class AdminSearch extends HttpServlet {
  
             ArrayList al = null;
             ArrayList pid_list = new ArrayList();
-           // String query = "select username from Member inner join where username='" + username + "' ";
             String query= "select m.username, m.fname, m.lname, p.age, p.gender, p.eduLevel, p.hobby, p.height, p.weight, p.race, p.religion, p.child, p.horo, p.occupation, p.smoking, p.drinking, p.relaStatus from Member m inner join Profile p on m.username = p.username where m.username ='" + username +"'";
             System.out.println("query " + query);
             st = conn.createStatement();
