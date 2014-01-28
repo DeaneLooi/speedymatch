@@ -45,6 +45,16 @@ public class ResetPass extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		
+		if(request.getParameter("username").isEmpty() || request.getParameter("email").isEmpty()){
+			
+			Object obj = new Object();
+			obj = "<p style='color:red'>*Enter username and email";
+			request.getSession().setAttribute("loginObj", obj);
+			response.sendRedirect("forgotPass.jsp");
+			
+		}
+		
 		String username = request.getParameter("username");
 		String email = request.getParameter("email");
 		Member member = new Member(username, null);

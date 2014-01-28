@@ -93,12 +93,14 @@
 <h3>Forgot Password?</h3>
 
 <h5>Follow the steps to get your new password:</h5>
-<form id="submit" action="login.jsp" method="post">
+<form id="submit" action="${pageContext.request.contextPath}/ResetPass" method="post">
 Your registered email:
 <br>
 <div class="field"><input class="wide email input" type="email" name="email"></div>
 Username:
 <div class="field"><input class="wide text input" type="text" name="username"></div>
+${loginObj}
+<%request.getSession().removeAttribute("loginObj");%>
 <br>
 <div class="medium info btn"><input type="submit" value="submit"></div>
 </form>

@@ -20,91 +20,107 @@ import speedymatch.utils.Algorithms;
 @WebServlet("/Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Login() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public Login() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 
-		
-		if(request.getParameter("username").isEmpty()){
+		if (request.getParameter("username").isEmpty()) {
 			Object obj = new Object();
 			obj = "<p style='color:red'>*Please enter your username";
 			request.getSession().setAttribute("loginObj", obj);
 			response.sendRedirect("login.jsp");
 		}
-		
-		else{
-		String username = (String)request.getParameter("username");
-		String passwd = (String)request.getParameter("password");
-		
-		Member member = new Member(username,passwd);
-		member = MemberDAO.retrieveAccount(member);
-		MemberSecurity memSec = member.getMemberSecurity();
-		try {
-			passwd = Algorithms.getHash(passwd, memSec.getSalt());
-			
-				if(username.equalsIgnoreCase(member.getUsername()) && passwd.equals(member.getPasswd())){
-					
-					String membership = memSec.getMembership();
-					membership = Algorithms.decrypt(membership, memSec.getSalt());
-					System.out.println(membership);
-					memSec.setMembership(membership);
-					if(memSec.getMembership().equals("Admin")){
-						
-						response.sendRedirect("admin/adminHomepage.jsp");
+
+		else {
+			String username = (String) request.getParameter("username");
+			String passwd = (String) request.getParameter("password");
+
+			Member member = new Member(username, passwd);
+			member = MemberDAO.retrieveAccount(member);
+
+			if (member == null) {
+				Object obj = new Object();
+				obj = "<p style='color:red'>*Username or password incorrect";
+				request.getSession().setAttribute("loginObj", obj);
+				response.sendRedirect("login.jsp");
+			}
+
+			else {
+
+				MemberSecurity memSec = member.getMemberSecurity();
+
+				try {
+					passwd = Algorithms.getHash(passwd, memSec.getSalt());
+
+					if (username.equalsIgnoreCase(member.getUsername())
+							&& passwd.equals(member.getPasswd())) {
+
+						String membership = memSec.getMembership();
+						membership = Algorithms.decrypt(membership,
+								memSec.getSalt());
+						memSec.setMembership(membership);
+						if (memSec.getMembership().equals("Admin")) {
+
+							response.sendRedirect("admin/adminHomepage.jsp");
+
+						}
+
+						else if (memSec.getMembership().equals("normal")
+								|| memSec.getMembership().equals("premium")) {
+
+							request.getSession().setAttribute("member", member);
+
+							response.sendRedirect("pages/profile.jsp");
+
+						}
+
+						else {
+							Object obj = new Object();
+							obj = "<p style='color:red'>*Please login again";
+							request.getSession().setAttribute("loginObj", obj);
+							response.sendRedirect("login.jsp");
+
+						}
 
 					}
-					
-					else if(memSec.getMembership().equals("normal") || memSec.getMembership().equals("premium")){
-						
-						request.getSession().setAttribute("member", member);
-						
-						response.sendRedirect("pages/profile.jsp");
-						
-					}
-					
-					else{
-						System.out.println("Some unknown error");
+
+					else {
+						System.out
+								.println("Username or password does not match");
 						Object obj = new Object();
-						obj = "<p style='color:red'>*Please login again";
+						obj = "<p style='color:red'>*Username or password incorrect";
 						request.getSession().setAttribute("loginObj", obj);
 						response.sendRedirect("login.jsp");
-						
 					}
-					
-				}
-				
-				else{
-					System.out.println("Username or password does not match");
-					Object obj = new Object();
-					obj = "<p style='color:red'>*Username or password incorrect";
-					request.getSession().setAttribute("loginObj", obj);
-					response.sendRedirect("login.jsp");
-				}
-			
-			
 
-		} catch (Exception e) {
-			e.printStackTrace();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+			}
 		}
-		
-		}
+
 	}
 
 }
