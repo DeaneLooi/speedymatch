@@ -11,23 +11,29 @@
 
 <%@ include file="header.jsp" %>
 
+<%@ page import="speedymatch.entities.Movie,
+speedymatch.entities.dao.MovieDAO,
+speedymatch.entities.FriendList,
+speedymatch.entities.dao.FriendListDAO,
+java.util.ArrayList" %>
+
+<% ArrayList<Movie>movies = MovieDAO.retrieveMovies(); 
+	FriendList f = new FriendList(username);
+	f = FriendListDAO.retrieveFriends(f);
+	ArrayList<String>friends = f.getFriendList();
+%>
 		<h1 class="lead">Online Cinema</h1>
 		
-					<form>
+					<form method="post" action="${pageContext.request.contextPath}/CinemaForm">
 
 						<label for="movie">Select movie</label>
 
 						<div class="picker">
 							<select id="movie" name="movie">
 								<option value="#" disabled>Select movie</option>
-								<option>EXTERMINATE</option>
-								<option>EXTERMINATE</option>
-								<option>EXTERMINATE</option>
-								<option>EXTERMINATE</option>
-								<option>EXTERMINATE</option>
-								<option>EXTERMINATE</option>
-								<option>EXTERMINATE</option>
-								<option>EXTERMINATE</option>
+								<%for(int i=0; i<movies.size();i++){ %>
+								<option value="<%=movies.get(i).getMovieId()%>"><%=movies.get(i).getMovieId() %></option>
+								<%} %>
 							</select>
 						</div>
 
@@ -36,7 +42,16 @@
 						<div class="picker">
 							<select id="friend" name="friend">
 								<option value="#" disabled>Select friend</option>
-								<option>Samuel Ong K.C</option>
+								<%
+								if(friends.size()!=0){
+								for(int i=0; i<friends.size();i++){ %>
+								<option value="<%=friends.get(i)%>"><%=friends.get(i) %></option>
+								<%} 
+								}
+								else{
+								%>
+								<%	
+								}%>
 							</select>
 						</div>
 						<br>

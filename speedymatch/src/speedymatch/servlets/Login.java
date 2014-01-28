@@ -72,6 +72,9 @@ public class Login extends HttpServlet {
 					
 					else{
 						System.out.println("Some unknown error");
+						Object obj = new Object();
+						obj = "<p style='color:red'>*Please login again";
+						request.getSession().setAttribute("loginObj", obj);
 						response.sendRedirect("login.jsp");
 						
 					}
@@ -80,6 +83,9 @@ public class Login extends HttpServlet {
 				
 				else{
 					System.out.println("Username or password does not match");
+					Object obj = new Object();
+					obj = "<p style='color:red'>*Username or password incorrect";
+					request.getSession().setAttribute("loginObj", obj);
 					response.sendRedirect("login.jsp");
 				}
 			

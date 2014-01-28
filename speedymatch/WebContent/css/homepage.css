@@ -111,11 +111,14 @@ body{
 	right:0;
 	top:60px;
 	margin-top:-60px;
+	z-index:100;
 }
 
 .friendList{
 	cursor:pointer;
-	padding:5px;
+	border-right-style:solid;
+	border-right-width:1px;
+	border-right-color:black;
 	border-bottom-style:solid;
 	border-bottom-width:1px;
 	border-bottom-color:black;
@@ -125,7 +128,6 @@ body{
 	padding-top:11px;
 	padding-left:10px;
 }
-
 
 
 ::-webkit-scrollbar {

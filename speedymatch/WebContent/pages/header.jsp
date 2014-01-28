@@ -49,11 +49,29 @@
 
 
 <body class="docs uikit useFontAwesome" id="inner-doc">
-<%@ page import ="speedymatch.entities.Member" %>
-<%
-session = request.getSession();
-Member member = (Member)session.getAttribute("member");
-%>
+	<%@ page import="speedymatch.entities.Member,
+	speedymatch.entities.dao.FriendListDAO,
+	speedymatch.entities.FriendList,
+	java.util.ArrayList
+	"%>
+	<%
+		session = request.getSession();
+		String username = "";
+		if(session.getAttribute("member")!=null){
+			Member member = (Member) session.getAttribute("member");
+			username = member.getUsername();
+		}
+		
+		else{
+			response.sendRedirect("../login.jsp");
+		}
+		
+		ArrayList<String> friends = new ArrayList<String>();
+		FriendList f = new FriendList(username);
+		f = FriendListDAO.retrieveFriends(f);
+		friends = f.getFriendList();
+
+	%>
 
 	<div class="navbar" id="nav1">
 		<div class="row">
@@ -89,7 +107,7 @@ Member member = (Member)session.getAttribute("member");
 
 				<li class="nav-fields">
 					<h4>
-						<a href="#"><i class="fa fa-user"></i>&nbsp;<%=member.getUsername() %></a>
+						<a href="#"><i class="fa fa-user"></i>&nbsp;<%=username%></a>
 					</h4>
 					<div class="dropdown">
 						<ul>
@@ -97,7 +115,7 @@ Member member = (Member)session.getAttribute("member");
 							<li><h5>
 									<a href="profile.jsp">profile</a>
 								</h5></li>
-						<li><h5>
+							<li><h5>
 									<a href="repPoints.jsp">reputation</a>
 								</h5></li>
 							<li><h5>
@@ -135,11 +153,14 @@ Member member = (Member)session.getAttribute("member");
 
 		<ul class="twelve columns">
 
+
+			<%for(int i=0; i<friends.size();i++){ %>
+			
 			<li class="nav-fields">
-				<div class="friendList">
-					<p class="friend">Samuel Ong K.C</p>
-				</div>
-				<div class="dropdown friendActivities">
+					<div class="friendList">
+					<p class="friend"><%=friends.get(i) %></p>
+					</div>
+									<div class="dropdown friendActivities">
 					<ul>
 						<li><h6>
 								<a href="friendProfile.jsp">View Profile</a>
@@ -153,13 +174,15 @@ Member member = (Member)session.getAttribute("member");
 						<li><h6>
 								<a href="inviteSystem.jsp">Member Invite</a>
 							</h6></li>
-							<li><h6>
+						<li><h6>
 								<a href="#">delete Friend</a>
 							</h6></li>
 					</ul>
 				</div>
-
+				
 			</li>
+			<%} %>
+			
 		</ul>
 	</div>
 

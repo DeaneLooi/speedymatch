@@ -68,11 +68,18 @@ public class ResetPass extends HttpServlet {
 			EmailSender es = new EmailSender(member);
 			es.sendResetPattern(password, oldPass);
 			
+			
+			Object obj = new Object();
+			obj = "<p style='color:red'>*Password has been sent to your email";
+			request.getSession().setAttribute("loginObj", obj);
 			response.sendRedirect("login.jsp");
 		}
 		
 		else{
 			
+			Object obj = new Object();
+			obj = "<p style='color:red'>*Wrong email and username combination";
+			request.getSession().setAttribute("loginObj", obj);
 			response.sendRedirect("forgotPass.jsp");
 		}
 
