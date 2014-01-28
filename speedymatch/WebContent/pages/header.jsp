@@ -68,9 +68,11 @@
 		}
 
 		ArrayList<String> friends = new ArrayList<String>();
-		FriendList f = new FriendList(username);
-		f = FriendListDAO.retrieveFriends(f);
-		friends = f.getFriendList();
+		
+		if(session.getAttribute("friends") != null){
+			friends = (ArrayList<String>)session.getAttribute("friends");
+			
+		}
 	%>
 
 	<div class="navbar" id="nav1">

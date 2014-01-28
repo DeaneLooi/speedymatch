@@ -1,7 +1,7 @@
 package speedymatch.servlets;
 
 import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import speedymatch.entities.FriendList;
 import speedymatch.entities.Member;
 import speedymatch.entities.MemberSecurity;
+import speedymatch.entities.dao.FriendListDAO;
 import speedymatch.entities.dao.MemberDAO;
 import speedymatch.utils.Algorithms;
 
@@ -90,6 +92,14 @@ public class Login extends HttpServlet {
 								|| memSec.getMembership().equals("premium")) {
 
 							request.getSession().setAttribute("member", member);
+
+							ArrayList<String> friends = new ArrayList<String>();
+							FriendList f = new FriendList(username);
+							f = FriendListDAO.retrieveFriends(f);
+							friends = f.getFriendList();
+
+							request.getSession().setAttribute("friends",
+									friends);
 
 							response.sendRedirect("pages/profile.jsp");
 
