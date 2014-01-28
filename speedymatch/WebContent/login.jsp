@@ -107,7 +107,6 @@
 					<br>
 					<a id="pass" href="forgotPass.jsp">Forgot password?</a>
 					${loginObj}
-					<%request.getSession().removeAttribute("loginObj"); %>
 			</form>
 
 
