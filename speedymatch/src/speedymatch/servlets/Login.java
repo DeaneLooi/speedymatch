@@ -41,6 +41,15 @@ public class Login extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		
+		if(request.getParameter("username").isEmpty()){
+			Object obj = new Object();
+			obj = "<p style='color:red'>*Please enter your username";
+			request.getSession().setAttribute("loginObj", obj);
+			response.sendRedirect("login.jsp");
+		}
+		
+		else{
 		String username = (String)request.getParameter("username");
 		String passwd = (String)request.getParameter("password");
 		
@@ -95,7 +104,7 @@ public class Login extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-
+		}
 	}
 
 }

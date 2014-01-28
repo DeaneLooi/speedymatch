@@ -226,7 +226,7 @@
                             <a href="#">Personal Details</a>
                         </li>
                         <li>
-                            <a href="#">Extra Details</a>
+                            <a href="#">Details</a>
                         </li>
                         <li>
                             <a href="#">Settings</a>
