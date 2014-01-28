@@ -21,68 +21,96 @@ import speedymatch.utils.RandomStringGenerator;
 @WebServlet("/ResetPass")
 public class ResetPass extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ResetPass() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-
-		//String activation = MemberDAO
+	public ResetPass() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		String username = request.getParameter("username");
-		String email = request.getParameter("email");
-		Member member = new Member(username, null);
-		member = MemberDAO.retrieveAccount(member);
-		
-		try {
-		String dbEmail = Algorithms.decrypt(member.getEmail(), member.getMemberSecurity().getSalt());
-		member.setEmail(dbEmail);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		if(email.equalsIgnoreCase(member.getEmail())){
-			String password = RandomStringGenerator.getRandomString(10);
-			try {
-				member.setPasswd(Algorithms.getHash(password, member.getMemberSecurity().getSalt()));
-			} catch (NoSuchAlgorithmException e) {
-				e.printStackTrace();
-			}
-			String oldPass = MemberDAO.changePassword(member);
-			EmailSender es = new EmailSender(member);
-			es.sendResetPattern(password, oldPass);
-			
-			
+
+		// String activation = MemberDAO
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+
+		if (request.getParameter("username").isEmpty()
+				|| request.getParameter("email").isEmpty()) {
+
 			Object obj = new Object();
-			obj = "<p style='color:red'>*Password has been sent to your email";
-			request.getSession().setAttribute("loginObj", obj);
-			response.sendRedirect("login.jsp");
-		}
-		
-		else{
-			
-			Object obj = new Object();
-			obj = "<p style='color:red'>*Wrong email and username combination";
+			obj = "<p style='color:red'>*Enter username and email";
 			request.getSession().setAttribute("loginObj", obj);
 			response.sendRedirect("forgotPass.jsp");
+
 		}
 
+		else {
+
+			String username = request.getParameter("username");
+			String email = request.getParameter("email");
+			Member member = new Member(username, null);
+			member = MemberDAO.retrieveAccount(member);
+
+			if (member == null) {
+				Object obj = new Object();
+				obj = "<p style='color:red'>*Wrong email and username combination";
+				request.getSession().setAttribute("loginObj", obj);
+				response.sendRedirect("forgotPass.jsp");
+			}
+
+			else {
+
+				try {
+					String dbEmail = Algorithms.decrypt(member.getEmail(),
+							member.getMemberSecurity().getSalt());
+					member.setEmail(dbEmail);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				if (email.equalsIgnoreCase(member.getEmail())) {
+					String password = RandomStringGenerator.getRandomString(10);
+					try {
+						member.setPasswd(Algorithms.getHash(password, member
+								.getMemberSecurity().getSalt()));
+					} catch (NoSuchAlgorithmException e) {
+						e.printStackTrace();
+					}
+					String oldPass = MemberDAO.changePassword(member);
+					EmailSender es = new EmailSender(member);
+					es.sendResetPattern(password, oldPass);
+
+					Object obj = new Object();
+					obj = "<p style='color:red'>*Password has been sent to your email";
+					request.getSession().setAttribute("loginObj", obj);
+					response.sendRedirect("login.jsp");
+				}
+
+				else {
+
+					Object obj = new Object();
+					obj = "<p style='color:red'>*Wrong email and username combination";
+					request.getSession().setAttribute("loginObj", obj);
+					response.sendRedirect("forgotPass.jsp");
+				}
+
+			}
+		}
 	}
 
 }
