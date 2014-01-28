@@ -34,7 +34,7 @@ $(document).ready(function() {
 		<div id="name" >
 			<h4><%= %></h4>
 		</div>
-		<div class="message">
+		<div class="message">	
 			<textarea id="MessageContent" disabled>
 	</textarea>
 		</div>

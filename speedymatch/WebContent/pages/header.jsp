@@ -49,7 +49,8 @@
 
 
 <body class="docs uikit useFontAwesome" id="inner-doc">
-	<%@ page import="speedymatch.entities.Member,
+	<%@ page
+		import="speedymatch.entities.Member,
 	speedymatch.entities.dao.FriendListDAO,
 	speedymatch.entities.FriendList,
 	java.util.ArrayList
@@ -57,20 +58,19 @@
 	<%
 		session = request.getSession();
 		String username = "";
-		if(session.getAttribute("member")!=null){
+		if (session.getAttribute("member") != null) {
 			Member member = (Member) session.getAttribute("member");
 			username = member.getUsername();
 		}
-		
-		else{
+
+		else {
 			response.sendRedirect("../login.jsp");
 		}
-		
+
 		ArrayList<String> friends = new ArrayList<String>();
 		FriendList f = new FriendList(username);
 		f = FriendListDAO.retrieveFriends(f);
 		friends = f.getFriendList();
-
 	%>
 
 	<div class="navbar" id="nav1">
@@ -153,36 +153,40 @@
 
 		<ul class="twelve columns">
 
+			<div class="friendListCont">
+				<%
+					for (int i = 0; i < friends.size(); i++) {
+				%>
 
-			<%for(int i=0; i<friends.size();i++){ %>
-			
-			<li class="nav-fields">
+				<li class="friendFields">
 					<div class="friendList">
-					<p class="friend"><%=friends.get(i) %></p>
+						<p class="friend"><%=friends.get(i)%></p>
 					</div>
-									<div class="dropdown friendActivities">
-					<ul>
-						<li><h6>
-								<a href="friendProfile.jsp">View Profile</a>
-							</h6></li>
-						<li><h6>
-								<a href="message.jsp">Send Message</a>
-							</h6></li>
-						<li><h6>
-								<a href="cinemaForm.jsp">Invite for movie</a>
-							</h6></li>
-						<li><h6>
-								<a href="inviteSystem.jsp">Member Invite</a>
-							</h6></li>
-						<li><h6>
-								<a href="#">delete Friend</a>
-							</h6></li>
-					</ul>
-				</div>
-				
-			</li>
-			<%} %>
-			
+					<div class="dropdown friendActivities">
+						<ul>
+							<li><h6>
+									<a href="friendProfile.jsp">View Profile</a>
+								</h6></li>
+							<li><h6>
+									<a href="message.jsp">Send Message</a>
+								</h6></li>
+							<li><h6>
+									<a href="cinemaForm.jsp">Invite for movie</a>
+								</h6></li>
+							<li><h6>
+									<a href="inviteSystem.jsp">Member Invite</a>
+								</h6></li>
+							<li><h6>
+									<a href="#">delete Friend</a>
+								</h6></li>
+						</ul>
+					</div>
+
+				</li>
+				<%
+					}
+				%>
+			</div>
 		</ul>
 	</div>
 
@@ -198,13 +202,6 @@
 									Planner</a>
 							</h4>
 						</li>
-
-						<li>
-							<h4>
-								<a href="message.jsp"><i class="icon-chat"></i>Messaging</a>
-							</h4>
-						</li>
-
 						<li>
 							<h4>
 								<a href="store.jsp"><i class="icon-basket"></i>Store</a>
