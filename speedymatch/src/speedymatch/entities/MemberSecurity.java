@@ -1,6 +1,6 @@
 package speedymatch.entities;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class MemberSecurity {
 	
@@ -17,13 +17,14 @@ public class MemberSecurity {
 	private String communicaton;
 
 	
-	public MemberSecurity(String salt, String token, String membership, Date regDate, char disabled){
+	public MemberSecurity(String salt, String token, String membership, Date regDate, char disabled, String communication){
 		
 		this.salt = salt;
 		this.token = token;
 		this.membership = membership;
 		this.regDate = regDate;
 		this.disabled = disabled;
+		this.communicaton = communication;
 		
 	}
 	

@@ -7,9 +7,9 @@ import java.sql.DriverManager;
 public class DBController {
 	
 	private Connection con;
-	private String dbSource="//localhost:3306/speedymatch";
-	private String user="myuser";
-	private String password="0000";
+	private String dbSource="//127.0.0.1:3306/speedymatch";
+	private String user="adming1vWayv";
+	private String password="2MVCBKUIFISG";
 	
 	
 	public DBController(){

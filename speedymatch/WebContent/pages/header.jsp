@@ -49,7 +49,11 @@
 
 
 <body class="docs uikit useFontAwesome" id="inner-doc">
-
+<%@ page import ="speedymatch.entities.Member" %>
+<%
+session = request.getSession();
+Member member = (Member)session.getAttribute("member");
+%>
 
 	<div class="navbar" id="nav1">
 		<div class="row">
@@ -85,7 +89,7 @@
 
 				<li class="nav-fields">
 					<h4>
-						<a href="#"><i class="fa fa-user"></i>&nbsp;Profile</a>
+						<a href="#"><i class="fa fa-user"></i>&nbsp;<%=member.getUsername() %></a>
 					</h4>
 					<div class="dropdown">
 						<ul>
@@ -149,8 +153,8 @@
 						<li><h6>
 								<a href="inviteSystem.jsp">Member Invite</a>
 							</h6></li>
-						<li><h6>
-								<a href="videoConference.jsp">Video Conference</a>
+							<li><h6>
+								<a href="#">delete Friend</a>
 							</h6></li>
 					</ul>
 				</div>

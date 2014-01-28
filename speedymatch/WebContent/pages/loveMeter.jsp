@@ -6,62 +6,88 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <title>Love Meter</title>
-<link rel="shortcut icon" href="../images/SpeedyMatch.png" type="image/x-icon" />
+<link rel="shortcut icon" href="../images/SpeedyMatch.png"
+	type="image/x-icon" />
+
 </head>
 <body>
 	<%@ include file="header.jsp"%>
 	<center class="content">
 		<!-- 	</center> -->
-		<div class="picker" style="border-radius: 25px 2px;">
-			<div class="Himage">
-				<img id="urs" src="../images/taurus-glyph.gif">
-			</div>
-			&nbsp;
-			<h2 style="text-align: left;">Your Horoscope:</h2>
-			<select>
-				<option id="aq">Aquarius [21 Jan - 19 Feb]</option>
-				<option id="pi">Pisces [20 Feb - 20 Mar]</option>
-				<option id="ar">Aries [21 Mar - 20 Apr]</option>
-				<option id="ta">Taurus [21 Apr - 21 May]</option>
-				<option id="ge">Gemini [22 May - 21 June]</option>
-				<option id="ca">Cancer [22 June - 22 July]</option>
-				<option id="le">Leo [23 July - 22 Aug]</option>
-				<option id="vi">Virgo [23 Aug - 21 Sep]</option>
-				<option id="li">Libra [22 Sep - 22 Oct]</option>
-				<option id="sc">Scorpio [23 Oct - 21 Nov]</option>
-				<option id="sa">Sagittarius [22 Nov - 21 Dec]</option>
-				<option id="ca">Capricorn [22 Dec - 20 Jan]</option>
-			</select> &nbsp;
-			<div class="Himage">
-				<img id="his/her" src="../images/aries-glyph.gif">
-			</div>
-			&nbsp;
-			<h2 style="text-align: left;">His/Her Horoscope:</h2>
-			<select>
-				<option id="aq">Aquarius [21 Jan - 19 Feb]</option>
-				<option id="pi">Pisces [20 Feb - 20 Mar]</option>
-				<option id="ar">Aries [21 Mar - 20 Apr]</option>
-				<option id="ta">Taurus [21 Apr - 21 May]</option>
-				<option id="ge">Gemini [22 May - 21 June]</option>
-				<option id="ca">Cancer [22 June - 22 July]</option>
-				<option id="le">Leo [23 July - 22 Aug]</option>
-				<option id="vi">Virgo [23 Aug - 21 Sep]</option>
-				<option id="li">Libra [22 Sep - 22 Oct]</option>
-				<option id="sc">Scorpio [23 Oct - 21 Nov]</option>
-				<option id="sa">Sagittarius [22 Nov - 21 Dec]</option>
-				<option id="ca">Capricorn [22 Dec - 20 Jan]</option>
-			</select>
-		</div>
-		&nbsp;
-		<div>
-			<button href=# class="medium primary btn">Calculate
-				our compatibility!</button>
-		</div>
-		&nbsp; &nbsp; &nbsp;
-		<div
-			style="background: white; -webkit-box-shadow: 10px 10px 5px 0px rgba(245, 12, 71, 0.28); -moz-box-shadow: 10px 10px 5px 0px rgba(245, 12, 71, 0.28); box-shadow: 10px 10px 5px 0px rgba(245, 12, 71, 0.28);">
-			Both of you are extremely compatible with each other. Bright future
-			ahead of you! Congratulations!</div>
+		<table width="100%" cellpadding="0" cellspacing="0">
+			<tbody>
+				<tr valign="top">
+					<td>&nbsp;</td>
+					<td><span>Your Sign</span></td>
+					<td width="250" style="text-align: left;"><img id="sign1Image"
+						src="../images/SpeedyMatch.png" width="100" border="0"><br>
+						<div class="picker">
+							<select name="sign1"
+								onchange="document.getElementById('sign1Image').src='../images/'+ this.options[this.selectedIndex].text +'.png';">
+								<option value="01">Aries</option>
+								<option value="02">Taurus</option>
+								<option value="03">Gemini</option>
+								<option value="04">Cancer</option>
+								<option value="05">Leo</option>
+								<option value="06">Virgo</option>
+								<option value="07">Libra</option>
+								<option value="08">Scorpio</option>
+								<option value="09">Sagittarius</option>
+								<option value="10">Capricorn</option>
+								<option value="11">Aquarius</option>
+								<option value="12">Pisces</option>
+							</select>
+						</div></td>
+					<td>&nbsp;</td>
+					<td><span>His/Her Sign</span></td>
+					<td width="250" style="text-align: left;"><img id="sign2Image"
+						src="../images/SpeedyMatch.png" width="100" border="0"><br>
+						<div class="picker">
+							<select name="sign2"
+								onchange="document.getElementById('sign2Image').src='../images/'+ this.options[this.selectedIndex].text +'.png';">
+								<option value="01">Aries</option>
+								<option value="02">Taurus</option>
+								<option value="03">Gemini</option>
+								<option value="04">Cancer</option>
+								<option value="05">Leo</option>
+								<option value="06">Virgo</option>
+								<option value="07">Libra</option>
+								<option value="08">Scorpio</option>
+								<option value="09">Sagittarius</option>
+								<option value="10">Capricorn</option>
+								<option value="11">Aquarius</option>
+								<option value="12">Pisces</option>
+							</select>
+						</div></td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td colspan="3" align="center"><input
+						class="medium primary btn" id="button" name="" type="submit"
+						value="Get your Love Compatibility!"></td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td><span class="adjoined">Your Traits</span></td>
+					<td><div>Imaginative and sensitive Compassionate and
+							kind Selfless and unworldly Intuitive and sympathetic Escapist
+							and idealistic Secretive and vague Weak-willed and easily led</div></td>
+				</tr>
+				<tr>
+					<td><span class="adjoined">His/Her Traits</span></td>
+					<td><div>Adventurous and energetic Pioneering and
+							courageous Enthusiastic and confident Dynamic and quick-witted
+							Selfish and quick-tempered Impulsive and impatient Foolhardy and
+							daredevil</div></td>
+				</tr>
+				<tr>
+					<td><span class="adjoined">Compatibility</span></td>
+					<td>80%</td>
+				</tr>
+			</tbody>
+		</table>
+
 		<%@ include file="footer.jsp"%>
 </body>
 </html>

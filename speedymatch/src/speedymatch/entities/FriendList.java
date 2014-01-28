@@ -1,25 +1,22 @@
 package speedymatch.entities;
 
+import java.util.ArrayList;
+
 public class FriendList {
 	private String userId;
-	private String Fname;
-	private String Lname;
-	private String dob;
-	private String email;
-	private String membership;
+	private ArrayList<String> friendList;
 
-	public FriendList(){
+	
+	public FriendList(String userId){
 		super();
+		this.userId = userId;
+
 	}
 	
-	public FriendList(String userId, String Fname, String Lname, String dob, String email, String membership){
-		this();
+	public FriendList(String userId, ArrayList<String> friendList){
+		super();
 		this.userId = userId;
-		this.Fname = Fname;
-		this.Lname = Lname;
-		this.dob = dob;
-		this.email = email;
-		this.membership = membership;
+		this.friendList = friendList;
 	}
 	
 	public String getUserId() {
@@ -30,44 +27,12 @@ public class FriendList {
 		this.userId = userId;
 	}
 
-	public String getFname() {
-		return Fname;
-	}
-
-	public void setFname(String fname) {
-		Fname = fname;
-	}
-
-	public String getLname() {
-		return Lname;
-	}
-
-	public void setLname(String lname) {
-		Lname = lname;
-	}
-
-	public String getDob() {
-		return dob;
-	}
-
-	public void setDob(String dob) {
-		this.dob = dob;
+	public ArrayList<String> getFriendList(){
+		return friendList;
 	}
 	
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getMembership() {
-		return membership;
-	}
-
-	public void setMembership(String membership) {
-		this.membership = membership;
+	public void setFriendList(ArrayList<String>friendList){
+		this.friendList = friendList;
 	}
 	
 }
