@@ -18,85 +18,85 @@
 					<td><img src="../images/aquarius-glyph.gif">
 						<h3>Movie tickets</h3>
 						<button class="medium primary btn six columns centered" href="#">
-							<i class="fa fa-shopping-cart"></i>Purchase
+							<i class="fa fa-mail-reply-all"></i>Send Gift
 						</button></td>
 					<td><img src="../images/aquarius-glyph.gif">
 						<h3>Movie tickets</h3>
 						<button class="medium primary btn six columns centered" href="#">
-							<i class="fa fa-shopping-cart"></i>Purchase
+							<i class="fa fa-mail-reply-all"></i>Send Gift
 						</button></td>
 					<td><img src="../images/aquarius-glyph.gif">
 						<h3>Movie tickets</h3>
 						<button class="medium primary btn six columns centered" href="#">
-							<i class="fa fa-shopping-cart"></i>Purchase
-						</button></td>
-				</tr>
-				<tr>
-					<td><img src="../images/aquarius-glyph.gif">
-						<h3>Movie tickets</h3>
-						<button class="medium primary btn six columns centered" href="#">
-							<i class="fa fa-shopping-cart"></i>Purchase
-						</button></td>
-					<td><img src="../images/aquarius-glyph.gif">
-						<h3>Movie tickets</h3>
-						<button class="medium primary btn six columns centered" href="#">
-							<i class="fa fa-shopping-cart"></i>Purchase
-						</button></td>
-					<td><img src="../images/aquarius-glyph.gif">
-						<h3>Movie tickets</h3>
-						<button class="medium primary btn six columns centered" href="#">
-							<i class="fa fa-shopping-cart"></i>Purchase
+							<i class="fa fa-mail-reply-all"></i>Send Gift
 						</button></td>
 				</tr>
 				<tr>
 					<td><img src="../images/aquarius-glyph.gif">
 						<h3>Movie tickets</h3>
 						<button class="medium primary btn six columns centered" href="#">
-							<i class="fa fa-shopping-cart"></i>Purchase
+							<i class="fa fa-mail-reply-all"></i>Send Gift
 						</button></td>
 					<td><img src="../images/aquarius-glyph.gif">
 						<h3>Movie tickets</h3>
 						<button class="medium primary btn six columns centered" href="#">
-							<i class="fa fa-shopping-cart"></i>Purchase
+							<i class="fa fa-mail-reply-all"></i>Send Gift
 						</button></td>
 					<td><img src="../images/aquarius-glyph.gif">
 						<h3>Movie tickets</h3>
 						<button class="medium primary btn six columns centered" href="#">
-							<i class="fa fa-shopping-cart"></i>Purchase
-						</button></td>
-				</tr>
-				<tr>
-					<td><img src="../images/aquarius-glyph.gif">
-						<h3>Movie tickets</h3>
-						<button class="medium primary btn six columns centered" href="#">
-							<i class="fa fa-shopping-cart"></i>Purchase
-						</button></td>
-					<td><img src="../images/aquarius-glyph.gif">
-						<h3>Movie tickets</h3>
-						<button class="medium primary btn six columns centered" href="#">
-							<i class="fa fa-shopping-cart"></i>Purchase
-						</button></td>
-					<td><img src="../images/aquarius-glyph.gif">
-						<h3>Movie tickets</h3>
-						<button class="medium primary btn six columns centered" href="#">
-							<i class="fa fa-shopping-cart"></i>Purchase
+							<i class="fa fa-mail-reply-all"></i>Send Gift
 						</button></td>
 				</tr>
 				<tr>
 					<td><img src="../images/aquarius-glyph.gif">
 						<h3>Movie tickets</h3>
 						<button class="medium primary btn six columns centered" href="#">
-							<i class="fa fa-shopping-cart"></i>Purchase
+							<i class="fa fa-mail-reply-all"></i>Send Gift
 						</button></td>
 					<td><img src="../images/aquarius-glyph.gif">
 						<h3>Movie tickets</h3>
 						<button class="medium primary btn six columns centered" href="#">
-							<i class="fa fa-shopping-cart"></i>Purchase
+							<i class="fa fa-mail-reply-all"></i>Send Gift
 						</button></td>
 					<td><img src="../images/aquarius-glyph.gif">
 						<h3>Movie tickets</h3>
 						<button class="medium primary btn six columns centered" href="#">
-							<i class="fa fa-shopping-cart"></i>Purchase
+							<i class="fa fa-mail-reply-all"></i>Send Gift
+						</button></td>
+				</tr>
+				<tr>
+					<td><img src="../images/aquarius-glyph.gif">
+						<h3>Movie tickets</h3>
+						<button class="medium primary btn six columns centered" href="#">
+							<i class="fa fa-mail-reply-all"></i>Send Gift
+						</button></td>
+					<td><img src="../images/aquarius-glyph.gif">
+						<h3>Movie tickets</h3>
+						<button class="medium primary btn six columns centered" href="#">
+							<i class="fa fa-mail-reply-all"></i>Send Gift
+						</button></td>
+					<td><img src="../images/aquarius-glyph.gif">
+						<h3>Movie tickets</h3>
+						<button class="medium primary btn six columns centered" href="#">
+							<i class="fa fa-mail-reply-all"></i>Send Gift
+						</button></td>
+				</tr>
+				<tr>
+					<td><img src="../images/aquarius-glyph.gif">
+						<h3>Movie tickets</h3>
+						<button class="medium primary btn six columns centered" href="#">
+							<i class="fa fa-mail-reply-all"></i>Send Gift
+						</button></td>
+					<td><img src="../images/aquarius-glyph.gif">
+						<h3>Movie tickets</h3>
+						<button class="medium primary btn six columns centered" href="#">
+							<i class="fa fa-mail-reply-all"></i>Send Gift
+						</button></td>
+					<td><img src="../images/aquarius-glyph.gif">
+						<h3>Movie tickets</h3>
+						<button class="medium primary btn six columns centered" href="#">
+							<i class="fa fa-mail-reply-all"></i>Send Gift
 						</button></td>
 				</tr>
 			</table>

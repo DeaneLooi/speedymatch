@@ -3,9 +3,7 @@ package speedymatch.entities.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
 import speedymatch.entities.Horoscope;
-import speedymatch.entities.Product;
 
 public class HoroscopeDAO {
 
@@ -19,12 +17,15 @@ public class HoroscopeDAO {
 		try {
 			String query = "select * from Horoscope";
 			PreparedStatement pstmt = currentCon.prepareStatement(query);
-			pstmt.setInt(1, horoscope.getHoroscopeID());
+			pstmt.setString(1, h.getHoroscope());
+			pstmt.setString(2, h.getHoroscopeDesc());
+			pstmt.setInt(3, h.getHoroscopeID());
+
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
 				h = new Horoscope(rs.getString("horoscope"),
-						rs.getString("horoscopeDesc"));
+						rs.getString("horoscopeDesc"), rs.getInt("horoscopeID"));
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();

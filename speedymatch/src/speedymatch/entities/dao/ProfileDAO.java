@@ -5,7 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
+import speedymatch.entities.FriendList;
 import speedymatch.entities.Profile;
 import speedymatch.entities.Member;
 import speedymatch.entities.MemberSecurity;
@@ -13,8 +15,6 @@ import speedymatch.entities.MemberSecurity;
 public class ProfileDAO {
 
 	private static DBController db = new DBController();
-
-	private static Member m;
 
 	public static Member retrieveAccount(Member member) {
 		Connection currentCon = db.getConnection();
@@ -92,27 +92,19 @@ public class ProfileDAO {
 		return password;
 	}
 
-	public static void updateProfile() {
+	public static void updateProfile(Member m, String username) {
 		Connection currentCon = db.getConnection();
-		Statement statement = null;
-
 		try {
-			m = retrieveAccount(m);
-			String updateTableSQL = "UPDATE Profile WHERE username = "
-					+ m.getUsername() + "SET ;";
+			String query = "update Profile set  = ? where username = ?";
+			PreparedStatement pstmt = currentCon.prepareStatement(query);
+			pstmt.setString(1, friendstring);
+			pstmt.setString(2, d.getUserId());
 
-			statement = currentCon.createStatement();
+			pstmt.executeUpdate();
 
-			System.out.println(updateTableSQL);
-
-			// execute update SQL statement
-			statement.execute(updateTableSQL);
-
-			System.out.println("Record is updated to DBUSER table!");
-
-		} catch (SQLException e) {
-
-			System.out.println(e.getMessage());
+		} catch (Exception ex) {
+			System.out
+					.println("Add friend failed: An error has occured! " + ex);
 
 		} finally {
 

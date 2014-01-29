@@ -10,9 +10,10 @@ public class Horoscope {
 
 	}
 
-	public Horoscope(String horoscope, String horoscopeDesc) {
+	public Horoscope(String horoscope, String horoscopeDesc, int horoscopeID) {
 		this.horoscope = horoscope;
 		this.horoscopeDesc = horoscopeDesc;
+		this.horoscopeID = horoscopeID;
 
 	}
 

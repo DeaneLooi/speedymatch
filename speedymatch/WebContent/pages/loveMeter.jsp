@@ -8,12 +8,6 @@
 <link rel="shortcut icon" href="../images/SpeedyMatch.png"
 	type="image/x-icon" />
 
-<script>
-	function displayTraits() {
-
-	}
-</script>
-
 </head>
 <body>
 	<%@ include file="header.jsp"%>
