@@ -16,19 +16,11 @@
 <center>
 <!-- content here -->
 
-<table width="1000" align="center" style="border:1px solid #000000;">
-            <tr>
-                <td colspan=4 align="center"
-                    style="background-color:#F13C73;">
-                    <b>Result</b></td>
-            </tr>
-            <tr style="background-color:white;">
-                <td><b>User id</b></td>
-                <td><b>Name</b></td>
-                <td><b>Gender</b></td>
-                <!-- <td><b>Registration Date</b></td> -->
-            </tr>
-            <%
+<table width="500" align="center" border="1";>
+	          <theader> 
+                <tb><b>Result</b></tb>
+              </theader> 
+             <%
                 int count = 0;
                 String color = "white";
                 if (request.getAttribute("piList") != null) {
@@ -43,20 +35,82 @@
                         count++;
                         ArrayList pList = (ArrayList) itr.next();
             %>
-            <tr style="background-color:<%=color%>;">
+            <tr>
+                <td><b>Username</b></td>
                 <td><%=pList.get(0)%></td>
-                <td><%=pList.get(1)%></td>
-                <td><%=pList.get(2)%></td>
-               <%--  <td><%=pList.get(3)%></td> --%>
             </tr>
+            <tr>
+                <td><b>First Name</b></td>
+                <td><%=pList.get(1)%></td>
+            </tr>
+            <tr>
+                <td><b>Last Name</b></td>
+                <td><%=pList.get(2)%></td>
+            </tr>
+            <tr>
+                <td><b>Age</b></td>
+                <td><%=pList.get(3)%></td>
+            </tr>
+            <tr>
+                <td><b>Gender</b></td>
+                <td><%=pList.get(4)%></td>
+            </tr>
+            <tr>
+                <td><b>Education level</b></td>
+                <td><%=pList.get(5)%></td>
+            </tr>
+            <tr>
+                <td><b>Hobby</b></td>
+                <td><%=pList.get(6)%></td>
+            </tr>
+            <tr>
+                <td><b>Height</b></td>
+                <td><%=pList.get(7)%></td>
+            </tr>
+            <tr>
+                <td><b>Weight</b></td>
+                <td><%=pList.get(8)%></td>
+            </tr>
+            <tr>
+                <td><b>Race</b></td>
+                <td><%=pList.get(9)%></td>
+            </tr>
+            <tr>
+                <td><b>Religion</b></td>
+                <td><%=pList.get(10)%></td>
+            </tr>
+            <tr>
+                <td><b>Child</b></td>
+                <td><%=pList.get(11)%></td>
+            </tr>
+            <tr>    
+                <td><b>Horoscope</b></td>
+                <td><%=pList.get(12)%></td>
+            </tr>
+            <tr>
+                <td><b>Occupation</b></td>
+                <td><%=pList.get(13)%></td>
+            </tr>
+            <tr>
+                <td><b>Smoking</b></td>
+                <td><%=pList.get(14)%></td>
+            </tr>
+            <tr>
+                <td><b>Drinking</b></td>
+                <td><%=pList.get(15)%></td>
+            </tr>
+            <tr>
+                <td><b>Status</b></td>
+                <td><%=pList.get(16)%></td>
+            </tr>
+            
             <%
                     }
                 }
                 if (count == 0) {
             %>
             <tr>
-                <td colspan=4 align="center"
-                    style="background-color:white"><b>No Record Found..</b></td>
+                <td><b>No Result Found</b></td>
             </tr>
             <%            }
             %>

@@ -93,13 +93,6 @@ public class Login extends HttpServlet {
 
 							request.getSession().setAttribute("member", member);
 
-							ArrayList<String> friends = new ArrayList<String>();
-							FriendList f = new FriendList(username);
-							f = FriendListDAO.retrieveFriends(f);
-							friends = f.getFriendList();
-
-							request.getSession().setAttribute("friends",
-									friends);
 
 							response.sendRedirect("pages/profile.jsp");
 

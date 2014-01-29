@@ -34,10 +34,6 @@ public class AdminSearch extends HttpServlet {
 		// TODO Auto-generated method stub
 	         
 	}
-	
-	public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -62,8 +58,7 @@ public class AdminSearch extends HttpServlet {
  
             ArrayList al = null;
             ArrayList pid_list = new ArrayList();
-            String query = "select * from Profiles where username='" + username + "' ";
- 
+            String query= "select m.username, m.fname, m.lname, p.age, p.gender, p.eduLevel, p.hobby, p.height, p.weight, p.race, p.religion, p.child, p.horo, p.occupation, p.smoking, p.drinking, p.relaStatus from Member m inner join Profile p on m.username = p.username where m.username ='" + username +"'";
             System.out.println("query " + query);
             st = conn.createStatement();
             ResultSet rs = st.executeQuery(query);
@@ -74,7 +69,20 @@ public class AdminSearch extends HttpServlet {
                 al.add(rs.getString(1));
                 al.add(rs.getString(2));
                 al.add(rs.getString(3));
-               // al.add(rs.getString(4));
+                al.add(rs.getString(4));
+                al.add(rs.getString(5));
+                al.add(rs.getString(6));
+                al.add(rs.getString(7));
+                al.add(rs.getString(8));
+                al.add(rs.getString(9));
+                al.add(rs.getString(10));
+                al.add(rs.getString(11));
+                al.add(rs.getString(12));
+                al.add(rs.getString(13));
+                al.add(rs.getString(14));
+                al.add(rs.getString(15));
+                al.add(rs.getString(16));
+                al.add(rs.getString(17));
  
                 System.out.println("al :: " + al);
                 pid_list.add(al);
@@ -82,7 +90,7 @@ public class AdminSearch extends HttpServlet {
             }
             
             request.setAttribute("piList", pid_list);
-            RequestDispatcher view = request.getRequestDispatcher("admin/adminSearchResult.jsp");
+            RequestDispatcher view = request.getRequestDispatcher("/admin/adminSearchResult.jsp");
             view.forward(request, response);
             conn.close();
             System.out.println("Disconnected!");
