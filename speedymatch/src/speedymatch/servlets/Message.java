@@ -2,6 +2,7 @@ package speedymatch.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -58,7 +59,8 @@ public class Message extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		
+		String sender = (String)request.getParameter("sender");
+		String receiver = (String)request.getParameter("receiver");
 		String message = (String)request.getParameter("msg");
 		
 //		String encryptedMessage ="";
@@ -71,7 +73,11 @@ public class Message extends HttpServlet {
 //		} catch(Exception ex) {
 //			ex.printStackTrace();
 //		}
-		Messages pmsg = new Messages("WaiKit","Samuel",message, new Date());
+		Messages pmsg = new Messages(sender,receiver,message, new Date());
+		MessageDAO.createMessage(pmsg);
+		System.out.println(message);
+		System.out.println(sender);
+		System.out.println(receiver);
 		
 	}
 

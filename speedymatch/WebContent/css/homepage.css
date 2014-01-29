@@ -143,14 +143,44 @@ body{
 	height: 50px;
 	width: 190px;
 	float: left;
+	position: relative !important;
+	z-index: 1000 !important;
 	}
 	
+	
+.friend:active{
+	
+	position:relative !important;
+	z-index: 2000 !important;
+}
+
 .friendActivities{
-	position:relative;
-	top:50px;
+	position:relative !important;
+	background-color: none !important;
+}
+
+.friendActivities:hover{
+	background-color: none !important;
+	position: relative !important;
+	z-index: 2000 !important;
+}
+
+.friendActivities:active{
+	background-color: none !important;
 }
 	
+.friendActivities>ul>li {
+	position: relative !important;
+	top:-10px !important;
+	z-index: 2000 !important;	
+	background-color: none !important;
+}
 
+.friendActivities>ul>li>h6 {
+	position: relative !important;
+	z-index: 2001 !important;	
+	background-color: blue !important;
+}
 
 ::-webkit-scrollbar {
       width: 15px;
