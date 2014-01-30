@@ -23,23 +23,23 @@ $(document).ready(function() {
 </head>
 <body>
 	<%@ include file="header.jsp"%>
-	<%@ page import ="speedymatch.entities.Messages" %>
+	<%@ page import ="speedymatch.entities.Messages,
+	speedymatch.entities.Member" %>
 	<%
-	session = request.getSession();
-	Messages sender = (Messages) session.getAttribute("c");
+
 	 %>
 	<center>
 		<!-- content here -->
 	
-		<div id="name" >
-			<h4><%= %></h4>
+		<div >
+			<h4 id="name"><%=friends.get(0)%></h4>
 		</div>
 		<div class="message">	
 			<textarea id="MessageContent" disabled>
 	</textarea>
 		</div>
 
-		<form id="MessageBox" method="post" action="${pageContext.request.contextPath}/Message">
+		<form id="MessageBox" method="post" action="${pageContext.request.contextPath}/Message?sender=<%=username%>&receiver=<%=friends.get(0)%>">
 			<input type="text" class="tftextinput" name="msg" size="21" maxlength="100">
 			<input type="submit" value="post" class="tfbutton"
 			onlick="submit();" />

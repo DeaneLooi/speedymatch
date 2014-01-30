@@ -1,10 +1,10 @@
 package speedymatch.entities.dao;
 
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Date;
 
 import speedymatch.entities.Messages;
 
@@ -14,6 +14,7 @@ public class MessageDAO {
 
 	public static Messages createMessage(Messages n) {
 		Connection currentCon = db.getConnection();
+		java.sql.Date date = new java.sql.Date(n.getDate().getTime());
 
 		try {
 			String query = "insert into message(sender,receiver,message,date)"
@@ -23,7 +24,9 @@ public class MessageDAO {
 			pstmt.setString(1, n.getSender());
 			pstmt.setString(2, n.getReceiver());
 			pstmt.setString(3, n.getMessage());
-			pstmt.setLong(4, n.getDate());
+			pstmt.setString(4, null);
+
+			pstmt.executeUpdate();
 
 		} catch (Exception ex) {
 			System.out.println("message not sent: An error has occured!" + ex);
@@ -57,7 +60,7 @@ public class MessageDAO {
 				String sender = rs.getString(1);
 				String recipient = (rs.getString(2));
 				String message = rs.getString(3);
-				long date = rs.getLong(4);
+				java.sql.Date date = rs.getDate(4);
 
 				Messages n = new Messages(sender, recipient, message, date);
 				messages.add(n);
@@ -78,55 +81,7 @@ public class MessageDAO {
 		return messages;
 	}
 
-	public static Messages deleteMessage(Messages n) {
-		Connection currentCon = db.getConnection();
-
-		try {
-			String query = "delete from message where sender = ? and receiver = ? and message = ?";
-			PreparedStatement pstmt = currentCon.prepareStatement(query);
-			pstmt.setString(1, n.getSender());
-			pstmt.setString(2, n.getReceiver());
-			pstmt.setString(3, n.getMessage());
-			pstmt.setLong(4, n.getDate());
-
-			pstmt.executeUpdate();
-		} catch (Exception ex) {
-			System.out.println("Delete failed: An error has occured! " + ex);
-			n = null;
-		} finally {
-			if (currentCon != null) {
-				try {
-					currentCon.close();
-				} catch (Exception e) {
-				}
-				currentCon = null;
-			}
-		}
-		return n;
-	}
-
-	public static void deleteMessages() {
-		Connection currentCon = db.getConnection();
-
-		try {
-			String query = "delete from message";
-			PreparedStatement pstmt = currentCon.prepareStatement(query);
-
-			pstmt.executeUpdate();
-		} catch (Exception ex) {
-			System.out.println("Delete failed: An error has occured! " + ex);
-		} finally {
-			if (currentCon != null) {
-				try {
-					currentCon.close();
-				} catch (Exception e) {
-				}
-				currentCon = null;
-			}
-		}
-	}
-
 	public static void main(String args[]) {
-
+		
 	}
 }
