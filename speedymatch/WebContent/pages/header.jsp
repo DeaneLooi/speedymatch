@@ -179,6 +179,10 @@
 							<li><h6>
 									<a href="${pageContext.request.contextPath}/DeleteFriend?username=<%=username%>&friendId=<%=friends.get(i)%>">Delete Friend</a>
 								</h6></li>
+								
+							<li><h6>
+									<a href="videoConference/conference.jsp">Video Chat</a>
+								</h6></li>
 						</ul>
 					</div>
 
