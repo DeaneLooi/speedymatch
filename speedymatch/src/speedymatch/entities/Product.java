@@ -1,16 +1,17 @@
 package speedymatch.entities;
 
-import java.util.ArrayList;
-
 public class Product {
 
 	private int productID;
 	private int productCost;
 	private String productDesc;
 	private String productName;
-	private ArrayList<String> productList;
 
 	public Product() {
+	}
+
+	public Product(int productID) {
+		this.productID = productID;
 	}
 
 	public Product(String productName, String productDesc, int productCost) {
@@ -52,11 +53,4 @@ public class Product {
 		this.productID = productID;
 	}
 
-	public ArrayList<String> getProductList() {
-		return productList;
-	}
-
-	public void setProductList(ArrayList<String> productList) {
-		this.productList = productList;
-	}
 }

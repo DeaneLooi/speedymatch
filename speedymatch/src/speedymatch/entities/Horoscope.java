@@ -11,14 +11,15 @@ public class Horoscope {
 	}
 
 	public Horoscope(String horoscope) {
+
 		this.horoscope = horoscope;
+
 	}
 
-	public Horoscope(String horoscope, String horoscopeDesc, int horoscopeID) {
-		this.horoscope = horoscope;
-		this.horoscopeDesc = horoscopeDesc;
-		this.horoscopeID = horoscopeID;
+	public Horoscope(int horoscopeID, String horoscopeDesc) {
 
+		this.horoscopeID = horoscopeID;
+		this.horoscopeDesc = horoscopeDesc;
 	}
 
 	public String getHoroscope() {
