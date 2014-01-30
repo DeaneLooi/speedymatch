@@ -98,13 +98,12 @@ public class ProfileDAO {
 			String query = "update Profile set  = ? where username = ?";
 			PreparedStatement pstmt = currentCon.prepareStatement(query);
 			pstmt.setString(1, friendstring);
-			pstmt.setString(2, d.getUserId());
+			pstmt.setString(2, d.getUsername());
 
 			pstmt.executeUpdate();
 
 		} catch (Exception ex) {
-			System.out
-					.println("Add friend failed: An error has occured! " + ex);
+			System.out.println("Update failed: An error has occured! " + ex);
 
 		} finally {
 

@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 import speedymatch.entities.Product;
 
 public class ProductDAO {
@@ -56,4 +57,11 @@ public class ProductDAO {
 		return p;
 	}
 
+	public static void main(String[] args) {
+
+		Product p = new Product();
+		retrieveProducts(p);
+		System.out.println(p.getProductCost() + p.getProductDesc()
+				+ p.getProductID() + p.getProductName());
+	}
 }

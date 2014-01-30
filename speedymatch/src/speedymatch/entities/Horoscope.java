@@ -10,6 +10,10 @@ public class Horoscope {
 
 	}
 
+	public Horoscope(String horoscope) {
+		this.horoscope = horoscope;
+	}
+
 	public Horoscope(String horoscope, String horoscopeDesc, int horoscopeID) {
 		this.horoscope = horoscope;
 		this.horoscopeDesc = horoscopeDesc;
