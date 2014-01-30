@@ -1,14 +1,13 @@
 package speedymatch.entities.dao;
 
-import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
-import java.sql.Date;
-import java.sql.ResultSet;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
+import speedymatch.entities.FriendList;
 import speedymatch.entities.Member;
 import speedymatch.entities.MemberSecurity;
-import speedymatch.utils.Algorithms;
+import speedymatch.entities.Profile;
 
 
 
@@ -46,6 +45,12 @@ public class MemberDAO {
                         pstmt.executeUpdate();
                         pstmt1.executeUpdate();
                         
+                        FriendList fl = new FriendList(member.getUsername(),null);
+                        FriendListDAO.createFriendList(fl);
+                        
+                        /*Profile profile = new Profile();
+                        profile.setUsername(member.getUsername());
+                        ProfileDAO.*/
                         
         }catch (Exception ex) {
 

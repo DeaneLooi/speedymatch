@@ -15,11 +15,12 @@ public class FriendListDAO {
 	public static FriendList createFriendList(FriendList f) {
 		Connection currentCon = db.getConnection();
 		try {
-			String query = "insert into FriendList(userId) "
-					+ "values(?)";
+			String query = "insert into FriendList(userId, friendId) "
+					+ "values(?,?)";
 			PreparedStatement pstmt = currentCon.prepareStatement(query);
 
 			pstmt.setString(1, f.getUserId());
+			pstmt.setString(2, ",");
 			pstmt.executeUpdate();
 
 		} catch (Exception ex) {

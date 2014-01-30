@@ -66,13 +66,13 @@
 		</div>
 		</section>
 		<%
-		boolean checkFriend;
+		boolean checkFriend = false;
 		for(int i=0; i<friends.size();i++){ 
 			if(friends.get(i).equals(userProfile)){
 				checkFriend = true;
 			}
 		}
-		if(checkFriend = true){%>
+		if(checkFriend){%>
 		
 		<div class="medium gear" id="addFriend">
 		<label class="primary label"><i class="icon-check"></i>Friends</label>
@@ -80,7 +80,7 @@
 		<%
 		}
 		
-		else if(checkFriend = false){%>
+		else{%>
 		
 			<div class="medium btn primary" id="addFriend"><a href="${pageContext.request.contextPath}/AddFriend?username=<%=username%>&friendId=<%=userProfile%>">Add Friend</a></div>
 		
