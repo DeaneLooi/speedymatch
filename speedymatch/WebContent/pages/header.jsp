@@ -181,7 +181,7 @@
 								</h6></li>
 								
 							<li><h6>
-									<a href="videoConference/conference.jsp">Video Chat</a>
+									<a href="VidConIFrame.jsp">Video Chat</a>
 								</h6></li>
 						</ul>
 					</div>

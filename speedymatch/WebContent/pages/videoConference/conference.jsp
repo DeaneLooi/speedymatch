@@ -144,7 +144,6 @@
 		</script>
 </head>
 <body>
-<%-- <%@ include file="../header.jsp"%> --%>
 	<center class="content">
 <div id="webcam">
 		</div>
@@ -198,6 +197,5 @@
 		<div id="chatWindow"></div>
 		<input type="text" id="message" style="width:635px;">
 		</center>
-<%-- 		<%@ include file="../footer.jsp"%> --%>
 </body>
 </html>
