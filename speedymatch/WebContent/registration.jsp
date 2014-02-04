@@ -136,6 +136,8 @@
                                 <label for="password">Password</label>
                                 <input id="password" name="password" type="password" AUTOCOMPLETE=OFF />
                             </p>
+                            
+                            ${regObj}
                         </fieldset>
                         <fieldset class="step">
                             <legend>Personal Details</legend>
@@ -149,7 +151,10 @@
                             </p>
                             <p>
                                 <label for="gender">Gender</label>
-                                <input id="gender" name="gender" type="text" AUTOCOMPLETE=OFF />
+                                <select id="gender" name="gender">
+                               		<option value="Male" selected>Male</option>
+                               		<option value="Female">Female</option>
+                                </select>
                             </p>
                             <p>
                                 <label for="day">Date of Birth</label>
