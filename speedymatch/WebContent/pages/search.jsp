@@ -127,7 +127,7 @@
 									<option>Diploma</option>
 									<option>Bachelor</option>
 									<option>Master</option>
-									<option>Doctoral or above</option>
+									<option>Doctorate or above</option>
 								</select>
 							</div>
 					</label></li>

@@ -57,10 +57,25 @@
 </head>
 <body onload="randNums();">
 	<%@ include file="header.jsp"%>
-	<%@ page import="speedymatch.entities.Member"%>
+	<%@ page import="speedymatch.entities.Profile"%>
+	<%
+		Profile profile = (Profile) session.getAttribute("profile");
+		String gender = profile.getGender();
+		String eduLevel = profile.getEduLevel();
+		String child = profile.getChild();
+		String drinking = profile.getDrinking();
+		int height = profile.getHeight();
+		int weight = profile.getWeight();
+		String hobby = profile.getHobby();
+		String occupation = profile.getOccupation();
+		String race = profile.getRace();
+		String relaStatus = profile.getRelaStatus();
+		String religion = profile.getReligion();
+		String smoking = profile.getSmoking();
+	%>
 	<center>
 		<!-- content here -->
-		<FORM method="get" action="updateProfile.jsp" onload="randNums()">
+		<FORM method="get" onload="randNums()">
 			<table class="profile">
 				<tr class="prepend field">
 					<td><span class="adjoined">User ID</span></td>
@@ -77,9 +92,14 @@
 						placeholder="Enter password again"></td>
 				</tr>
 				<tr class="prepend field">
-					<td><span class="adjoined">Name</span></td>
-					<td><input name="name" class="xwide text input" type="text"
-						placeholder="Enter name"></td>
+					<td><span class="adjoined">First Name</span></td>
+					<td><input name="fname" class="xwide text input" type="text"
+						placeholder="Enter first name"></td>
+				</tr>
+				<tr class="prepend field">
+					<td><span class="adjoined">Last Name</span></td>
+					<td><input name="lname" class="xwide text input" type="text"
+						placeholder="Enter last name"></td>
 				</tr>
 				<tr class="prepend field">
 					<td><span class="adjoined">Email</span></td>
@@ -165,9 +185,9 @@
 					<td><span class="adjoined">Education Level</span></td>
 					<td><div class="picker">
 							<select name="el">
-								<option id="olvl">Secondary and below</option>
-								<option id="dip">Diploma</option>
-								<option id="deg">Degree</option>
+								<option id="olvl">High School and below</option>
+								<option id="dip">College</option>
+								<option id="deg">Diploma</option>
 								<option id="bach">Bachelor</option>
 								<option id="master">Master</option>
 								<option id="Dr">Doctorate and above</option>
@@ -176,8 +196,23 @@
 				</tr>
 				<tr class="prepend field">
 					<td><span class="adjoined">Occupation</span></td>
-					<td><input name="occupation" class="xwide text input"
-						type="text" placeholder="Enter Occupation"></td>
+					<td><div class="picker">
+							<select name="Occ">
+								<option id="Bo">Business owner</option>
+								<option id="Bc">Blue collar</option>
+								<option id="Sal">Sales</option>
+								<option id="Mf">Medical field</option>
+								<option id="Edu">Education</option>
+								<option id="Leg">Legal</option>
+								<option id="Fin">Finance</option>
+								<option id="it">IT</option>
+								<option id="Eng">Engineer</option>
+								<option id="Hos">Hospitality</option>
+								<option id="Gov">Government</option>
+								<option id="Res">Researcher</option>
+								<option id="Oth">Others</option>
+							</select>
+						</div></td>
 				</tr>
 				<tr class="prepend field">
 					<td><span class="adjoined">Ethnic</span></td>
@@ -186,7 +221,6 @@
 								<option id="chinese">Chinese</option>
 								<option id="malay">Malay</option>
 								<option id="indian">Indian</option>
-								<option id="caucasian">Caucasian</option>
 								<option id="ethnic.others">Others</option>
 							</select>
 						</div></td>
@@ -196,12 +230,9 @@
 					<td><div class="picker">
 							<select id="religion">
 								<option id="Buddhist">Buddhist</option>
-								<option id="Taoist">Taoist</option>
 								<option id="Muslim">Muslim</option>
 								<option id="Christian">Christian</option>
 								<option id="Catholic">Catholic</option>
-								<option id="Atheist">Atheist</option>
-								<option id="Free-thinker">Free-thinker</option>
 								<option id="Others">Others</option>
 							</select>
 						</div></td>
@@ -253,7 +284,6 @@
 		</form>
 		<input type="button" style="width: 150px;" class="medium primary btn"
 			value="Update" id="updateBtn" onclick="return chckpw()" disabled />
-		</FORM>
 	</center>
 	<%@ include file="footer.jsp"%>
 </body>
