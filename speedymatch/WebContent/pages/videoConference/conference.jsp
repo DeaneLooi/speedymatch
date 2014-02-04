@@ -63,8 +63,25 @@
 				margin:5px;
 			}
 		</style>
+		
+		<%@ page
+				import="speedymatch.entities.Member"
+				%>
+				<%
+				session = request.getSession();
+				String username = "";
+				if (session.getAttribute("member") != null) {
+					Member member = (Member) session.getAttribute("member");
+					username = member.getUsername();
+				}
+
+				else {
+					response.sendRedirect("../login.jsp");
+				}
+			%>
 		<script>
 			$(document).ready(function() {
+				
 				$("#webcam").scriptcam({ 
 					showDebug: true,
 					chatWindow:'chatWindow',
@@ -76,7 +93,7 @@
 					disconnected: warnuseragain,
 					setVolume:setVolume,
 					timeLeft:timeLeft,
-					loginName:'usernamedemo',
+					loginName:'<%=username%>',
 					chatRoom:'demochatroom'
 				});
 				setVolume(0);
