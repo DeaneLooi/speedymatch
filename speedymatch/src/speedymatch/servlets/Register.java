@@ -48,8 +48,8 @@ public class Register extends HttpServlet {
 		String username;
 		try {
 			username = (String)request.getParameter("username");
-			String email = Algorithms.encrypt((String)request.getParameter("email"),salt);
-			String passwd = Algorithms.getHash((String)request.getParameter("password"),salt);
+			String email = (String)request.getParameter("email");
+			String passwd = (String)request.getParameter("password");
 			String fName = (String)request.getParameter("fName");
 			String lName = (String)request.getParameter("lName");
 			String gender = (String)request.getParameter("gender");
@@ -64,7 +64,7 @@ public class Register extends HttpServlet {
 			String country = (String)request.getParameter("country");
 			String city = (String)request.getParameter("city");
 			String occupation = (String)request.getParameter("occupation");
-			String memType = Algorithms.encrypt((String)request.getParameter("memType"),salt);
+			String memType = (String)request.getParameter("memType");
 			String communication = (String)request.getParameter("comm");
 			Date regDate = new Date();
 			

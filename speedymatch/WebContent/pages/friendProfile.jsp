@@ -40,7 +40,7 @@
 
 			<div class="gear">
 				<label class="primary label">E-Mail:</label> <span id="email"
-					class="datainfo"><%=Algorithms.decrypt(memProfile.getEmail(), memProfile.getMemberSecurity().getSalt()) %></span> 
+					class="datainfo"><%=memProfile.getEmail()%></span> 
 			</div>
 
 			<div class="gear">

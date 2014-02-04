@@ -78,10 +78,6 @@ public class Login extends HttpServlet {
 					if (username.equalsIgnoreCase(member.getUsername())
 							&& passwd.equals(member.getPasswd())) {
 
-						String membership = memSec.getMembership();
-						membership = Algorithms.decrypt(membership,
-								memSec.getSalt());
-						memSec.setMembership(membership);
 						if (memSec.getMembership().equals("Admin")) {
 
 							response.sendRedirect("admin/adminHomepage.jsp");

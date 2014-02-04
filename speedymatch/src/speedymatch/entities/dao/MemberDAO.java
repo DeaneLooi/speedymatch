@@ -8,6 +8,7 @@ import speedymatch.entities.FriendList;
 import speedymatch.entities.Member;
 import speedymatch.entities.MemberSecurity;
 import speedymatch.entities.Profile;
+import speedymatch.utils.Algorithms;
 
 
 
@@ -24,8 +25,8 @@ public class MemberDAO {
                         PreparedStatement pstmt = currentCon.prepareStatement(query);
                         // inserting values
                         pstmt.setString(1, member.getUsername());
-                        pstmt.setString(2, member.getPasswd());
-                        pstmt.setString(3, member.getEmail());
+                        pstmt.setString(2, Algorithms.getHash(member.getPasswd(),memberSecurity.getSalt()));
+                        pstmt.setString(3, Algorithms.encrypt(member.getEmail(),memberSecurity.getSalt()));
                         pstmt.setString(4, member.getFname());
                         pstmt.setString(5, member.getLname());
                         pstmt.setDate(6, dob);
@@ -37,7 +38,7 @@ public class MemberDAO {
                         pstmt1.setString(1, member.getUsername());
                         pstmt1.setString(2, memberSecurity.getSalt());
                         pstmt1.setString(3, memberSecurity.getToken());
-                        pstmt1.setString(4, memberSecurity.getMembership());
+                        pstmt1.setString(4, Algorithms.encrypt(memberSecurity.getMembership(),memberSecurity.getSalt()));
                         pstmt1.setDate(5, regDate);
                         pstmt1.setString(6, String.valueOf(memberSecurity.getDisabled()));
                         pstmt1.setString(7, memberSecurity.getCommunication());
@@ -88,6 +89,8 @@ public class MemberDAO {
                         while(rs.next()){
                                 m = new Member(member.getUsername(),rs.getString("passwd"),rs.getString("email"),rs.getString("Fname"),rs.getString("Lname"),rs.getDate("dob"));
                                 ms = new MemberSecurity(rs.getString("salt"),rs.getString("token"),rs.getString("membership"),rs.getDate("regDate"),rs.getString("disabled").charAt(0),rs.getString("communication"));
+                                m.setEmail(Algorithms.decrypt(m.getEmail(),ms.getSalt()));
+                                ms.setMembership(Algorithms.decrypt(ms.getMembership(), ms.getSalt()));
                         }
                         
                         m.addMemberSecurity(ms);
