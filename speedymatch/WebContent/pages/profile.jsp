@@ -43,8 +43,8 @@
 		var rand_num1 = math.floor(Math.random() * 10) + 1;
 		var rand_num2 = math.floor(Math.random() * 10) + 1;
 		//put random nums into the spans
-		document.getElementById("digit1").innerHTML = rand_num1;
-		document.getElementById("digit2").innerHTML = rand_num2;
+		document.getElementById("digit1").value = rand_num1;
+		document.getElementById("digit2").value = rand_num2;
 	}
 </script>
 <script type="text/javascript"
@@ -252,7 +252,7 @@
 				onclick="return validate()">
 		</form>
 		<input type="button" style="width: 150px;" class="medium primary btn"
-			value="Update" id="updateBtn" onclick="return chckpw()" />
+			value="Update" id="updateBtn" onclick="return chckpw()" disabled />
 		</FORM>
 	</center>
 	<%@ include file="footer.jsp"%>

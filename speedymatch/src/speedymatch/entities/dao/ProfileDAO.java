@@ -50,7 +50,7 @@ public class ProfileDAO {
 		return p;
 	}
 
-	public static Profile addProfile(Profile profile) {
+	public static Profile createProfile(Profile profile) {
 		Connection currentCon = db.getConnection();
 
 		try {
