@@ -211,7 +211,7 @@
 			<select id="microphoneNames" size="1" onChange="changeMicrophone()" style="width:128px;font-size:10px;height:25px;">
 			</select>
 		</div>
-		<div id="chatWindow"></div>
+		<div id="chatWindow" style="width:400px;height:200px;overflow:auto;"></div>
 		<input type="text" id="message" style="width:635px;">
 		</center>
 </body>
