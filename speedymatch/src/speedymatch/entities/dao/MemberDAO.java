@@ -150,6 +150,88 @@ public class MemberDAO {
                 return password;
         }
         
+        
+        
+        
+        public static boolean checkUsername(String username){
+    		boolean check = false;
+    		Connection currentCon = db.getConnection();
+    		ResultSet rs = null;
+    		Member m = new Member(username,null);
+    		try{
+    			String query = "select username from Member where username = ?;";
+    			PreparedStatement pstmt = currentCon.prepareStatement(query);
+    			pstmt.setString(1, username);
+    			rs = pstmt.executeQuery();
+
+    			while(rs.next()){
+    				m.setUsername(rs.getString(1));
+    			}
+    		}catch(Exception ex){
+    			ex.printStackTrace();
+    		}finally {
+
+    			if (currentCon != null) {
+    				try {
+    					currentCon.close();
+    				} catch (Exception e) {
+    				}
+
+    				currentCon = null;
+    			}
+    		}
+
+    		if(m.getUsername()!=null){
+    			check = true;
+    		}
+
+    		else{
+    			check = false;
+    		}
+
+    		return check;
+
+    	}
+
+    	public static boolean checkEmail(String email){
+    		boolean check = false;
+    		Connection currentCon = db.getConnection();
+    		ResultSet rs = null;
+    		Member m = new Member(null,null);
+    		try{
+    			String query = "select email from Member where email = ?;";
+    			PreparedStatement pstmt = currentCon.prepareStatement(query);
+    			pstmt.setString(1, email);
+    			rs = pstmt.executeQuery();
+
+    			while(rs.next()){
+    				m.setEmail(rs.getString(1));
+    			}
+    		}catch(Exception ex){
+    			ex.printStackTrace();
+    		}finally {
+
+    			if (currentCon != null) {
+    				try {
+    					currentCon.close();
+    				} catch (Exception e) {
+    				}
+
+    				currentCon = null;
+    			}
+    		}
+    		if(m.getEmail()!=null){
+    			check = true;
+    		}
+
+    		else{
+    			check = false;
+    		}
+
+    		return check;
+
+    	}
+        
 /*        public static void main(String args[]){
         	@SuppressWarnings("deprecation")
 			Date dob = new Date(1995, 9, 27);
