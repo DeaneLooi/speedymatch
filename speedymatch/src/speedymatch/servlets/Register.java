@@ -15,6 +15,7 @@ import speedymatch.entities.MemberSecurity;
 import speedymatch.entities.dao.MemberDAO;
 import speedymatch.utils.Algorithms;
 import speedymatch.utils.RandomStringGenerator;
+import speedymatch.utils.Validation;
 
 /**
  * Servlet implementation class Register
@@ -48,44 +49,78 @@ public class Register extends HttpServlet {
 		String username;
 		try {
 			username = (String)request.getParameter("username");
-			String email = (String)request.getParameter("email");
-			String passwd = (String)request.getParameter("password");
-			String fName = (String)request.getParameter("fName");
-			String lName = (String)request.getParameter("lName");
-			String gender = (String)request.getParameter("gender");
-			String dob = (String)request.getParameter("dob");
-			Scanner sc = new Scanner(dob);
-			sc.useDelimiter("-");
-			int year = Integer.parseInt(sc.next());
-			int month = Integer.parseInt(sc.next());
-			int day = Integer.parseInt(sc.next());
-			Date dateOB = new Date(year-1900,month-1,day);
-			sc.close();
-			String country = (String)request.getParameter("country");
-			String city = (String)request.getParameter("city");
-			String occupation = (String)request.getParameter("occupation");
-			String memType = (String)request.getParameter("memType");
-			String communication = (String)request.getParameter("comm");
-			Date regDate = new Date();
 			
-			Member member = new Member(username, passwd, email, fName, lName, dateOB);
-			MemberSecurity ms = new MemberSecurity(salt, null, memType, regDate, 'F', communication);
-			
-			Member registeredMember = MemberDAO.registerAccount(member, ms);
-			
-			if(registeredMember!=null){
+			if(Validation.checkUsername(username)){
 				
-				request.getSession().setAttribute("member", registeredMember);
-				response.sendRedirect("pages/profile.jsp");
+				if(MemberDAO.checkUsername(username)){
+					String email = (String)request.getParameter("email");
+					
+					if(MemberDAO.checkEmail(email)){
+						String passwd = (String)request.getParameter("password");
+						String fName = (String)request.getParameter("fName");
+						String lName = (String)request.getParameter("lName");
+						String gender = (String)request.getParameter("gender");
+						String dob = (String)request.getParameter("dob");
+						Scanner sc = new Scanner(dob);
+						sc.useDelimiter("-");
+						int year = Integer.parseInt(sc.next());
+						int month = Integer.parseInt(sc.next());
+						int day = Integer.parseInt(sc.next());
+						Date dateOB = new Date(year-1900,month-1,day);
+						sc.close();
+						String country = (String)request.getParameter("country");
+						String city = (String)request.getParameter("city");
+						String occupation = (String)request.getParameter("occupation");
+						String memType = (String)request.getParameter("memType");
+						String communication = (String)request.getParameter("comm");
+						Date regDate = new Date();
+						
+						Member member = new Member(username, passwd, email, fName, lName, dateOB);
+						MemberSecurity ms = new MemberSecurity(salt, null, memType, regDate, 'F', communication);
+						
+						Member registeredMember = MemberDAO.registerAccount(member, ms);
+						
+						if(registeredMember!=null){
+							
+							request.getSession().setAttribute("member", registeredMember);
+							response.sendRedirect("pages/profile.jsp");
+							
+							
+						}
+						
+						else{
+							
+							response.sendRedirect("pages/error.jsp");
+							
+						}
+					}
+					
+					else{
+						Object obj = new Object();
+						obj = "<p style='color:red'>*This email has already been registered with us";
+						request.getSession().setAttribute("regObj", obj);
+						response.sendRedirect("registration.jsp");
+					}
+				}
 				
+				else{
+					Object obj = new Object();
+					obj = "<p style='color:red'>*Username is already taken";
+					request.getSession().setAttribute("regObj", obj);
+					response.sendRedirect("registration.jsp");
+				}
+	
 				
 			}
 			
 			else{
 				
-				response.sendRedirect("pages/error.jsp");
-				
+				Object obj = new Object();
+				obj = "<p style='color:red'>*Username cannot contain special characters";
+				request.getSession().setAttribute("regObj", obj);
+				response.sendRedirect("registration.jsp");
 			}
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();

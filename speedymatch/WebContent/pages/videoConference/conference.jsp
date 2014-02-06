@@ -63,8 +63,25 @@
 				margin:5px;
 			}
 		</style>
+		
+		<%@ page
+				import="speedymatch.entities.Member"
+				%>
+				<%
+				session = request.getSession();
+				String username = "";
+				if (session.getAttribute("member") != null) {
+					Member member = (Member) session.getAttribute("member");
+					username = member.getUsername();
+				}
+
+				else {
+					response.sendRedirect("../login.jsp");
+				}
+			%>
 		<script>
 			$(document).ready(function() {
+				
 				$("#webcam").scriptcam({ 
 					showDebug: true,
 					chatWindow:'chatWindow',
@@ -76,8 +93,8 @@
 					disconnected: warnuseragain,
 					setVolume:setVolume,
 					timeLeft:timeLeft,
-					loginName:'usernamedemo',
-					chatRoom:'demochatroom'
+					loginName:'<%=username%>',
+					chatRoom:'<%=username%>'
 				});
 				setVolume(0);
 				$("#slider").slider({ animate: true, min: 0, max: 100 , value:50, orientation: 'vertical', disabled:true});
@@ -194,7 +211,7 @@
 			<select id="microphoneNames" size="1" onChange="changeMicrophone()" style="width:128px;font-size:10px;height:25px;">
 			</select>
 		</div>
-		<div id="chatWindow"></div>
+		<div id="chatWindow" style="width:400px;height:200px;overflow:auto;"></div>
 		<input type="text" id="message" style="width:635px;">
 		</center>
 </body>
