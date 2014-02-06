@@ -93,11 +93,11 @@ throws ServletException, IOException {
                 
             }
             
-            request.setAttribute("piList", pid_list);
-            RequestDispatcher view = request.getRequestDispatcher
-
-("/admin/adminSearchResult.jsp");
-            view.forward(request, response);
+            request.getSession().setAttribute("piList", pid_list);
+            
+            response.sendRedirect("admin/adminSearchResult.jsp");
+           // RequestDispatcher view = request.getRequestDispatcher("/admin/adminSearchResult.jsp");
+           // view.forward(request, response);
             conn.close();
             System.out.println("Disconnected!");
         } catch (Exception e) {

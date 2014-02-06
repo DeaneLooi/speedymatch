@@ -23,8 +23,8 @@
              <%
                 int count = 0;
                 String color = "white";
-                if (request.getAttribute("piList") != null) {
-                    ArrayList al = (ArrayList) request.getAttribute("piList");
+                if (request.getSession().getAttribute("piList") != null) {
+                    ArrayList al = (ArrayList) request.getSession().getAttribute("piList");
                     System.out.println(al);
                     Iterator itr = al.iterator();
                     while (itr.hasNext()) {
