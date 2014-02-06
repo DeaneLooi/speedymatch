@@ -179,7 +179,7 @@ body{
 .friendActivities>ul>li>h6 {
 	position: relative !important;
 	z-index: 2001 !important;	
-	background-color: blue !important;
+	background-color: salmon !important;
 }
 
 ::-webkit-scrollbar {

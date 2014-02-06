@@ -3,12 +3,14 @@ package speedymatch.utils;
 import java.security.Key;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 
-import sun.misc.BASE64Encoder;
+import speedymatch.entities.Messages;
 import sun.misc.BASE64Decoder;
+import sun.misc.BASE64Encoder;
 
 public class Algorithms {
 	
@@ -59,6 +61,6 @@ public class Algorithms {
 		byte[] decValue = e.doFinal(decodedValue);
 		String decryptedValue = new String(decValue);
 		return decryptedValue;
-	}	
+	}
 	
 }

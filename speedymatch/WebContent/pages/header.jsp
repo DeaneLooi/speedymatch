@@ -168,7 +168,7 @@
 									<a href="friendProfile.jsp?username=<%=friends.get(i)%>">View Profile</a>
 								</h6></li>
 							<li><h6>
-									<a href="message.jsp?username=<%=friends.get(i)%>">Send Message</a>
+									<a href="message.jsp?username=<%=friends.get(i)%>&i=<%=i%>">Send Message</a>
 								</h6></li>
 							<li><h6>
 									<a href="cinemaForm.jsp">Invite for movie</a>

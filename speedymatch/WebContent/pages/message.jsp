@@ -13,12 +13,24 @@
 <link rel="stylesheet" href="../css/message.css">
 
 <title>Speedy Match Private Messaging</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>"
 <script>
-var url = 'C:\Users\Tan Wai Kit\Desktop\speedymatch\speedymatch\src\speedymatch\servlets\Message';
+var url = "localhost/speedymatch/Message";
 $(document).ready(function() {
-	$.ajaxSetup({ cache:false});
-	setInterval(function() {$("#MessageContent").load(url);}, 1000);
+	
+ 	$.ajaxSetup({ cache:false});
+ 	$.get(url,{});
+	setInterval(function() {$("#MessageContent").load(url);}, 1000); 
+
 });
+function buttonClick(){
+  	var msg = document.getElementById('message');
+ 	var receiver = document.getElementById('receiver');
+ 	$.ajaxSetup({cache : false});
+ 	$.post(url,{msg:msg , receiver:receiver});
+ 	document.getElementById('message').innerText = ""; 
+}
+
 </script>
 </head>
 <body>
@@ -26,24 +38,25 @@ $(document).ready(function() {
 	<%@ page import ="speedymatch.entities.Messages,
 	speedymatch.entities.Member" %>
 	<%
-
+	 Date currentDate = new Date();
+	 String receiver = (String)request.getParameter("username");
 	 %>
 	<center>
 		<!-- content here -->
 	
 		<div >
-			<h4 id="name"><%=friends.get(0)%></h4>
+			<h4 id="name"><%=receiver%></h4>
 		</div>
 		<div class="message">	
 			<textarea id="MessageContent" disabled>
 	</textarea>
 		</div>
 
-		<form id="MessageBox" method="post" action="${pageContext.request.contextPath}/Message?sender=<%=username%>&receiver=<%=friends.get(0)%>">
-			<input type="text" class="tftextinput" name="msg" size="21" maxlength="100">
-			<input type="submit" value="post" class="tfbutton"
-			onlick="submit();" />
-		</form>
+			
+			<input type="text" class="tftextinput" name="msg" size="21" maxlength="100" id="message" >
+			<input type="hidden" id="receiver" name ="receiver" value="<%=receiver%>">
+			<button class="tfbutton" onclick="buttonClick()">send</button>		
+
 
 	</center>
 	<%@ include file="footer.jsp"%>

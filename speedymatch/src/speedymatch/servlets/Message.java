@@ -2,10 +2,12 @@ package speedymatch.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Iterator;
+import java.util.Locale;
 import java.util.Set;
 
 import javax.servlet.ServletException;
@@ -26,59 +28,63 @@ import speedymatch.utils.Algorithms;
 @WebServlet("/Message")
 public class Message extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Message() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.setContentType("text/xml");
-		response.setHeader("Cache-Control", "no-cache");
-	
-		
-		ArrayList<Messages> messages = new ArrayList<Messages>();
-		
-//		MessageDAO.searchMessages(receiver)
-//		} catch(Exception ex){
-//			ex.printStackTrace();
-//		}
+	public Message() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		String sender = (String)request.getParameter("sender");
-		String receiver = (String)request.getParameter("receiver");
-		String message = (String)request.getParameter("msg");
-		
-//		String encryptedMessage ="";
-//		
-//		try {
-//			
-//			encryptedMessage = Algorithms.encrypt(message,"TestingSecretKey");
-//			System.out.println(encryptedMessage);
-//			
-//		} catch(Exception ex) {
-//			ex.printStackTrace();
-//		}
-		Messages pmsg = new Messages(sender,receiver,message, new Date());
-		MessageDAO.createMessage(pmsg);
-		System.out.println(message);
-		System.out.println(sender);
-		System.out.println(receiver);
-		
+		response.setContentType("text/xml");
+		response.setHeader("Cache-Control", "no-cache");
+
+		Member m = (Member) request.getSession().getAttribute("member");
+		String sender = m.getUsername();
+		String receiver = (String) request.getParameter("receiver");
+
+		MessageDAO.searchMessages(receiver, sender);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+
+		Member m = (Member) request.getSession().getAttribute("member");
+		String sender = m.getUsername();
+		String receiver = (String) request.getAttribute("receiver2");
+		String message = (String) request.getParameter("msg");
+		Date date = new Date();
+
+		String encryptedmessage = "";
+
+		try {
+
+			encryptedmessage = Algorithms.encrypt(message, "testingsecretkey");
+			System.out.println(encryptedmessage);
+			System.out.println(sender);
+			System.out.println(receiver);
+			System.out.println(date);
+			Messages pmsg = new Messages(sender, receiver, encryptedmessage,
+					date);
+			MessageDAO.createMessage(pmsg);
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+
 	}
 
 }

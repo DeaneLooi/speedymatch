@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import speedymatch.entities.FriendList;
 import speedymatch.entities.Member;
 import speedymatch.entities.MemberSecurity;
+import speedymatch.entities.Profile;
 import speedymatch.entities.dao.FriendListDAO;
 import speedymatch.entities.dao.MemberDAO;
+import speedymatch.entities.dao.ProfileDAO;
 import speedymatch.utils.Algorithms;
 
 /**
@@ -88,6 +90,10 @@ public class Login extends HttpServlet {
 								|| memSec.getMembership().equals("premium")) {
 
 							request.getSession().setAttribute("member", member);
+							Profile p = new Profile();
+							p.setUsername(member.getUsername());
+							p = ProfileDAO.retrieveProfile(p);
+							request.getSession().setAttribute("profile", p);
 
 
 							response.sendRedirect("pages/profile.jsp");

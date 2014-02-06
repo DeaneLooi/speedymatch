@@ -59,7 +59,7 @@
 	<%@ include file="header.jsp"%>
 	<%@ page import="speedymatch.entities.Profile"%>
 	<%
-		Profile profile = (Profile) session.getAttribute("profile");
+		Profile profile = (Profile) request.getSession().getAttribute("profile");
 		String gender = profile.getGender();
 		String eduLevel = profile.getEduLevel();
 		String child = profile.getChild();
