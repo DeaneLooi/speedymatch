@@ -30,7 +30,9 @@ public class AdminSearch extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws 
+
+ServletException, IOException {
 		// TODO Auto-generated method stub
 	         
 	}
@@ -38,7 +40,9 @@ public class AdminSearch extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+
+throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html");
         PrintWriter out = response.getWriter();
@@ -90,7 +94,9 @@ public class AdminSearch extends HttpServlet {
             }
             
             request.setAttribute("piList", pid_list);
-            RequestDispatcher view = request.getRequestDispatcher("/admin/adminSearchResult.jsp");
+            RequestDispatcher view = request.getRequestDispatcher
+
+("/admin/adminSearchResult.jsp");
             view.forward(request, response);
             conn.close();
             System.out.println("Disconnected!");

@@ -8,10 +8,10 @@ import java.sql.DriverManager;
 
 public class DBManager {
 
-	private Connection con;
-	private String dbSource="//127.0.0.1:3306/speedymatch";
-	private String user="adming1vWayv";	  // the username of the sql user
-	private String password="2MVCBKUIFISG";  // your password of the sql user
+	private static Connection con;
+	private static String dbSource="//127.0.0.1:3306/speedymatch";
+	private static String user="adming1vWayv";	  // the username of the sql user
+	private static String password="2MVCBKUIFISG";  // your password of the sql user
 	
 	/********************************************************
 	 * Method Name : testDriver
@@ -31,7 +31,7 @@ public class DBManager {
 		} 
 	} 
 
-	public Connection getConnection(){ 
+	public static Connection getConnection(){ 
 		String url = ""; 
 		try { 
 			url = "jdbc:mysql:"+dbSource; 
