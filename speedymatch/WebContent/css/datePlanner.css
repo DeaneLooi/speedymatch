@@ -3,11 +3,11 @@
 
 
 #receiverName{
-        position:relative;
+      
 }
 
 .date{
-        position:relative;
+      
 }
 
 .dateDetails{
@@ -15,20 +15,13 @@
 }
 
 #mapLocation{
-        margin:0px;
-        height:500px;
-        width:800px;
-        border: 5px solid #F13C73;
-        border-radius: 5px;
-    resize:none;
-        background-image:url('../images/datePlanner.jpg');
+     
 }
 
 .content {
-	bottom:100px;
+
 }
 
 .temp{
-        text-align:center;
-        padding-top:35px;
+        
 }
