@@ -94,12 +94,12 @@
 				<tr class="prepend field">
 					<td><span class="adjoined">First Name</span></td>
 					<td><input name="fname" class="xwide text input" type="text"
-						placeholder="Enter first name"></td>
+						placeholder="enter first name"></td>
 				</tr>
 				<tr class="prepend field">
 					<td><span class="adjoined">Last Name</span></td>
 					<td><input name="lname" class="xwide text input" type="text"
-						placeholder="Enter last name"></td>
+						placeholder="Enter email"></td>
 				</tr>
 				<tr class="prepend field">
 					<td><span class="adjoined">Email</span></td>
