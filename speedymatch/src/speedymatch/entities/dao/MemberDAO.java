@@ -241,7 +241,7 @@ public class MemberDAO {
 	}
 
 	/* Update member */
-	public static Member updateProfile(Member member) {
+	public static Member updateMember(Member member) {
 		Connection currentCon = db.getConnection();
 
 		try {
