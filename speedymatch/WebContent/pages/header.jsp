@@ -181,7 +181,7 @@
 								</h6></li>
 								
 							<li><h6>
-									<a href="VidConIFrame.jsp">Video Chat</a>
+									<a href="${pageContext.request.contextPath}/VidChat?username=<%=username%>&friendId=<%=friends.get(i)%>">Video Chat</a>
 								</h6></li>
 						</ul>
 					</div>
@@ -202,7 +202,7 @@
 
 						<li>
 							<h4>
-								<a href="datePlanner.jsp"><i class="fa fa-calendar"></i>&nbsp;Date
+								<a href="datePlannerIFrame.jsp"><i class="fa fa-calendar"></i>&nbsp;Date
 									Planner</a>
 							</h4>
 						</li>
