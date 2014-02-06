@@ -29,7 +29,7 @@ public class VidChat extends HttpServlet {
 		System.out.println("VidChat servlet accessed");
 		String username = request.getParameter("username");
 		
-		response.sendRedirect("pages/VidConIFrame.jsp?username="+friendId);
+		response.sendRedirect("pages/VidConIFrame.jsp");
 	}
 
 
