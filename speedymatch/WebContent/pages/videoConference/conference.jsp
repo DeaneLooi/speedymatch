@@ -94,7 +94,7 @@
 					setVolume:setVolume,
 					timeLeft:timeLeft,
 					loginName:'<%=username%>',
-					chatRoom:'demochatroom'
+					chatRoom:'<%=username%>'
 				});
 				setVolume(0);
 				$("#slider").slider({ animate: true, min: 0, max: 100 , value:50, orientation: 'vertical', disabled:true});

@@ -18,7 +18,7 @@
 			c = "15%";
 		}
 
-		document.getElementById('compatibility').text = c;
+		document.getElementById('compatibility').innerHTML = c;
 	}
 </script>
 
