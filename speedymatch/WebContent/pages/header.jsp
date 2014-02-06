@@ -58,19 +58,28 @@
 	<%
 		session = request.getSession();
 		String username = "";
+		ArrayList<String> friends = new ArrayList<String>();
+		FriendList f = null;
 		if (session.getAttribute("member") != null) {
 			Member member = (Member) session.getAttribute("member");
-			username = member.getUsername();
+			
+			if(!member.getMemberSecurity().getMembership().equals("Admin")){
+				username = member.getUsername();
+				f = new FriendList(username);
+				f = FriendListDAO.retrieveFriends(f);
+				friends = f.getFriendList();
+			}
+			
+
 		}
 
 		else {
 			response.sendRedirect("../login.jsp");
 		}
+		
+		
 
-		ArrayList<String> friends = new ArrayList<String>();
-		FriendList f = new FriendList(username);
-		f = FriendListDAO.retrieveFriends(f);
-		friends = f.getFriendList();
+
 	%>
 
 	<div class="navbar" id="nav1">
@@ -202,7 +211,7 @@
 
 						<li>
 							<h4>
-								<a href="datePlanner.jsp"><i class="fa fa-calendar"></i>&nbsp;Date
+								<a href="datePlannerIFrame.jsp"><i class="fa fa-calendar"></i>&nbsp;Date
 									Planner</a>
 							</h4>
 						</li>
