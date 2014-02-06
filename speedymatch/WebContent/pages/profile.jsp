@@ -7,8 +7,20 @@
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
-
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="../js/profile.js"></script>
 <script type="text/javascript">
+	$(document).ready(function() {
+
+		//generate a random number between 1 to 10
+		var rand_num1 = Math.round(Math.random() * 10) + 1;
+		var rand_num2 = Math.round(Math.random() * 10) + 1;
+		//put random nums into the spans
+		document.getElementById("digit1").innerHTML = rand_num1;
+		document.getElementById("digit2").innerHTML = rand_num2;
+	});
+
 	function chckpw() {
 		var pw = document.getElementById("pw").text;
 		var pw2 = document.getElementById("cpw").text;
@@ -37,49 +49,46 @@
 			return true;
 		}
 	}
-
-	function randNums() {
-		//generate a random number between 1 to 10
-		var rand_num1 = math.floor(Math.random() * 10) + 1;
-		var rand_num2 = math.floor(Math.random() * 10) + 1;
-		//put random nums into the spans
-		document.getElementById("digit1").value = rand_num1;
-		document.getElementById("digit2").value = rand_num2;
-	}
 </script>
-<script type="text/javascript"
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script type="text/javascript" src="../js/profile.js"></script>
 <title>Profile</title>
 <link rel="shortcut icon" href="../images/SpeedyMatch.png"
 	type="image/x-icon" />
 <link rel="stylesheet" href="../css/profile.css">
 </head>
-<body onload="randNums();">
+<body>
 	<%@ include file="header.jsp"%>
-	<%@ page import="speedymatch.entities.Profile"%>
+	<%@ page
+		import="speedymatch.entities.Profile,speedymatch.entities.dao.ProfileDAO,java.util.Date"%>
 	<%
-		Profile profile = (Profile) request.getSession().getAttribute("profile");
-		String gender = profile.getGender();
-		String eduLevel = profile.getEduLevel();
-		String child = profile.getChild();
-		String drinking = profile.getDrinking();
+		Member member = (Member) request.getSession()
+				.getAttribute("member");
+		Profile profile = new Profile();
+		profile.setUsername(member.getUsername());
+		profile = ProfileDAO.retrieveProfile(profile);
+
+		String fname = member.getFname();
+		String lname = member.getLname();
+		String email = member.getEmail();
+		int age = profile.getAge();
 		int height = profile.getHeight();
 		int weight = profile.getWeight();
-		String hobby = profile.getHobby();
-		String occupation = profile.getOccupation();
-		String race = profile.getRace();
-		String relaStatus = profile.getRelaStatus();
-		String religion = profile.getReligion();
-		String smoking = profile.getSmoking();
+		Date dob = member.getDob();
+
+		/*  */
 	%>
 	<center>
 		<!-- content here -->
-		<FORM method="get" onload="randNums()">
+		<FORM method="post"
+			action="${pageContext.request.contextPath}/ProfileServlet">
 			<table class="profile">
 				<tr class="prepend field">
 					<td><span class="adjoined">User ID</span></td>
 					<td><label id="userID"><%=username%></label></td>
+				</tr>
+				<tr class="prepend field">
+					<td><span class="adjoined">Age</span></td>
+					<td><input name="age" class="xwide text input" type="text"
+						placeholder="enter age" value=<%=age%>></td>
 				</tr>
 				<tr class="prepend field">
 					<td><span class="adjoined">New Password</span></td>
@@ -94,134 +103,122 @@
 				<tr class="prepend field">
 					<td><span class="adjoined">First Name</span></td>
 					<td><input name="fname" class="xwide text input" type="text"
-						placeholder="enter first name"></td>
+						placeholder="enter first name" value=<%=fname%>></td>
 				</tr>
 				<tr class="prepend field">
 					<td><span class="adjoined">Last Name</span></td>
 					<td><input name="lname" class="xwide text input" type="text"
-						placeholder="Enter email"></td>
+						placeholder="Enter last name" value=<%=lname%>></td>
 				</tr>
 				<tr class="prepend field">
 					<td><span class="adjoined">Email</span></td>
 					<td><input name="email" class="email input" type="text"
-						placeholder="Enter email"></td>
+						placeholder="Enter email" value=<%=email%>></td>
 				</tr>
 				<tr class="prepend field">
-					<td><span class="adjoined">Telephone</span></td>
-					<td><input name="phone" class="phone input" type="tel"
-						placeholder="Enter phone"></td>
-				</tr>
-				<tr class="prepend field">
-					<td><span class="adjoined">Birthdate</span></td>
-					<td><input name="dob" class="xwide text input" type="text"
-						placeholder="DDMMYYYY"></td>
-				</tr>
-				<tr class="prepend field">
-					<td><span class="adjoined">Address</span></td>
-					<td><textarea name="add" class="input textarea"
-							placeholder="Enter address" rows="3"></textarea></td>
+					<td><span class="adjoined">Date of Birth</span></td>
+					<td><input name="dob" class="xwide text input" type="date"
+						placeholder="DDMMYYYY" value=<%=dob%>></td>
 				</tr>
 				<tr class="prepend field">
 					<td><span class="adjoined">Height:</span></td>
-					<td><input name="height" class="narrow text input" type="text"><span
-						class="adjoined">cm</span></td>
-				</tr>
-				<tr class="prepend field">
-					<td><span class="adjoined">Gender</span></td>
-					<td>
-						<div class="picker">
-							<select name="gender">
-								<option id="m">Male</option>
-								<option id="f">Female</option>
-							</select>
-						</div>
-					</td>
+					<td><input name="height" class="narrow text input" type="text"
+						value=<%=height%>><span class="adjoined">cm</span></td>
 				</tr>
 				<tr class="prepend field">
 					<td><span class="adjoined">Weight</span></td>
-					<td><input name="weight" class="narrow text input" type="text"><span
-						class="adjoined">kg</span></td>
+					<td><input name="weight" class="narrow text input" type="text"
+						value=<%=weight%>><span class="adjoined">kg</span></td>
+				</tr>
+				<tr class="prepend field">
+					<td><span class="adjoined">Gender</span></td>
+					<td><label class="radio" for="male"> <input
+							name="gender" value="m" type="radio"> <span></span>Male
+					</label> <label class="radio" for="female"> <input name="gender"
+							value="f" type="radio"> <span></span>Female
+					</label></td>
+				</tr>
+				<tr class="prepend field">
+					<td><span class="adjoined">Want children?</span></td>
+					<td><label class="radio checked" for="yes"> <input
+							name="child" value="yes" type="radio" id="yes"> <span></span>Yes
+					</label> <label class="radio" for="no"> <input name="child"
+							value="no" type="radio" id="no"> <span></span>No
+					</label></td>
 				</tr>
 				<tr class="prepend field">
 					<td><span class="adjoined">Smokes?</span></td>
 					<td><div class="picker">
-							<select name="smoke">
-								<option id="nonSmoker">No</option>
-								<option id="occSmoker">Occasionally</option>
-								<option id="heavySmoker">Often</option>
+							<select name="smoking">
+								<option value="no">No</option>
+								<option value="occasionally">Occasionally</option>
+								<option value="often">Often</option>
 							</select>
 						</div></td>
 				</tr>
 				<tr class="prepend field">
 					<td><span class="adjoined">Drinks?</span></td>
 					<td><div class="picker">
-							<select name="drink">
-								<option id="noDrink">No</option>
-								<option id="occDrink">Occasionally</option>
-								<option id="heavyDrink">Often</option>
+							<select name="drinking">
+								<option value="no">No</option>
+								<option value="occasionally">Occasionally</option>
+								<option value="often">Often</option>
 							</select>
 						</div></td>
 				</tr>
 				<tr class="prepend field">
 					<td><span class="adjoined">Relationship Status</span></td>
 					<td><div class="picker">
-							<select name="rs">
-								<option id="single">Single</option>
-								<option id="divorced">Divorced</option>
-								<option id="widowed">Widowed</option>
-								<option id="separated">Separated</option>
+							<select name="relaStatus">
+								<option value="single">Single</option>
+								<option value="divorced">Divorced</option>
+								<option value="widowed">Widowed</option>
+								<option value="separated">Separated</option>
 							</select>
 						</div></td>
 				</tr>
 				<tr class="prepend field">
-					<td><span class="adjoined">Want children?</span></td>
-					<td><label class="radio checked" for="radio1"> <input
-							name="child" value="1" type="radio" id="radioYes"> <span></span>Yes
-					</label> <label class="radio" for="radio2"> <input name="child"
-							value="2" type="radio" id="radioNo"> <span></span>No
-					</label></td>
-				</tr>
-				<tr class="prepend field">
 					<td><span class="adjoined">Education Level</span></td>
 					<td><div class="picker">
-							<select name="el">
-								<option id="olvl">High School and below</option>
-								<option id="dip">College</option>
-								<option id="deg">Diploma</option>
-								<option id="bach">Bachelor</option>
-								<option id="master">Master</option>
-								<option id="Dr">Doctorate and above</option>
+							<select name="eduLevel">
+								<option value="high school and below">High School and
+									below</option>
+								<option value="college">College</option>
+								<option value="diploma">Diploma</option>
+								<option value="bachelor">Bachelor</option>
+								<option value="master">Master</option>
+								<option value="doctorate and above">Doctorate and above</option>
 							</select>
 						</div></td>
 				</tr>
 				<tr class="prepend field">
 					<td><span class="adjoined">Occupation</span></td>
 					<td><div class="picker">
-							<select name="Occ">
-								<option id="Bo">Business owner</option>
-								<option id="Bc">Blue collar</option>
-								<option id="Sal">Sales</option>
-								<option id="Mf">Medical field</option>
-								<option id="Edu">Education</option>
-								<option id="Leg">Legal</option>
-								<option id="Fin">Finance</option>
-								<option id="it">IT</option>
-								<option id="Eng">Engineer</option>
-								<option id="Hos">Hospitality</option>
-								<option id="Gov">Government</option>
-								<option id="Res">Researcher</option>
-								<option id="Oth">Others</option>
+							<select name="occupation">
+								<option value="business owner">Business owner</option>
+								<option value="blue collar">Blue collar</option>
+								<option value="sales">Sales</option>
+								<option value="medical field">Medical field</option>
+								<option value="education">Education</option>
+								<option value="legal">Legal</option>
+								<option value="finance">Finance</option>
+								<option value="IT">IT</option>
+								<option value="engineer">Engineer</option>
+								<option value="hospitality">Hospitality</option>
+								<option value="government">Government</option>
+								<option value="researcher">Researcher</option>
+								<option value="others">Others</option>
 							</select>
 						</div></td>
 				</tr>
 				<tr class="prepend field">
-					<td><span class="adjoined">Ethnic</span></td>
+					<td><span class="adjoined">Race</span></td>
 					<td><div class="picker">
-							<select id="ethnic">
-								<option id="chinese">Chinese</option>
-								<option id="malay">Malay</option>
-								<option id="indian">Indian</option>
-								<option id="ethnic.others">Others</option>
+							<select id="race">
+								<option value="chinese">Chinese</option>
+								<option value="malay">Malay</option>
+								<option value="indian">Indian</option>
+								<option value="others">Others</option>
 							</select>
 						</div></td>
 				</tr>
@@ -229,45 +226,42 @@
 					<td><span class="adjoined">Religion</span></td>
 					<td><div class="picker">
 							<select id="religion">
-								<option id="Buddhist">Buddhist</option>
-								<option id="Muslim">Muslim</option>
-								<option id="Christian">Christian</option>
-								<option id="Catholic">Catholic</option>
-								<option id="Others">Others</option>
+								<option value="buddhist">Buddhist</option>
+								<option value="muslim">Muslim</option>
+								<option value="christian">Christian</option>
+								<option value="catholic">Catholic</option>
+								<option value="others">Others</option>
 							</select>
 						</div></td>
 				</tr>
 				<tr class="prepend field">
 					<td><span class="adjoined">Hobbies</span></td>
-					<td><label class="checkbox" for="checkbox1"> <input
-							name="hobby1" type="checkbox" id="checkbox1"> <span></span>
+					<td><label class="checkbox" for="online activities"> <input
+							name="hobby" type="checkbox" value="online activities"> <span></span>
 							Online activities
-					</label> <label class="checkbox" for="checkbox2"> <input
-							name="hobby2" type="checkbox" id="checkbox2"> <span></span>
-							Outdoor recreation
-					</label> <label class="checkbox" for="checkbox3"> <input
-							name="hobby3" type="checkbox" id="checkbox3"> <span></span>
+					</label> <label class="checkbox" for="outdoor recreation"> <input
+							name="hobby" type="checkbox" value="outdoor recreation">
+							<span></span> Outdoor recreation
+					</label> <label class="checkbox" for="performing arts"> <input
+							name="hobby" type="checkbox" value="performing arts"> <span></span>
 							Performing arts
-					</label> <label class="checkbox" for="checkbox4"> <input
-							name="hobby4" type="checkbox" id="checkbox4"> <span></span>
-							Cooking
-					</label> <label class="checkbox" for="checkbox5"> <input
-							name="hobby5" type="checkbox" id="checkbox5"> <span></span>
+					</label> <label class="checkbox" for="cooking"> <input name="hobby"
+							type="checkbox" value="cooking"> <span></span> Cooking
+					</label> <label class="checkbox" for="gardening"> <input
+							name="hobby" type="checkbox" value="gardening"> <span></span>
 							Gardening
-					</label> <label class="checkbox" for="checkbox6"> <input
-							name="hobby6" type="checkbox" id="checkbox6"> <span></span>
-							Sports
-					</label> <label class="checkbox" for="checkbox6"> <input
-							name="hobby6" type="checkbox" id="checkbox6"> <span></span>
-							Reading
-					</label> <label class="checkbox" for="checkbox7"> <input
-							name="hobby7" type="checkbox" id="checkbox7"> <span></span>
+					</label> <label class="checkbox" for="sports"> <input name="hobby"
+							type="checkbox" value="sports"> <span></span> Sports
+					</label> <label class="checkbox" for="reading"> <input name="hobby"
+							type="checkbox" value="reading"> <span></span> Reading
+					</label> <label class="checkbox" for="collecting"> <input
+							name="hobby" type="checkbox" value="collecting"> <span></span>
 							Collecting
-					</label> <label class="checkbox" for="checkbox8"> <input
-							name="hobby8" type="checkbox" id="checkbox8"> <span></span>
+					</label> <label class="checkbox" for="gardening"> <input
+							name="hobby" type="checkbox" value="gardening"> <span></span>
 							Gardening
-					</label> <label class="checkbox" for="checkbox9"> <input
-							name="hobby9" type="checkbox" id="checkbox9"> <span></span>
+					</label> <label class="checkbox" for="traveling"> <input
+							name="hobby" type="checkbox" value="traveling"> <span></span>
 							Traveling
 					</label></td>
 				</tr>
@@ -276,14 +270,15 @@
 				</tr>
 
 			</table>
-			<strong>Add these numbers to make sure you're human</strong> <span
-				id="digit1"> </span> + <span id="digit2"> </span> = <input
+			<!-- h3 was strong originally while strong was span originally -->
+			<h3>Add these numbers to make sure you're human</h3>
+			<strong id="digit1"> </strong> + <strong id="digit2"> </strong> = <input
 				type="text" id="answer" size="2" /> <input
-				class="medium primary btn" type="submit" value="submit"
+				class="medium primary btn" type="button" value="submit"
 				onclick="return validate()">
 		</form>
-		<input type="button" style="width: 150px;" class="medium primary btn"
-			value="Update" id="updateBtn" onclick="return chckpw()" disabled />
+		<input type="submit" style="width: 150px;" class="medium primary btn"
+			value="Update" id="updateBtn" disabled="disabled" />
 	</center>
 	<%@ include file="footer.jsp"%>
 </body>

@@ -15,13 +15,13 @@ public class HoroscopeDAO {
 		Horoscope h = null;
 		ResultSet rs = null;
 		try {
-			String query = "select * from Horoscope where horoscope = '"
-					+ horoscope.getHoroscope() + "'";
+			String query = "select * from Horoscope where horoscopeID = ?";
 			PreparedStatement pstmt = currentCon.prepareStatement(query);
+			pstmt.setInt(1, horoscope.getHoroscopeID());
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				h = new Horoscope(rs.getInt("horoscopeID"),
+				h = new Horoscope(rs.getString("horoscope"),
 						rs.getString("horoscopeDesc"));
 			}
 		}

@@ -96,41 +96,6 @@ public class ProfileDAO {
 		return profile;
 	}
 
-	public static String changePassword(Member member) {
-		Connection currentCon = db.getConnection();
-		ResultSet rs = null;
-		String password = "";
-		try {
-			String selectQuery = "select passwd from Member where username= ?";
-			PreparedStatement pstmt1 = currentCon.prepareStatement(selectQuery);
-			pstmt1.setString(1, member.getUsername());
-			rs = pstmt1.executeQuery();
-			while (rs.next()) {
-				password = rs.getString(1);
-			}
-
-			String query = "update Member set passwd = ? where username = ?";
-			PreparedStatement pstmt = currentCon.prepareStatement(query);
-			pstmt.setString(1, member.getPasswd());
-			pstmt.setString(2, member.getUsername());
-			pstmt.executeUpdate();
-		} catch (Exception ex) {
-			System.out.println("Update failed: An Exception has occurred! "
-					+ ex);
-		} finally {
-
-			if (currentCon != null) {
-				try {
-					currentCon.close();
-				} catch (Exception e) {
-				}
-
-				currentCon = null;
-			}
-		}
-		return password;
-	}
-
 	public static Profile updateProfile(Profile profile) {
 		Connection currentCon = db.getConnection();
 
@@ -182,4 +147,5 @@ public class ProfileDAO {
 	 * 
 	 * }
 	 */
+
 }
