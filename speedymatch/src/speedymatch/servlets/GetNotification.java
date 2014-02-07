@@ -74,8 +74,15 @@ public class GetNotification extends HttpServlet {
 			PrintWriter writer = response.getWriter();
 			
 			String html = "";		
-			html+=notifications.size();
+			int notificationCount = notifications.size();
 			
+			if(notificationCount==0){
+				html="";
+			}
+			
+			else{
+				html+=notificationCount;
+			}
 			
 			writer.println(html);
 			
