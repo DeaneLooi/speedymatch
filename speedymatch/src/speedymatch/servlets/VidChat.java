@@ -28,6 +28,8 @@ public class VidChat extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("VidChat servlet accessed");
 		String username = request.getParameter("username");
+		String friendID = request.getParameter("friendId");
+		//Use notification notify receiver 
 		
 		response.sendRedirect("pages/VidConIFrame.jsp");
 	}
