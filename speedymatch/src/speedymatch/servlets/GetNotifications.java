@@ -71,7 +71,11 @@ public class GetNotifications extends HttpServlet {
 			}
 			
 			else if(n1.getNotification().equals(NotificationVariables.VIDEOCONF)){
+				html+="<div style='background-color:lightgray;border-style:solid;border-color:white;border-width:1px;padding:5px'>";
 				html+="<p>"+n1.getSender()+" has invited you to a video chat</p>";
+				html+="<a href='../'>Accept</a>&nbsp;";
+				html+="<a href='../DeleteNotification?content=VIDEOCONF'>Reject</a>";
+				html+="</div>";		
 			}
 			
 			else if(n1.getNotification().equals(NotificationVariables.MESSAGE)){
