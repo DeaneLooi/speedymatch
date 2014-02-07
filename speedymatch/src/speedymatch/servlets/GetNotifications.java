@@ -52,14 +52,23 @@ public class GetNotifications extends HttpServlet {
 			Notification n1 = notifications.get(i);
 			
 			if(n1.getNotification().equals(NotificationVariables.ALERT)){
+				html+="<div style='background-color:gray;border-style:solid;border-color:white;border-width:1px;padding:5px'>";
 				html+="<p>"+n1.getSender()+" has visited your profile</p>";
+				html+="<a href='DeleteNotification'>&#x2717</a>";
+				html+="</div>";
 			}
 			
 			else if(n1.getNotification().equals(NotificationVariables.CINEMA)){
+				html+="<div style='background-color:gray;border-style:solid;border-color:white;border-width:1px;padding:5px'>";
 				html+="<p>"+n1.getSender()+" has invited you to watch a movie</p>";
+				html+="<a href='Cinema'>Accept</a>&nbsp;";
+				html+="<a href='DeleteNotification'>Reject</a>";
+				html+="</div>";
+				
 			}
 			
 			else if(n1.getNotification().equals(NotificationVariables.FRIEND)){
+				
 				html+="<p>"+n1.getSender()+" has requested to be your friend</p>";
 			}
 			

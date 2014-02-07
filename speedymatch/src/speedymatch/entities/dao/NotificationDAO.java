@@ -113,8 +113,7 @@ public class NotificationDAO {
 	}
 	
 	public static void main(String args[]){
-		Notification n = new Notification("deane","tanwaikit","Cinema");
-		ArrayList<Notification> n1 = NotificationDAO.retrieveNotifications(n);
-		System.out.println(n1.get(0).getNotification());
+		Notification n = new Notification("deane","tanwaikit","alert");
+		NotificationDAO.createNotification(n);
 	}
 }

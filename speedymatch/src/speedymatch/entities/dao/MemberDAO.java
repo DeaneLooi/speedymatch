@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import speedymatch.entities.FriendList;
 import speedymatch.entities.Member;
 import speedymatch.entities.MemberSecurity;
-import speedymatch.entities.Member;
+import speedymatch.entities.Profile;
 import speedymatch.utils.Algorithms;
 
 public class MemberDAO {
@@ -55,10 +55,11 @@ public class MemberDAO {
 			FriendList fl = new FriendList(member.getUsername(), null);
 			FriendListDAO.createFriendList(fl);
 
-			/*
-			 * Profile profile = new Profile();
-			 * profile.setUsername(member.getUsername()); ProfileDAO.
-			 */
+			
+			Profile profile = new Profile();
+			profile.setUsername(member.getUsername());
+			ProfileDAO.createProfile(profile);
+			 
 
 		} catch (Exception ex) {
 

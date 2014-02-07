@@ -56,8 +56,9 @@ java.util.ArrayList" %>
 							<input type="submit" value="send request" />	
 							
 						</div>
+						${movieObj}
+						</form>
 						
-					</form>
 
 
 <%@ include file="footer.jsp" %>
