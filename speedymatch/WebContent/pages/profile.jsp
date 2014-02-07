@@ -85,6 +85,7 @@
 		String religion = profile.getReligion();
 		String occupation = profile.getOccupation();
 		String horo = profile.getHoro();
+		String cpw = member.getPasswd();
 	%>
 	<center>
 		<!-- content here -->
@@ -304,11 +305,10 @@
 			<strong id="digit1"> </strong> + <strong id="digit2"> </strong> = <input
 				type="text" id="answer" size="2" /> <input
 				class="medium primary btn" type="button" value="submit"
-				onclick="return validate()">
-		
-		<input type="submit" style="width: 150px;" class="medium primary btn"
-			value="Update" id="updateBtn" disabled="disabled" />
-			</form>
+				onclick="return validate()"> <input type="submit"
+				style="width: 150px;" class="medium primary btn" value="Update"
+				id="updateBtn" disabled="disabled" />
+		</form>
 	</center>
 	<%@ include file="footer.jsp"%>
 </body>

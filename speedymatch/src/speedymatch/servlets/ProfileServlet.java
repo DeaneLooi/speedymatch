@@ -36,10 +36,7 @@ public class ProfileServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		/*
-		 * Profile profile = new Profile(username); profile =
-		 * ProfileDAO.retrieveProfile(profile);
-		 */
+		doPost(request, response);
 	}
 
 	/**
@@ -83,19 +80,16 @@ public class ProfileServlet extends HttpServlet {
 				eduLevel, hobby, Integer.parseInt(height),
 				Integer.parseInt(weight), race, religion, child, horo,
 				occupation, smoking, drinking, relaStatus);
-		Member member = new Member(username, email, fname, lname, dateOB);
+		Member member = new Member(username, cpw, email, fname, lname, dateOB);
 
 		ProfileDAO.updateProfile(profile);
 		MemberDAO.updateMember(member);
 
-		/*
-		 * System.out.println(profile); System.out.println(member);
-		 */
 		response.sendRedirect("pages/profile.jsp");
 
 		if (member != null && profile != null) {
 			System.out
-					.println("<html><body><script>alert('Hello World!');</script></body></html>");
+					.println("<html><body><script>alert('Update successful!');</script></body></html>");
 		}
 	}
 }
