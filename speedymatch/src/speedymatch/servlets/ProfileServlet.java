@@ -66,6 +66,27 @@ public class ProfileServlet extends HttpServlet {
 		Date dateOB = new Date(year - 1900, month - 1, day);
 		sc.close();
 
-	}
+		String gender = request.getParameter("gender");
+		String child = request.getParameter("child");
+		String smoking = request.getParameter("smoking");
+		String drinking = request.getParameter("drinking");
+		String relaStatus = request.getParameter("relaStatus");
+		String eduLevel = request.getParameter("eduLevel");
+		String race = request.getParameter("race");
+		String hobby = request.getParameter("hobby");
+		String religion = request.getParameter("religion");
+		String occupation = request.getParameter("occupation");
+		String horo = request.getParameter("horo");
 
+		Profile profile = new Profile(username, Integer.parseInt(age), gender,
+				eduLevel, hobby, Integer.parseInt(height),
+				Integer.parseInt(weight), race, religion, child, horo,
+				occupation, smoking, drinking, relaStatus);
+		Member member = new Member(username, email, fname, lname, dateOB);
+
+		ProfileDAO.updateProfile(profile);
+		MemberDAO.updateMember(member);
+
+		response.sendRedirect("pages/profile.jsp");
+	}
 }

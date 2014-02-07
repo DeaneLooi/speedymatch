@@ -15,22 +15,33 @@ public class Member {
 	private String Lname;
 
 	private Date dob;
-	
+
 	private MemberSecurity memberSecurity;
-	
-	public Member(String username, String passwd){
-		
+
+	public Member(String username, String passwd) {
+
 		this.username = username;
 		this.passwd = passwd;
 	}
 
-	public Member(String username, String passwd, String email, String Fname, String Lname, Date dob){
-		
+	public Member(String username, String passwd, String email, String Fname,
+			String Lname, Date dob) {
+
 		this.username = username;
 		this.passwd = passwd;
 		this.email = email;
 		this.Fname = Fname;
 		this.Lname = Lname;
+		this.dob = dob;
+	}
+
+	public Member(String username, String email, String fname, String lname,
+			Date dob) {
+		super();
+		this.username = username;
+		this.email = email;
+		Fname = fname;
+		Lname = lname;
 		this.dob = dob;
 	}
 
@@ -81,12 +92,12 @@ public class Member {
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}
-	
-	public MemberSecurity getMemberSecurity(){
+
+	public MemberSecurity getMemberSecurity() {
 		return memberSecurity;
 	}
-	
-	public void addMemberSecurity(MemberSecurity memberSecurity){
+
+	public void addMemberSecurity(MemberSecurity memberSecurity) {
 		this.memberSecurity = memberSecurity;
 	}
 

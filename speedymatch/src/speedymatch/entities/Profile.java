@@ -18,31 +18,6 @@ public class Profile {
 	private String drinking;
 	private String relaStatus;
 
-	public Profile(String username) {
-		this.username = username;
-	}
-
-	public Profile(int age, String gender, String eduLevel, String hobby,
-			int height, int weight, String race, String religion, String child,
-			String horo, String occupation, String smoking, String drinking,
-			String relaStatus) {
-		super();
-		this.age = age;
-		this.gender = gender;
-		this.eduLevel = eduLevel;
-		this.hobby = hobby;
-		this.height = height;
-		this.weight = weight;
-		this.race = race;
-		this.religion = religion;
-		this.child = child;
-		this.horo = horo;
-		this.occupation = occupation;
-		this.smoking = smoking;
-		this.drinking = drinking;
-		this.relaStatus = relaStatus;
-	}
-
 	public Profile(String username, int age, String gender, String eduLevel,
 			String hobby, int height, int weight, String race, String religion,
 			String child, String horo, String occupation, String smoking,

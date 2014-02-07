@@ -74,7 +74,17 @@
 		int weight = profile.getWeight();
 		Date dob = member.getDob();
 
-		/*  */
+		String gender = profile.getGender();
+		String child = profile.getChild();
+		String smoking = profile.getSmoking();
+		String drinking = profile.getDrinking();
+		String relaStatus = profile.getRace();
+		String eduLevel = profile.getEduLevel();
+		String race = profile.getRace();
+		String hobby = profile.getHobby();
+		String religion = profile.getReligion();
+		String occupation = profile.getOccupation();
+		String horo = profile.getHoro();
 	%>
 	<center>
 		<!-- content here -->
@@ -174,6 +184,25 @@
 								<option value="divorced">Divorced</option>
 								<option value="widowed">Widowed</option>
 								<option value="separated">Separated</option>
+							</select>
+						</div></td>
+				</tr>
+				<tr class="prepend field">
+					<td><span class="adjoined">Horoscope</span></td>
+					<td><div class="picker">
+							<select name="horo">
+								<option value="aries">Aries</option>
+								<option value="taurus">Taurus</option>
+								<option value="gemini">Gemini</option>
+								<option value="cancer">Cancer</option>
+								<option value="leo">Leo</option>
+								<option value="virgo">Virgo</option>
+								<option value="libra">Libra</option>
+								<option value="scorpio">Scorpio</option>
+								<option value="sagittarius">Sagittarius</option>
+								<option value="capricorn">Capricorn</option>
+								<option value="aquarius">Aquarius</option>
+								<option value="pisces">Pisces</option>
 							</select>
 						</div></td>
 				</tr>
