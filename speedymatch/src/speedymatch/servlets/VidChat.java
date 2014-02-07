@@ -32,7 +32,7 @@ public class VidChat extends HttpServlet {
 		String sender = request.getParameter("sender");
 		String receiver = request.getParameter("receiver");
 		System.out.println("Sender = "+sender+" Receiver = "+receiver);
-		
+	
 		if (false) // receiver online and accept
 		{
 			response.sendRedirect("pages/VidConIFrame.jsp");
@@ -40,7 +40,7 @@ public class VidChat extends HttpServlet {
 		else {
 		Notification newNote = new Notification(sender,receiver,"VIDEOCONF");
 		NotificationDAO.createNotification(newNote);
-		response.sendRedirect("pages/profile.jsp.jsp");
+		response.sendRedirect("pages/profile..jsp");
 		}
 	}
 
