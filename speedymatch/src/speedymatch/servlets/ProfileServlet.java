@@ -77,6 +77,7 @@ public class ProfileServlet extends HttpServlet {
 		String religion = request.getParameter("religion");
 		String occupation = request.getParameter("occupation");
 		String horo = request.getParameter("horo");
+		String cpw = request.getParameter("cpw");
 
 		Profile profile = new Profile(username, Integer.parseInt(age), gender,
 				eduLevel, hobby, Integer.parseInt(height),
@@ -87,9 +88,9 @@ public class ProfileServlet extends HttpServlet {
 		ProfileDAO.updateProfile(profile);
 		MemberDAO.updateMember(member);
 
-		System.out.println(profile);
-		System.out.println(member);
-
+		/*
+		 * System.out.println(profile); System.out.println(member);
+		 */
 		response.sendRedirect("pages/profile.jsp");
 
 		if (member != null && profile != null) {
