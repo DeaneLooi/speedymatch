@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import speedymatch.entities.Notification;
+import speedymatch.entities.dao.NotificationDAO;
+
 /**
  * Servlet implementation class VidChat
  */
@@ -27,11 +30,12 @@ public class VidChat extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("VidChat servlet accessed");
-		String username = request.getParameter("username");
-		String friendID = request.getParameter("friendId");
-		//Use notification notify receiver 
-		
-		response.sendRedirect("pages/VidConIFrame.jsp");
+		String sender = request.getParameter("sender");
+		String receiver = request.getParameter("receiver");
+		System.out.println("Sender = "+sender+" Receiver = "+receiver);
+		Notification newNote = new Notification(sender,receiver,"VIDEOCONF");
+		NotificationDAO.createNotification(newNote); 
+//		response.sendRedirect("pages/VidConIFrame.jsp");
 	}
 
 

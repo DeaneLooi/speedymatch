@@ -56,14 +56,15 @@ public class MessageDAO {
 		try {
 			String query = "select * from Message where receiver =? AND sender=?;";
 			PreparedStatement pstmt = currentCon.prepareStatement(query);
-			pstmt.setString(2, receiver);
+			pstmt.setString(1, receiver);
+			pstmt.setString(2, username);
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
 				String sender = rs.getString(1);
 				String recipient = rs.getString(2);
 				String encryptedMessage = rs.getString(3);
-				Date date = rs.getDate(4);
+				Date date = (java.sql.Date)rs.getDate(4);
 				
 				String decryptedMessage = Algorithms.decrypt(encryptedMessage, "testingsecretkey");
 				
@@ -86,8 +87,44 @@ public class MessageDAO {
 		}
 		return messages;
 	}
-
-	public static void main(String args[]) {
+	
+	public static boolean deleteMessages(){
 		
+		
+		Connection currentCon = db.getConnection();
+		
+		try {
+			String query = "delete from Message;";
+			PreparedStatement pstmt = currentCon.prepareStatement(query);
+			pstmt.executeUpdate();
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return false;
+			
+		} finally {
+			if (currentCon != null) {
+				try {
+					currentCon.close();
+				} catch (Exception e) {
+				}
+
+				currentCon = null;
+			}
+		}
+		return true;
+	}
+
+	public static void main(String args[]) throws Exception {
+		
+		ArrayList<Messages> messages = MessageDAO.searchMessages("tanwaikit", "deane");
+		
+		for(int i=0;i<messages.size();i++){
+			System.out.println(messages.get(i).getMessage());
+		}
+		
+/*		String message = Algorithms.encrypt("akjshd", "testingsecretkey");
+		Messages n = new Messages("deane","tanwaikit",message,new java.util.Date());
+		MessageDAO.createMessage(n);*/
 	}
 }

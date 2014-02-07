@@ -204,7 +204,7 @@
 
 							<li><h6>
 									<a
-										href="${pageContext.request.contextPath}/VidChat?username=<%=username%>&friendId=<%=friends.get(i)%>">Video
+										href="${pageContext.request.contextPath}/VidChat?sender=<%=username%>&receiver=<%=friends.get(i)%>">Video
 										Chat</a>
 								</h6></li>
 						</ul>

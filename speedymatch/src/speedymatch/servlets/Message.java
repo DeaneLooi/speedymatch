@@ -52,6 +52,27 @@ public class Message extends HttpServlet {
 		String receiver = (String) request.getParameter("receiver");
 
 		MessageDAO.searchMessages(receiver, sender);
+		
+		ArrayList<Messages> receivedmessages = MessageDAO.searchMessages(receiver, sender);
+		ArrayList<Messages> sentmessages = MessageDAO.searchMessages(sender, receiver);
+		PrintWriter writer = response.getWriter();
+		String html = "";
+		String content = "";
+
+		
+		for(int i=0; i< receivedmessages.size();i++){
+			sentmessages.add(receivedmessages.get(i));
+		}
+		
+		for(int i=0; i<sentmessages.size();i++){
+			content+=sentmessages.get(i).getSender()+": "+sentmessages.get(i).getMessage()+"\r\n";
+		}
+		
+		
+		html+= content;
+		System.out.println(html);
+		writer.write(html);
+		writer.close();
 	}
 
 	/**
