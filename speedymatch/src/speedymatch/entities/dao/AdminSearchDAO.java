@@ -1,74 +1,80 @@
 package speedymatch.entities.dao;
 
-import java.util.*;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
+import speedymatch.entities.FriendList;
+import speedymatch.entities.Member;
+import speedymatch.entities.MemberSecurity;
 import speedymatch.entities.Profile;
+import speedymatch.utils.Algorithms;
 
-public class AdminSearchDAO{
-	
-	static Connection currentcon = null;
-	static ResultSet rs = null;
-	static PreparedStatement pt = null;
-	
-	//can retrieve
-	public boolean adminSearch(){
-		boolean success = false;
-		ResultSet r =null;
-		DBManager db = new DBManager();
-		Connection con=DBManager.getConnection();
-		
-		
-		String dbQuery = "select * from Member m inner join Profile p on m.username = p.username where p.hobby = 'collecting'";
-		//String dbQuery = "select m.username, p.age, p.gender, p.eduLevel, p.hobby, p.height, p.weight, p.race, p.religion, p.child, p.horo, p.occupation, p.smoking, p.drinking, p.relaStatus from Member m inner join Profile p on m.username = p.username where p.hobby='gardening'";
-				//='" + hobby +"'";
-		r=db.readRequest(dbQuery);
-		
-		try{
-			if (r.next() ){
-				String username=r.getString("username");
-				int age=r.getInt("age");
-				String gender=r.getString("gender");
-				String eduLevel = r.getString("eduLevel");
-				String hobby = r.getString("hobby");
-				int weight = r.getInt("weight");
-				int height = r.getInt("height");
-				String race = r.getString("race");
-				String religion = r.getString("religion");
-				String child = r.getString("child");
-				String horo = r.getString("horo");
-				String occupation = r.getString("occupation");
-				String smoking = r.getString("smoking");
-				String drinking = r.getString("drinking");
-				String relaStatus = r.getString("relaStatus");
-				
-				System.out.println(username+" "+age+" "+gender+" "+ eduLevel +" "+hobby+" "+weight+" "+height+" "+race+" "+religion+" "+child+" "+horo+" "+occupation+" "+smoking+" "+drinking+" "+relaStatus+" ");
-				
-				System.out.println(username);
-				success=true;
-				
+public class AdminSearchDAO {
+
+	private static DBController db = new DBController();
+
+	public static Member advanceSearch(Member profile) {
+		Connection currentCon = db.getConnection();
+		Member m = null;
+		ResultSet rs = null;
+
+		try {
+			ArrayList<String> al = null;
+			ArrayList pid_list = new ArrayList();
+			String query1="select m.username from Member m inner join Profile p on m.username=p.username where gender='female'";
+			String query2="select m.username from Member m inner join Profile p on m.username=p.username where ='female'";
+			String query3="";
+			String query4="";
+			String query = query1;
+					//+ query2 + query3 + query4;
+			//String query = "select username, gender,smoking, drinking, relaStatus, child, eduLevel, horo, occupation, race, religion, hobby from Profile where username='deane'";
+			//String query = "select m.username, p.gender, p.smoking, p.drinking, p.relaStatus, p.child, p.eduLevel, p.horo, p.occupation, p.race, p.religion, p.hobby from Member m inner join Profile";
+			PreparedStatement pstmt = currentCon.prepareStatement(query);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+
+				al = new ArrayList();
+
+				al.add(rs.getString(1));
+				al.add(rs.getString(2));
+				al.add(rs.getString(3));
+				al.add(rs.getString(4));
+				al.add(rs.getString(5));
+				al.add(rs.getString(6));
+				al.add(rs.getString(7));
+				al.add(rs.getString(8));
+				al.add(rs.getString(9));
+				al.add(rs.getString(10));
+				al.add(rs.getString(11));
+				al.add(rs.getString(12));
+
+				System.out.println("al :: " + al);
+				pid_list.add(al);
+
 			}
-		}catch(Exception e){
-			e.printStackTrace();
-			
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+
+			if (currentCon != null) {
+				try {
+					currentCon.close();
+				} catch (Exception e) {
+				}
+
+				currentCon = null;
+			}
 		}
-	db.terminate();
-	return success;
+		return profile;
 	}
 	
-	
-	//mian method
-	public static void main(String[] args){
-		AdminSearchDAO a = new AdminSearchDAO();
-		//a.retrieveList();
-		a.adminSearch();
-//		ArrayList <Profile> searchList = new ArrayList<Profile>();
-//		for(int i=0; i< searchList.size(); i++){
-//			
-//			p = searchList.get(i);
-//			System.out.println("item" + i + ":" + p);
-//		}	
+	public static void main(String args[]) {
+		//AdminSearchDAO a = new AdminSearchDAO();
+		Member m =new Member(null, null);
+		AdminSearchDAO.advanceSearch(m);
 		
 	}
-	
 }
