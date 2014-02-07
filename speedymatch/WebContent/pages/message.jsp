@@ -16,13 +16,26 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>"
 <script>
 var url = "localhost/speedymatch/Message";
-$(document).ready(function() {
-	
- 	$.ajaxSetup({ cache:false});
- 	$.get(url,{});
-	setInterval(function() {$("#MessageContent").load(url);}, 1000); 
+var ntc = setInterval(
+		function() {
+			var xmlhttp;
+			if (window.XMLHttpRequest) {
+				//For IE7+, Firefox, Chrome, Opera and Safari
+				xmlhttp = new XMLHttpRequest();
+			} else {
+				//For IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					document.getElementById("MessageContent").innerHTML = xmlhttp.responseText;				
+				}
+			};
 
-});
+			xmlhttp.open("GET", "../Message", true);
+			xmlhttp.send();
+		}, 2000);
+		
 function buttonClick(){
   	var msg = document.getElementById('message');
  	var receiver = document.getElementById('receiver');
