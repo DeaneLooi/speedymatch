@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import speedymatch.entities.Notification;
+import speedymatch.utils.NotificationVariables;
 
 public class NotificationDAO {
 
@@ -85,7 +86,7 @@ public class NotificationDAO {
 		boolean check = false;
 
 		try {
-			String query = "delete from notification where sender=?, receiver=?, notification=?;";
+			String query = "delete from Notification where sender=? AND receiver=? AND notification=?";
 			PreparedStatement pstmt = currentCon.prepareStatement(query);
 			pstmt.setString(1, n.getSender());
 			pstmt.setString(2, n.getReceiver());
@@ -113,7 +114,7 @@ public class NotificationDAO {
 	}
 	
 	public static void main(String args[]){
-		Notification n = new Notification("deane","tanwaikit","alert");
+		Notification n = new Notification("deane","tanwaikit",NotificationVariables.ALERT);
 		NotificationDAO.createNotification(n);
 	}
 }
