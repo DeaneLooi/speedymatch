@@ -205,7 +205,7 @@ public class MemberDAO {
 
 	}
 
-	public static boolean checkEmail(Member mem,String email) {
+	public static boolean checkEmail(String username,String email) {
 		boolean check = false;
 		Connection currentCon = db.getConnection();
 		ResultSet rs = null;
@@ -213,7 +213,7 @@ public class MemberDAO {
 		try {
 			String query = "select email from Member where username = ?;";
 			PreparedStatement pstmt = currentCon.prepareStatement(query);
-			pstmt.setString(1, mem.getUsername());
+			pstmt.setString(1, username);
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
