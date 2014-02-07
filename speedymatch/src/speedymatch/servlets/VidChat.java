@@ -28,14 +28,20 @@ public class VidChat extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("VidChat servlet accessed");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {;
 		String sender = request.getParameter("sender");
 		String receiver = request.getParameter("receiver");
 		System.out.println("Sender = "+sender+" Receiver = "+receiver);
+		
+		if (false) // receiver online and accept
+		{
+			response.sendRedirect("pages/VidConIFrame.jsp");
+		}
+		else {
 		Notification newNote = new Notification(sender,receiver,"VIDEOCONF");
-		NotificationDAO.createNotification(newNote); 
-//		response.sendRedirect("pages/VidConIFrame.jsp");
+		NotificationDAO.createNotification(newNote);
+		response.sendRedirect("pages/profile.jsp.jsp");
+		}
 	}
 
 
