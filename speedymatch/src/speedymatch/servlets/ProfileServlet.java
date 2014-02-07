@@ -87,6 +87,14 @@ public class ProfileServlet extends HttpServlet {
 		ProfileDAO.updateProfile(profile);
 		MemberDAO.updateMember(member);
 
+		System.out.println(profile);
+		System.out.println(member);
+
 		response.sendRedirect("pages/profile.jsp");
+
+		if (member != null && profile != null) {
+			System.out
+					.println("<html><body><script>alert('Hello World!');</script></body></html>");
+		}
 	}
 }
