@@ -21,6 +21,13 @@ $(document).ready(function() {
 	
 	});
 </script>
+<style>
+#notifications{
+	
+	background-color:gray;
+
+}
+</style>
 </head>
 <body>
 <%@ include file="header.jsp" %>

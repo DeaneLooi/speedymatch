@@ -101,7 +101,7 @@
 					<td><input name="age" class="xwide text input" type="text"
 						placeholder="enter age" value=<%=age%>></td>
 				</tr>
-				<tr class="prepend field">
+<!-- 				<tr class="prepend field">
 					<td><span class="adjoined">New Password</span></td>
 					<td><input name="pw " class="password input" type="password"
 						placeholder="Enter new password"></td>
@@ -110,7 +110,7 @@
 					<td><span class="adjoined">Confirm Password</span></td>
 					<td><input name="cpw" class="password input" type="password"
 						placeholder="Enter password again"></td>
-				</tr>
+				</tr> -->
 				<tr class="prepend field">
 					<td><span class="adjoined">First Name</span></td>
 					<td><input name="fname" class="xwide text input" type="text"

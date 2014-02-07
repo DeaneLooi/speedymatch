@@ -52,17 +52,16 @@ public class GetNotifications extends HttpServlet {
 			Notification n1 = notifications.get(i);
 			
 			if(n1.getNotification().equals(NotificationVariables.ALERT)){
-				html+="<div style='background-color:gray;border-style:solid;border-color:white;border-width:1px;padding:5px'>";
-				html+="<p>"+n1.getSender()+" has visited your profile</p>";
-				html+="<a href='DeleteNotification'>&#x2717</a>";
+				html+="<div style='background-color:lightgray;border-style:solid;border-color:white;border-width:1px;padding:5px'>";
+				html+="<p>"+n1.getSender()+" has visited your profile&nbsp;<a href='../DeleteNotification?content=Alert'>&#x2717</a></p>";
 				html+="</div>";
 			}
 			
 			else if(n1.getNotification().equals(NotificationVariables.CINEMA)){
-				html+="<div style='background-color:gray;border-style:solid;border-color:white;border-width:1px;padding:5px'>";
+				html+="<div style='background-color:lightgray;border-style:solid;border-color:white;border-width:1px;padding:5px'>";
 				html+="<p>"+n1.getSender()+" has invited you to watch a movie</p>";
-				html+="<a href='Cinema'>Accept</a>&nbsp;";
-				html+="<a href='DeleteNotification'>Reject</a>";
+				html+="<a href='../Cinema'>Accept</a>&nbsp;";
+				html+="<a href='../DeleteNotification?content=Cinema'>Reject</a>";
 				html+="</div>";
 				
 			}

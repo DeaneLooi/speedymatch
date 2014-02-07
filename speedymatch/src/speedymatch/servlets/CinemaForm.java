@@ -24,7 +24,7 @@ import speedymatch.entities.dao.NotificationDAO;
 @WebServlet("/CinemaForm")
 public class CinemaForm extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static Notification n = null;
+	static Notification n = null;
 	private static String sessionID;
 	private static Object obj;
 	private static Object obj1;

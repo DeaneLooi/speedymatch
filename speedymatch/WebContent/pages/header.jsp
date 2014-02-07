@@ -58,14 +58,14 @@
 		setInterval(function() {
 			$("#notification").load('../GetNotification');
 		}, 1000);
+
+		/* 		setInterval(function() {
+		 $("alert").load('../GetNotification');
+		 }, 1000);
 		
-/* 		setInterval(function() {
-			$("alert").load('../GetNotification');
-		}, 1000);
-		
-		setInterval(function() {
-			$("friend").load('../GetNotification');
-		}, 1000); */
+		 setInterval(function() {
+		 $("friend").load('../GetNotification');
+		 }, 1000); */
 
 	});
 </script>
@@ -141,6 +141,9 @@
 									<a href="profile.jsp">profile</a>
 								</h5></li>
 							<li><h5>
+									<a href="changePassword.jsp">change password</a>
+								</h5></li>
+							<li><h5>
 									<a href="repPoints.jsp">reputation</a>
 								</h5></li>
 							<li><h5>
@@ -148,12 +151,11 @@
 								</h5></li>
 						</ul>
 					</div>
-					
-						<li class='nav-fields'><h4>
-								<a href="notifications.jsp"><i class='fa fa-bullhorn'></i>&nbsp;<span
-									class='notificationCount' id="notification"> </span></a>
-							</h4></li>
-<!-- 						<li class='nav-fields'><h4>
+				<li class='nav-fields'><h4>
+						<a href="notifications.jsp"><i class='fa fa-bullhorn'></i>&nbsp;<span
+							class='notificationCount' id="notification"> </span></a>
+					</h4></li>
+				<!-- 						<li class='nav-fields'><h4>
 								<i class='fa fa-envelope-o'></i>&nbsp;<span
 									class='notificationCount' id="notification"> </span>
 							</h4></li>
@@ -161,7 +163,7 @@
 								<i class='fa fa-female'></i>&nbsp;<span
 									class='notificationCount' id="friend"> </span>
 							</h4></li> -->
-			
+
 			</ul>
 		</div>
 	</div>
