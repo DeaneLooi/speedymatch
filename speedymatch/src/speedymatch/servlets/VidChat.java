@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
+
 import speedymatch.entities.Notification;
 import speedymatch.entities.dao.NotificationDAO;
+import speedymatch.utils.NotificationVariables;
 
 /**
  * Servlet implementation class VidChat
@@ -37,10 +39,14 @@ public class VidChat extends HttpServlet {
 	
 		if (false) // receiver online and accept
 		{
-			response.sendRedirect("pages/VidConIFrame.jsp");
+			Notification oldNote = new Notification(sender, receiver,NotificationVariables.VIDEOCONF);
+			NotificationDAO.deleteNotification(oldNote);
+			System.out.println("Deleted notification");
+			//response.sendRedirect("pages/VidConIFrame.jsp");
+			
 		}
 		else {
-		Notification newNote = new Notification(sender,receiver,"VIDEOCONF");
+		Notification newNote = new Notification(sender,receiver,NotificationVariables.VIDEOCONF);
 		NotificationDAO.createNotification(newNote);
 		//Alert msg for successful requesting
 		Object obj = new Object();
