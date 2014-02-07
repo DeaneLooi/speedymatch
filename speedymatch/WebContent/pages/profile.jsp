@@ -89,7 +89,7 @@
 	%>
 	<center>
 		<!-- content here -->
-		<FORM method="post"
+		<FORM method="get"
 			action="${pageContext.request.contextPath}/ProfileServlet">
 			<table class="profile">
 				<tr class="prepend field">
