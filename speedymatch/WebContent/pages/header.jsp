@@ -45,6 +45,31 @@
 
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="../gumby/js/libs/modernizr-2.6.2.min.js"></script>
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+
+		$.ajaxSetup({
+			cache : false
+		});
+
+		setInterval(function() {
+			$("#notification").load('../GetNotification');
+		}, 1000);
+		
+/* 		setInterval(function() {
+			$("alert").load('../GetNotification');
+		}, 1000);
+		
+		setInterval(function() {
+			$("friend").load('../GetNotification');
+		}, 1000); */
+
+	});
+</script>
+
 </head>
 
 
@@ -123,27 +148,20 @@
 								</h5></li>
 						</ul>
 					</div>
-				<li class="nav-fields" id="alert"
-					onclick="alert('someone just visit your profile!')">
-					<h4>
-						<i class="fa fa-bullhorn"></i>&nbsp;
-					</h4>
-				</li>
-				<li class="nav-fields" id="alert"
-					onclick="alert('new private message')">
-					<h4>
-						<i class="fa fa-envelope-o"></i>&nbsp;
-					</h4>
-				</li>
-				<li class="nav-fields" id="alert"
-					onclick="alert('new friend request')">
-					<h4>
-						<i class="fa fa-female"></i>
-					</h4>
-				</li>
-
-
-
+					
+						<li class='nav-fields'><h4>
+								<a href="notifications.jsp"><i class='fa fa-bullhorn'></i>&nbsp;<span
+									class='notificationCount' id="notification"> </span></a>
+							</h4></li>
+<!-- 						<li class='nav-fields'><h4>
+								<i class='fa fa-envelope-o'></i>&nbsp;<span
+									class='notificationCount' id="notification"> </span>
+							</h4></li>
+						<li class='nav-fields'><h4>
+								<i class='fa fa-female'></i>&nbsp;<span
+									class='notificationCount' id="friend"> </span>
+							</h4></li> -->
+			
 			</ul>
 		</div>
 	</div>
@@ -165,10 +183,12 @@
 					<div class="dropdown friendActivities">
 						<ul>
 							<li><h6>
-									<a href="friendProfile.jsp?username=<%=friends.get(i)%>">View Profile</a>
+									<a href="friendProfile.jsp?username=<%=friends.get(i)%>">View
+										Profile</a>
 								</h6></li>
 							<li><h6>
-									<a href="message.jsp?username=<%=friends.get(i)%>&i=<%=i%>">Send Message</a>
+									<a href="message.jsp?username=<%=friends.get(i)%>&i=<%=i%>">Send
+										Message</a>
 								</h6></li>
 							<li><h6>
 									<a href="cinemaForm.jsp">Invite for movie</a>
@@ -177,11 +197,15 @@
 									<a href="inviteSystem.jsp">Member Invite</a>
 								</h6></li>
 							<li><h6>
-									<a href="${pageContext.request.contextPath}/DeleteFriend?username=<%=username%>&friendId=<%=friends.get(i)%>">Delete Friend</a>
+									<a
+										href="${pageContext.request.contextPath}/DeleteFriend?username=<%=username%>&friendId=<%=friends.get(i)%>">Delete
+										Friend</a>
 								</h6></li>
-								
+
 							<li><h6>
-									<a href="${pageContext.request.contextPath}/VidChat?username=<%=username%>&friendId=<%=friends.get(i)%>">Video Chat</a>
+									<a
+										href="${pageContext.request.contextPath}/VidChat?username=<%=username%>&friendId=<%=friends.get(i)%>">Video
+										Chat</a>
 								</h6></li>
 						</ul>
 					</div>

@@ -182,6 +182,12 @@ body{
 	background-color: salmon !important;
 }
 
+
+.notificationCount{
+	position:relative;
+	color:white;
+}
+
 ::-webkit-scrollbar {
       width: 15px;
 } /* this targets the default scrollbar (compulsory) */
