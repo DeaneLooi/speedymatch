@@ -55,6 +55,10 @@
 	type="image/x-icon" />
 <link rel="stylesheet" href="../css/profile.css">
 </head>
+${alert}
+<%
+request.getSession().removeAttribute("alert");
+%>
 <body>
 	<%@ include file="header.jsp"%>
 	<%@ page

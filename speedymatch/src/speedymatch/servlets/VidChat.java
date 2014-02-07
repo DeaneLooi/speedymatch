@@ -7,6 +7,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 
 import speedymatch.entities.Notification;
 import speedymatch.entities.dao.NotificationDAO;
@@ -40,7 +42,11 @@ public class VidChat extends HttpServlet {
 		else {
 		Notification newNote = new Notification(sender,receiver,"VIDEOCONF");
 		NotificationDAO.createNotification(newNote);
-		response.sendRedirect("pages/profile..jsp");
+		//Alert msg for successful requesting
+		Object obj = new Object();
+		obj="<script>alert('Request Successful')</script>";
+		request.getSession().setAttribute("alert",obj);
+		response.sendRedirect("pages/profile.jsp?");
 		}
 	}
 
