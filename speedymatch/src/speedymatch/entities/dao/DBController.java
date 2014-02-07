@@ -71,7 +71,7 @@ public class DBController {
 		DataSource ds = null;
 		try {
 			ds = (DataSource)
-			  envCtx.lookup("jdbc/EmployeeDB");
+			  envCtx.lookup("jdbc/SpeedyMatchDB");
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
