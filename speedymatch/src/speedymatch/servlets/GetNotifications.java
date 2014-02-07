@@ -43,6 +43,11 @@ public class GetNotifications extends HttpServlet {
 		Notification n = new Notification(null,m.getUsername(),null);
 		ArrayList<Notification> notifications = NotificationDAO.retrieveNotifications(n);
 		
+		for (int i=0; i<notifications.size(); i++){
+		System.out.println("retrieved notification = "+notifications.get(i).getSender());
+		System.out.println(notifications.get(i).getReceiver());
+		System.out.println(notifications.get(i).getNotification());
+		}
 		PrintWriter writer = response.getWriter();
 		
 		String html = "";		
@@ -71,6 +76,7 @@ public class GetNotifications extends HttpServlet {
 			}
 			
 			else if(n1.getNotification().equals(NotificationVariables.VIDEOCONF)){
+				System.out.println("Showing vidconf notofication.");
 				html+="<div style='background-color:lightgray;border-style:solid;border-color:white;border-width:1px;padding:5px'>";
 				html+="<p>"+n1.getSender()+" has invited you to a video chat</p>";
 				html+="<a href='../'>Accept</a>&nbsp;";
