@@ -78,16 +78,22 @@ public class ProfileServlet extends HttpServlet {
 				eduLevel, hobby, Integer.parseInt(height),
 				Integer.parseInt(weight), race, religion, child, horo,
 				occupation, smoking, drinking, relaStatus);
-		Member member = new Member(username, cpw, email, fname, lname, dateOB);
+		Member member = new Member(username, email, fname, lname, dateOB);
 
 		ProfileDAO.updateProfile(profile);
 		MemberDAO.updateMember(member);
+		/*
+		 * member.setPasswd(cpw); MemberDAO.changePassword(member);
+		 * MemberDAO.updateMember(member);
+		 */
 
 		response.sendRedirect("pages/profile.jsp");
 
-		if (member != null && profile != null) {
-			System.out
-					.println("<html><body><script>alert('Update successful!');</script></body></html>");
-		}
+		/*
+		 * System.out .println(
+		 * "<html><body><script>alert('Update successful!');</script></body></html>"
+		 * );
+		 */
+
 	}
 }
