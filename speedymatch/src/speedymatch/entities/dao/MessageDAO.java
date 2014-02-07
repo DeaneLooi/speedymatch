@@ -115,16 +115,4 @@ public class MessageDAO {
 		return true;
 	}
 
-	public static void main(String args[]) throws Exception {
-		
-		ArrayList<Messages> messages = MessageDAO.searchMessages("tanwaikit", "deane");
-		
-		for(int i=0;i<messages.size();i++){
-			System.out.println(messages.get(i).getMessage());
-		}
-		
-/*		String message = Algorithms.encrypt("akjshd", "testingsecretkey");
-		Messages n = new Messages("deane","tanwaikit",message,new java.util.Date());
-		MessageDAO.createMessage(n);*/
-	}
 }

@@ -84,11 +84,5 @@ public class AdminSearchDAO {
 		}
 		return profile;
 	}
-	
-	public static void main(String args[]) {
-		//AdminSearchDAO a = new AdminSearchDAO();
-		Member m =new Member("tanwaikit", "tanwaikit");
-		AdminSearchDAO.advanceSearch(m);
-		
-	}
+
 }

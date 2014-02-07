@@ -113,8 +113,4 @@ public class NotificationDAO {
 		
 	}
 	
-	public static void main(String args[]){
-		Notification n = new Notification("deane","tanwaikit",NotificationVariables.CINEMA);
-		NotificationDAO.deleteNotification(n);
-	}
 }

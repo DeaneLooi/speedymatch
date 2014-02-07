@@ -159,11 +159,4 @@ public class FriendListDAO {
 		return d;
 	}
 	
-	public static void main(String args[]){
-		
-		FriendList f = new FriendList("tanwaikit");
-
-		
-		FriendListDAO.deleteFriends(f, "samuel");
-	}
 }

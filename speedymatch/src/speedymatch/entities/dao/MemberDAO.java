@@ -55,11 +55,9 @@ public class MemberDAO {
 			FriendList fl = new FriendList(member.getUsername(), null);
 			FriendListDAO.createFriendList(fl);
 
-			
 			Profile profile = new Profile();
 			profile.setUsername(member.getUsername());
 			ProfileDAO.createProfile(profile);
-			 
 
 		} catch (Exception ex) {
 
@@ -130,32 +128,37 @@ public class MemberDAO {
 		Connection currentCon = db.getConnection();
 		ResultSet rs = null;
 		String password = "";
-		try {
-			String selectQuery = "select passwd from Member where username= ?";
-			PreparedStatement pstmt1 = currentCon.prepareStatement(selectQuery);
-			pstmt1.setString(1, member.getUsername());
-			rs = pstmt1.executeQuery();
-			while (rs.next()) {
-				password = rs.getString(1);
-			}
+		if (!member.getPasswd().isEmpty()) {
 
-			String query = "update Member set passwd = ? where username = ?";
-			PreparedStatement pstmt = currentCon.prepareStatement(query);
-			pstmt.setString(1, member.getPasswd());
-			pstmt.setString(2, member.getUsername());
-			pstmt.executeUpdate();
-		} catch (Exception ex) {
-			System.out.println("Update failed: An Exception has occurred! "
-					+ ex);
-		} finally {
-
-			if (currentCon != null) {
-				try {
-					currentCon.close();
-				} catch (Exception e) {
+			try {
+				String selectQuery = "select passwd from Member where username= ?";
+				PreparedStatement pstmt1 = currentCon
+						.prepareStatement(selectQuery);
+				pstmt1.setString(1, member.getUsername());
+				rs = pstmt1.executeQuery();
+				while (rs.next()) {
+					password = rs.getString(1);
 				}
 
-				currentCon = null;
+				String query = "update Member set passwd = ? where username = ?";
+				PreparedStatement pstmt = currentCon.prepareStatement(query);
+				pstmt.setString(1, member.getPasswd());
+				pstmt.setString(2, member.getUsername());
+				pstmt.executeUpdate();
+
+			} catch (Exception ex) {
+				System.out.println("Update failed: An Exception has occurred! "
+						+ ex);
+			} finally {
+
+				if (currentCon != null) {
+					try {
+						currentCon.close();
+					} catch (Exception e) {
+					}
+
+					currentCon = null;
+				}
 			}
 		}
 
@@ -202,15 +205,15 @@ public class MemberDAO {
 
 	}
 
-	public static boolean checkEmail(String email) {
+	public static boolean checkEmail(Member mem,String email) {
 		boolean check = false;
 		Connection currentCon = db.getConnection();
 		ResultSet rs = null;
 		Member m = new Member(null, null);
 		try {
-			String query = "select email from Member where email = ?;";
+			String query = "select email from Member where username = ?;";
 			PreparedStatement pstmt = currentCon.prepareStatement(query);
-			pstmt.setString(1, email);
+			pstmt.setString(1, mem.getUsername());
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
@@ -230,7 +233,15 @@ public class MemberDAO {
 			}
 		}
 		if (m.getEmail() != null) {
-			check = true;
+			
+			if(m.getEmail().equals(email)){
+				check = false;
+			}
+			
+			else{
+				check = true;
+			}
+			
 		}
 
 		else {

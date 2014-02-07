@@ -24,13 +24,22 @@
 	<%@ page import = "speedymatch.entities.Member,
 				speedymatch.entities.dao.MemberDAO,
 				java.util.Date,
-				speedymatch.utils.Algorithms" %>
+				speedymatch.utils.Algorithms,
+				speedymatch.entities.Notification,
+				speedymatch.entities.dao.NotificationDAO,
+				speedymatch.utils.NotificationVariables" %>
 	<%
 	String userProfile = request.getParameter("username"); 
 	Member memProfile = new Member(userProfile,null);
 	memProfile = MemberDAO.retrieveAccount(memProfile);
 	Date dob = memProfile.getDob();
+	
+	Notification n = new Notification(memProfile.getUsername(),userProfile,NotificationVariables.ALERT);
+	NotificationDAO.createNotification(n);
+	
+	
 			
+
 	%>
 	<center class=content>
 		<!-- content here -->

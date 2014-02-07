@@ -3,13 +3,19 @@ package speedymatch.entities.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 
 public class DBController {
 	
 	private Connection con;
-	private String dbSource="//127.0.0.1:3306/speedymatch";
+/*	private String dbSource="//127.0.0.1:3306/speedymatch";
 	private String user="adming1vWayv";
-	private String password="2MVCBKUIFISG";
+	private String password="2MVCBKUIFISG";*/
 	
 	
 	public DBController(){
@@ -36,7 +42,7 @@ public class DBController {
 	
 	public Connection getConnection(){ 
 
-		String url = ""; 
+/*		String url = ""; 
 		try { 
 			url = "jdbc:mysql:"+dbSource; 
 			con=DriverManager.getConnection(url,user,password);
@@ -46,6 +52,37 @@ public class DBController {
 			System.out.println("Connection failed ->"+ dbSource); 
 			System.out.println(e); 
 		} 
+		return con;*/
+		
+		Context initCtx = null;
+		try {
+			initCtx = new InitialContext();
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Context envCtx = null;
+		try {
+			envCtx = (Context) initCtx.lookup("java:comp/env");
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		DataSource ds = null;
+		try {
+			ds = (DataSource)
+			  envCtx.lookup("jdbc/EmployeeDB");
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		try {
+			con = ds.getConnection();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return con;
 	} 
 	

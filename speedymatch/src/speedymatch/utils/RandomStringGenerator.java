@@ -1,11 +1,11 @@
 package speedymatch.utils;
 
-import java.util.Random;
+import java.security.SecureRandom;
 
 public class RandomStringGenerator {
 	
-	static final String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	static Random rnd = new Random();
+	private static final String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	private static SecureRandom rnd = new SecureRandom();
 	
 	public static String getRandomString(int len){
 		

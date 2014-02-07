@@ -49,14 +49,6 @@ public class MovieDAO {
 		}
 		return movies;
 	}
-	
-	public static void main(String args[]){
-		
-		ArrayList<Movie> movies = MovieDAO.retrieveMovies();
-		
-		for(int i=0; i < movies.size(); i++){
-			System.out.println(movies.get(i).getMovieId()+movies.get(i).getMovieUrl());
-		}
-	}
+
 
 }

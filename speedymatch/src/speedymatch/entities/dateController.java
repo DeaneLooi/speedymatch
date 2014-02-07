@@ -1,4 +1,4 @@
-package speedymatch.entities;
+/*package speedymatch.entities;
 
 public class dateController {
  private String midpoint;
@@ -59,3 +59,4 @@ public String sendRequest(String initiatorID, String receiverID){
 	 
  }
 }
+*/

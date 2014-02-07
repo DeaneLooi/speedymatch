@@ -58,20 +58,18 @@ public class Message extends HttpServlet {
 		PrintWriter writer = response.getWriter();
 		String html = "";
 		String content = "";
-
 		
 		for(int i=0; i< receivedmessages.size();i++){
 			sentmessages.add(receivedmessages.get(i));
 		}
 		
 		for(int i=0; i<sentmessages.size();i++){
-			content+=sentmessages.get(i).getSender()+": "+sentmessages.get(i).getMessage()+"\r\n";
+			content+="<p>"+sentmessages.get(i).getSender()+": "+sentmessages.get(i).getMessage()+"</p>";
 		}
 		
-		
 		html+= content;
-		System.out.println(html);
-		writer.write(html);
+		writer.println(html);
+		writer.println("fuck ur mum");
 		writer.close();
 	}
 
