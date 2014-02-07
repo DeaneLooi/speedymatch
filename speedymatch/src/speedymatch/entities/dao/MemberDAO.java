@@ -187,6 +187,7 @@ public class MemberDAO {
 				try {
 					currentCon.close();
 				} catch (Exception e) {
+					e.printStackTrace();
 				}
 
 				currentCon = null;
@@ -205,19 +206,19 @@ public class MemberDAO {
 
 	}
 
-	public static boolean checkEmail(String username,String email) {
+	public static boolean checkEmail(String email) {
 		boolean check = false;
 		Connection currentCon = db.getConnection();
 		ResultSet rs = null;
-		Member m = new Member(null, null);
+		String e = null;
 		try {
-			String query = "select email from Member where username = ?;";
+			String query = "select email from Member where email = ?;";
 			PreparedStatement pstmt = currentCon.prepareStatement(query);
-			pstmt.setString(1, username);
+			pstmt.setString(1, email);
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				m.setEmail(rs.getString(1));
+				e = rs.getString("email");
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -226,22 +227,15 @@ public class MemberDAO {
 			if (currentCon != null) {
 				try {
 					currentCon.close();
-				} catch (Exception e) {
+				} catch (Exception ex) {
+					ex.printStackTrace();
 				}
 
 				currentCon = null;
 			}
 		}
-		if (m.getEmail() != null) {
-			
-			if(m.getEmail().equals(email)){
-				check = false;
-			}
-			
-			else{
-				check = true;
-			}
-			
+		if (e==null) {
+			check = true;
 		}
 
 		else {

@@ -55,7 +55,7 @@ public class Register extends HttpServlet {
 				if(MemberDAO.checkUsername(username)){
 					String email = (String)request.getParameter("email");
 					
-					if(MemberDAO.checkEmail(username,email)){
+					if(MemberDAO.checkEmail(email)){
 						String passwd = (String)request.getParameter("password");
 						String fName = (String)request.getParameter("fName");
 						String lName = (String)request.getParameter("lName");

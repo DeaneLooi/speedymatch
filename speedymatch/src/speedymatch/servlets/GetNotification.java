@@ -35,9 +35,7 @@ public class GetNotification extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		
-			System.out.println("S..");
-			
+
 			response.setContentType("text/xml");
 		    response.setHeader("Cache-Control", "no-cache");
 		    
