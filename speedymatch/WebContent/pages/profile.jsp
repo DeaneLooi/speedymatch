@@ -89,8 +89,8 @@
 	%>
 	<center>
 		<!-- content here -->
-		<FORM method="get"
-			action="${pageContext.request.contextPath}/ProfileServlet">
+		<FORM method="post"
+			action="${pageContext.request.contextPath}/Profile">
 			<table class="profile">
 				<tr class="prepend field">
 					<td><span class="adjoined">User ID</span></td>
