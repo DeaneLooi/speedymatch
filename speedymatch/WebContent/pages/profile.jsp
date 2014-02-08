@@ -21,17 +21,6 @@
 		document.getElementById("digit2").innerHTML = rand_num2;
 	});
 
-	function chckpw() {
-		var pw = document.getElementById("pw").text;
-		var pw2 = document.getElementById("cpw").text;
-
-		if (pw == pw2) {
-			document.getElementById("updateBtn").disabled = false;
-			return true;
-		} else
-			return false;
-	}
-
 	function validate() {
 		var answer = document.getElementById("answer").value;
 		var digit1 = parseInt(document.getElementById("digit1").innerHTML);
@@ -57,7 +46,7 @@
 </head>
 ${alert}
 <%
-request.getSession().removeAttribute("alert");
+	request.getSession().removeAttribute("alert");
 %>
 <body>
 	<%@ include file="header.jsp"%>
@@ -96,73 +85,76 @@ request.getSession().removeAttribute("alert");
 		<FORM method="post"
 			action="${pageContext.request.contextPath}/Profile">
 			<table class="profile">
+				<caption>Profile</caption>
 				<tr class="prepend field">
-					<td><span class="adjoined">User ID</span></td>
-					<td><label id="userID"><%=username%></label></td>
+					<th><span class="adjoined">User ID</span></th>
+					<td><h3 id="username"><%=username%></h3></td>
 				</tr>
 				<tr class="prepend field">
-					<td><span class="adjoined">Age</span></td>
+					<th><span class="adjoined">Age</span></th>
 					<td><input name="age" class="xwide text input" type="text"
 						placeholder="enter age" value=<%=age%>></td>
 				</tr>
-<!-- 				<tr class="prepend field">
-					<td><span class="adjoined">New Password</span></td>
+				<!-- 				<tr class="prepend field">
+					<th><span class="adjoined">New Password</span></th>
 					<td><input name="pw " class="password input" type="password"
 						placeholder="Enter new password"></td>
 				</tr>
 				<tr class="prepend field">
-					<td><span class="adjoined">Confirm Password</span></td>
+					<th><span class="adjoined">Confirm Password</span></th>
 					<td><input name="cpw" class="password input" type="password"
 						placeholder="Enter password again"></td>
 				</tr> -->
 				<tr class="prepend field">
-					<td><span class="adjoined">First Name</span></td>
+					<th><span class="adjoined">First Name</span></th>
 					<td><input name="fname" class="xwide text input" type="text"
 						placeholder="enter first name" value=<%=fname%>></td>
 				</tr>
 				<tr class="prepend field">
-					<td><span class="adjoined">Last Name</span></td>
+					<th><span class="adjoined">Last Name</span></th>
 					<td><input name="lname" class="xwide text input" type="text"
 						placeholder="Enter last name" value=<%=lname%>></td>
 				</tr>
 				<tr class="prepend field">
-					<td><span class="adjoined">Email</span></td>
+					<th><span class="adjoined">Email</span></th>
 					<td><input name="email" class="email input" type="text"
 						placeholder="Enter email" value=<%=email%>></td>
 				</tr>
 				<tr class="prepend field">
-					<td><span class="adjoined">Date of Birth</span></td>
+					<th><span class="adjoined">Date of Birth</span></th>
 					<td><input name="dob" class="xwide text input" type="date"
 						placeholder="DDMMYYYY" value=<%=dob%>></td>
 				</tr>
 				<tr class="prepend field">
-					<td><span class="adjoined">Height:</span></td>
+					<th><span class="adjoined">Height:</span></th>
 					<td><input name="height" class="narrow text input" type="text"
 						value=<%=height%>><span class="adjoined">cm</span></td>
 				</tr>
 				<tr class="prepend field">
-					<td><span class="adjoined">Weight</span></td>
+					<th><span class="adjoined">Weight</span></th>
 					<td><input name="weight" class="narrow text input" type="text"
 						value=<%=weight%>><span class="adjoined">kg</span></td>
 				</tr>
 				<tr class="prepend field">
-					<td><span class="adjoined">Gender</span></td>
+					<th><span class="adjoined">Gender</span></th>
 					<td><label class="radio" for="male"> <input
 							name="gender" value="m" type="radio"> <span></span>Male
 					</label> <label class="radio" for="female"> <input name="gender"
 							value="f" type="radio"> <span></span>Female
 					</label></td>
+					<td><span>pre-edit: <%=gender%></span></td>
 				</tr>
 				<tr class="prepend field">
-					<td><span class="adjoined">Want children?</span></td>
+					<th><span class="adjoined">Want children?</span></th>
 					<td><label class="radio checked" for="yes"> <input
 							name="child" value="yes" type="radio" id="yes"> <span></span>Yes
 					</label> <label class="radio" for="no"> <input name="child"
 							value="no" type="radio" id="no"> <span></span>No
 					</label></td>
+					<td><span>pre-edit: <%=child%></span></td>
 				</tr>
 				<tr class="prepend field">
-					<td><span class="adjoined">Smokes?</span></td>
+					<th><span class="adjoined">Smokes?</span></th>
 					<td><div class="picker">
 							<select name="smoking">
 								<option value="no">No</option>
@@ -170,9 +162,10 @@ request.getSession().removeAttribute("alert");
 								<option value="often">Often</option>
 							</select>
 						</div></td>
+					<td><span>pre-edit: <%=smoking%></span></td>
 				</tr>
 				<tr class="prepend field">
-					<td><span class="adjoined">Drinks?</span></td>
+					<th><span class="adjoined">Drinks?</span></th>
 					<td><div class="picker">
 							<select name="drinking">
 								<option value="no">No</option>
@@ -180,9 +173,10 @@ request.getSession().removeAttribute("alert");
 								<option value="often">Often</option>
 							</select>
 						</div></td>
+					<td><span>pre-edit: <%=drinking%></span></td>
 				</tr>
 				<tr class="prepend field">
-					<td><span class="adjoined">Relationship Status</span></td>
+					<th><span class="adjoined">Relationship Status</span></th>
 					<td><div class="picker">
 							<select name="relaStatus">
 								<option value="single">Single</option>
@@ -191,9 +185,10 @@ request.getSession().removeAttribute("alert");
 								<option value="separated">Separated</option>
 							</select>
 						</div></td>
+					<td><span>pre-edit: <%=relaStatus%></span></td>
 				</tr>
 				<tr class="prepend field">
-					<td><span class="adjoined">Horoscope</span></td>
+					<th><span class="adjoined">Horoscope</span></th>
 					<td><div class="picker">
 							<select name="horo">
 								<option value="aries">Aries</option>
@@ -210,9 +205,10 @@ request.getSession().removeAttribute("alert");
 								<option value="pisces">Pisces</option>
 							</select>
 						</div></td>
+					<td><span>pre-edit: <%=horo%></span></td>
 				</tr>
 				<tr class="prepend field">
-					<td><span class="adjoined">Education Level</span></td>
+					<th><span class="adjoined">Education Level</span></th>
 					<td><div class="picker">
 							<select name="eduLevel">
 								<option value="high school and below">High School and
@@ -224,9 +220,10 @@ request.getSession().removeAttribute("alert");
 								<option value="doctorate and above">Doctorate and above</option>
 							</select>
 						</div></td>
+					<td><span>pre-edit: <%=eduLevel%></span></td>
 				</tr>
 				<tr class="prepend field">
-					<td><span class="adjoined">Occupation</span></td>
+					<th><span class="adjoined">Occupation</span></th>
 					<td><div class="picker">
 							<select name="occupation">
 								<option value="business owner">Business owner</option>
@@ -244,9 +241,10 @@ request.getSession().removeAttribute("alert");
 								<option value="others">Others</option>
 							</select>
 						</div></td>
+					<td><span>pre-edit: <%=occupation%></span></td>
 				</tr>
 				<tr class="prepend field">
-					<td><span class="adjoined">Race</span></td>
+					<th><span class="adjoined">Race</span></th>
 					<td><div class="picker">
 							<select id="race">
 								<option value="chinese">Chinese</option>
@@ -255,9 +253,10 @@ request.getSession().removeAttribute("alert");
 								<option value="others">Others</option>
 							</select>
 						</div></td>
+					<td><span>pre-edit: <%=race%></span></td>
 				</tr>
 				<tr class="prepend field">
-					<td><span class="adjoined">Religion</span></td>
+					<th><span class="adjoined">Religion</span></th>
 					<td><div class="picker">
 							<select id="religion">
 								<option value="buddhist">Buddhist</option>
@@ -267,9 +266,10 @@ request.getSession().removeAttribute("alert");
 								<option value="others">Others</option>
 							</select>
 						</div></td>
+					<td><span>pre-edit: <%=religion%></span></td>
 				</tr>
 				<tr class="prepend field">
-					<td><span class="adjoined">Hobbies</span></td>
+					<th><span class="adjoined">Hobbies</span></th>
 					<td><label class="checkbox" for="online activities"> <input
 							name="hobby" type="checkbox" value="online activities"> <span></span>
 							Online activities
@@ -298,6 +298,7 @@ request.getSession().removeAttribute("alert");
 							name="hobby" type="checkbox" value="traveling"> <span></span>
 							Traveling
 					</label></td>
+					<td><span>pre-edit: <%=hobby%></span></td>
 				</tr>
 				<tr>
 					<td>&nbsp;</td>
