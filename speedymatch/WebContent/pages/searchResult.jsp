@@ -11,7 +11,7 @@
 <%@ include file="header.jsp"%>
 <center>
 <!-- content here -->
-<table width="500" align="center" border="1";>
+<table width="700" align="center" border="1";>
 	          <theader> 
                 <tb><b>Result</b></tb>
               </theader> 
@@ -35,50 +35,25 @@
                 <td><%=pList.get(0)%></td>
             </tr>
             <tr>
-                <td><b>First Name</b></td>
+                <td><b>Gender</b></td>
                 <td><%=pList.get(1)%></td>
             </tr>
             <tr>
-                <td><b>Last Name</b></td>
+                <td><b>Age</b></td>
                 <td><%=pList.get(2)%></td>
             </tr>
             <tr>
-                <td><b>Age</b></td>
+                <td><b>Height(CM)</b></td>
                 <td><%=pList.get(3)%></td>
             </tr>
             <tr>
-                <td><b>Gender</b></td>
+                <td><b>Weight(KG)</b></td>
                 <td><%=pList.get(4)%></td>
             </tr>
             <tr>
-                <td><b>Education level</b></td>
-                <td><%=pList.get(5)%></td>
+            <td>&nbsp;</td>
             </tr>
-            <tr>
-                <td><b>Hobby</b></td>
-                <td><%=pList.get(6)%></td>
-            </tr>
-            <tr>
-                <td><b>Height</b></td>
-                <td><%=pList.get(7)%></td>
-            </tr>
-            <tr>
-                <td><b>Weight</b></td>
-                <td><%=pList.get(8)%></td>
-            </tr>
-            <tr>
-                <td><b>Race</b></td>
-                <td><%=pList.get(9)%></td>
-            </tr>
-            <tr>
-                <td><b>Religion</b></td>
-                <td><%=pList.get(10)%></td>
-            </tr>
-            <tr>
-                <td><b>Child</b></td>
-                <td><%=pList.get(11)%></td>
-            </tr>
-            
+          
             <%
                     }
                 }
@@ -90,6 +65,7 @@
             <%            }
             %>
         </table>
+       
 </center>
 <%@ include file="footer.jsp"%>
 </body>

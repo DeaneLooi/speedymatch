@@ -18,55 +18,55 @@
 
 	<div class="search" id="header-s">
 		<div class="header-looking" id="search-h">I am looking for...</div>
-		<div class="header-looking" id="search-btn">
-		</div>
+		
 	</div>
 
 	<div class="search" id="left-search">
 
 		<form action ="${pageContext.request.contextPath}/Search" method="post">
+			<table width="700px">
 			
-			<div class="header-looking" id="search-btn">
-			<input type="submit" value="Search" /> 
-			</div>
-			<ul>
+		<div class="medium default btn">
+		<input type ="submit" name="submit" value="Search">
+		</div>
+			
+			<tr class="prepend field">
 				<!-- gender -->
-				<li class="field"><span class="title">Gender:</span><label 
-						class="drop">
-							
+				<td><span>Gender:</span></td>
+					<td><div class="picker">		
 								<select name ="gen">
 									<option>Male</option>
 									<option>Female</option>
 								</select>
-							
-					</label></li>
-					
+					</div></td>		
+			</tr>
+			<tr class="prepend field">
 				<!-- smoking -->
-				<li class="field"><span class="title">Smoking:</span><label 
-						class="drop">
-							
+				<td><span>Smoking:</span></td>
+							<td><div class="picker">
 								<select name="smoke">
-									<option>no</option>
-									<option>yes</option>
-									<option>occasionally</option>
+									<option>No</option>
+									<option>Yes</option>
+									<option>Occasionally</option>
 								</select>
-							
-					</label></li>	
-					<!-- smoking -->
-				<li class="field"><span class="title">Drinking:</span><label 
-						class="drop">
-							
+							</div></td>
+						
+			</tr>
+			
+			<tr class="prepend field">
+					<!-- drinking -->
+				<td><span>Drinking:</span>
+							<td><div class="picker">
 								<select name="drink">
-									<option>no</option>
-									<option>yes</option>
-									<option>occasionally</option>
+									<option>No</option>
+									<option>Yes</option>
+									<option>Occasionally</option>
 								</select>
-							
-					</label></li>	
-					<!-- smoking -->
-				<li class="field"><span class="title">Status:</span><label 
-						class="drop">
-							
+					</div></td></tr>		
+						
+					<tr class="prepend field">
+				<td><span>Status:</span>
+							<td><div class="picker">
 								<select name="status">
 									<option>Single</option>
 									<option>Divorced</option>
@@ -74,22 +74,20 @@
 									<option>Separated</option>
 								</select>
 							
-					</label></li>
-				
-				<li class="field"><span class="title">Child:</span><label 
-						class="drop">
-							
+					</div></td></tr>
+				<tr class="prepend field">
+				<td><span>Want child:</span>
+							<td><div class="picker">
 								<select name="child">
-									<option>no</option>
-									<option>yes</option>
+									<option>No</option>
+									<option>Yes</option>
 								</select>
 						
-					</label></li>
+					</div></td></tr>
 					
-					
-					<li class="field"><span class="title">Education:</span><label
-						class="drop">
-							
+					<tr class="prepend field">
+					<td><span>Education:</span>
+							<td><div class="picker">
 								<select name="edu">
 									<option>College</option>
 									<option>Diploma</option>
@@ -98,11 +96,10 @@
 									<option>Doctoral or above</option>
 								</select>
 							
-					</label></li>	
-					
-					<li class="field"><span class="title">Zodiac:</span><label
-						class="drop">
-							
+					</div></td>	</tr>
+					<tr class="prepend field">
+					<td><span>Zodiac:</span>
+							<td><div class="picker">
 								<select name ="zodiac">
 									<option>Aries</option>
 									<option>Taurus</option>
@@ -118,21 +115,20 @@
 									<option>Pisces</option>
 								</select>
 							
-					</label></li>	
-					
-					<li class="field"><span class="title">Occupation:</span><label
-						class="drop">
-						
-								<select name="occ">
+					</div></td>	</tr>
+					<tr class="prepend field">
+					<td><span>Occupation:</span>
+							<td><div class="picker">
+								<select name="occupation">
 
-									<option>Business owner</option>
+									<option>IT</option>
 									<option>Blue collar</option>
 									<option>Sales</option>
 									<option>Medical field</option>
 									<option>Education</option>
 									<option>Legal</option>
 									<option>Finance</option>
-									<option>IT</option>
+									<option>Business owner</option>
 									<option>Engineer</option>
 									<option>Hospitality</option>
 									<option>Government</option>
@@ -140,11 +136,10 @@
 									<option>Others</option>
 								</select>
 							
-					</label></li>
-					
-					<li class="field"><span class="title">Race:</span><label
-						class="drop">
-						
+					</div></td></tr>
+					<tr class="prepend field">
+					<td><span>Race:</span>
+						<td><div class="picker">
 								<select name="race">
 
 									<option>Chinese</option>
@@ -154,11 +149,10 @@
 									
 								</select>
 							
-					</label></li>
-					
-					<li class="field"><span class="title">Religion:</span><label
-						class="drop">
-						
+					</div></td>
+					<tr class="prepend field">
+					<td><span>Religion:</span>
+						<td><div class="picker">
 								<select name="religion">
 
 									<option>Buddhist</option>
@@ -168,15 +162,14 @@
 									<option>Others</option>
 								</select>
 							
-					</label></li>
-					
-					<li class="field"><span class="title">Hobby:</span><label
-						class="drop">
-						
+					</div></td></tr>
+					<tr class="prepend field">
+					<td><span>Hobby:</span>
+						<td><div class="picker">
 								<select name="hobby">
-									<option>Outdoor recreation</option>
-									<option>Performing arts</option>
 									<option>Cooking</option>
+									<option>Performing arts</option>
+									<option>Outdoor recreation</option>
 									<option>Gardening</option>
 									<option>Sports</option>
 									<option>Reading</option>
@@ -185,30 +178,10 @@
 									<option>Online activity</option>
 								</select>
 							
-					</label></li>
-						
-				<!-- 				age -->
-<!-- 				<li class="field"><span class="title">Age:</span> <label -->
-<!-- 					class="age"><input class="xnarrow text input" type="text" -->
-<!-- 						placeholder="18"> </label>to <label class="age"><input -->
-<!-- 						class="xnarrow text input" type="text" placeholder="80"> </label></li> -->
+					</div></td></tr>
 
-<!-- 				height -->
-<!-- 				<li class="field"><span class="title">Height:</span> Min. <label -->
-<!-- 					class="height-weight"><input class="xnarrow text input" -->
-<!-- 						type="text" placeholder="150cm"> </label>Max. <label -->
-<!-- 					class="height-weight"><input class="xnarrow text input" -->
-<!-- 						type="text" placeholder="200cm"> </label></li> -->
-
-<!-- 				weight -->
-<!-- 				<li class="field"><span class="title">Weight:</span> Min. <label -->
-<!-- 					class="height-weight" id="weight"><input -->
-<!-- 						class="xnarrow text input" type="text" placeholder="40kg"> -->
-<!-- 				</label>Max. <label class="height-weight" id="weight"><input -->
-<!-- 						class="xnarrow text input" type="text" placeholder="200kg"> -->
-<!-- 				</label></li> -->
-
-			</ul>
+			
+			</table>
 		</form>
 	</div>
 </div>

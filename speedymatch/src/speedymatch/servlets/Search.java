@@ -60,7 +60,6 @@ public class Search extends HttpServlet {
         String password = "2MVCBKUIFISG";
         
         Statement st;
-        ResultSet rs = null;
         try {
             Class.forName(driver).newInstance();
             conn = DriverManager.getConnection(url + dbName, userName, password);
@@ -69,49 +68,39 @@ public class Search extends HttpServlet {
 				String gender = request.getParameter("gen");
 				String smoking = request.getParameter("smoke");
 				String drinking = request.getParameter("drink");
-				String relaStatus = request.getParameter("Status");
+				String relaStatus = request.getParameter("status");
 				String child = request.getParameter("child");
-				String education = request.getParameter("edu");
-				String zodic = request.getParameter("zodiac");
-				String occ = request.getParameter("occ");
-
+				String eduLevel = request.getParameter("edu");
+				String horo = request.getParameter("zodiac");
+				String occupation = request.getParameter("occupation");
+				String race = request.getParameter("race");
+				String religion = request.getParameter("religion");
+				String hobby = request.getParameter("hobby");
 
 	            ArrayList al = null;
 	            ArrayList pid_list = new ArrayList();
-	            //String query= "select m.username, m.fname, m.lname, p.age, p.gender, p.eduLevel, p.hobby, p.height, p.weight, p.race, p.religion, p.child, p.horo, p.occupation, p.smoking, p.drinking, p.relaStatus from Member m inner join Profile p on m.username = p.username where m.username ='" + username +"'";
-	            String [] query={"select m.username from Member m inner join Profile p on m.username=p.username where p.gender='m'", "select m.username from Member m inner join Profile p on m.username=p.username where p.smoking='no'", "select m.username from Member m inner join Profile p on m.username=p.username where p.drinking='no'", "select m.username from Member m inner join Profile p on m.username=p.username where p.relaStatus='single'", "select m.username from Member m inner join Profile p on m.username=p.username where p.child='no'", "select m.username from Member m inner join Profile p on m.username=p.username where p.eduLevel='master'", "select m.username from Member m inner join Profile p on m.username=p.username where p.horo='pisces'", "select m.username from Member m inner join Profile p on m.username=p.username where p.occupation='business owner'", "select m.username from Member m inner join Profile p on m.username=p.username where p.race='Malay'", "select m.username from Member m inner join Profile p on m.username=p.username where p.religion='Buddhist'", "select m.username from Member m inner join Profile p on m.username=p.username where p.hobby='gardening'"};
-	            /*String query1="select m.username from Member m inner join Profile p on m.username=p.username where p.gender='male'";
-				String query2="select m.username from Member m inner join Profile p on m.username=p.username where p.smoking='no'";
-				String query3="select m.username from Member m inner join Profile p on m.username=p.username where p.drinking='no'";
-				String query4="select m.username from Member m inner join Profile p on m.username=p.username where p.relaStatus='single'";
-				String query5="select m.username from Member m inner join Profile p on m.username=p.username where p.child='no'";
-				String query6="select m.username from Member m inner join Profile p on m.username=p.username where p.education='master'";
-				String query7="select m.username from Member m inner join Profile p on m.username=p.username where p.horo='pisces'";
-				String query8="select m.username from Member m inner join Profile p on m.username=p.username where p.occupation='business owner'";
-				String query9="select m.username from Member m inner join Profile p on m.username=p.username where p.race='Malay'";
-				String query10="select m.username from Member m inner join Profile p on m.username=p.username where p.religion='Buddhist'";
-				String query11="select m.username from Member m inner join Profile p on m.username=p.username where p.hobby='gardening'";
-				String query = query1 + query2 + query3 + query4 + query5 +query6 + query7 + query8 + query9 + query10 + query11;*/
-	            
+	            String query= "select m.username, p.gender, p.age, p.height, p.weight from Member m inner join Profile p on m.username = p.username where p.gender ='" + gender +"' and p.smoking='" + smoking +"' and p.drinking='" + drinking +"' and p.relaStatus='" + relaStatus +"' and p.child='" + child +"' and p.eduLevel='" + eduLevel +"' and p.horo='" + horo +"' and p.occupation='" + occupation +"' and p.race='" + race +"' and p.religion='" + religion +"' and p.hobby='" + hobby +"'";
+	           // String [] query={"select m.username from Member m inner join Profile p on m.username=p.username where p.gender='m'", "select m.username from Member m inner join Profile p on m.username=p.username where p.smoking='no'", "select m.username from Member m inner join Profile p on m.username=p.username where p.drinking='no'", "select m.username from Member m inner join Profile p on m.username=p.username where p.relaStatus='single'", "select m.username from Member m inner join Profile p on m.username=p.username where p.child='no'", "select m.username from Member m inner join Profile p on m.username=p.username where p.eduLevel='master'", "select m.username from Member m inner join Profile p on m.username=p.username where p.horo='pisces'", "select m.username from Member m inner join Profile p on m.username=p.username where p.occupation='business owner'", "select m.username from Member m inner join Profile p on m.username=p.username where p.race='Malay'", "select m.username from Member m inner join Profile p on m.username=p.username where p.religion='Buddhist'", "select m.username from Member m inner join Profile p on m.username=p.username where p.hobby='gardening'"};
+	           
 				System.out.println("query " + query);
 	            st = conn.createStatement();
-	            //ResultSet rs = st.executeQuery(query);
+	            ResultSet rs = st.executeQuery(query);
 	            
-	            for (int i=0; i<query.length; i++){
-					PreparedStatement pstmt = conn.prepareStatement(query[i]);
-				
-					rs=pstmt.executeQuery(query[i]);
-					
-	            }
+/*			for (int i = 0; i < query.length; i++) {
+				PreparedStatement pstmt = conn.prepareStatement(query[i]);
+
+				rs = pstmt.executeQuery(query[i]);
+
+			}*/
 	            while (rs.next()) {
 	                al = new ArrayList();
 	 
 	                al.add(rs.getString(1));
-	                /*al.add(rs.getString(2));
+	                al.add(rs.getString(2));
 	                al.add(rs.getString(3));
 	                al.add(rs.getString(4));
 	                al.add(rs.getString(5));
-	                al.add(rs.getString(6));
+	                /*al.add(rs.getString(6));
 	                al.add(rs.getString(7));
 	                al.add(rs.getString(8));
 	                al.add(rs.getString(9));
