@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import speedymatch.entities.Notification;
 import speedymatch.entities.dao.NotificationDAO;
 import speedymatch.utils.NotificationVariables;
 
@@ -51,7 +52,8 @@ public class DeleteNotification extends HttpServlet {
 			String sender=request.getParameter("sender");
 			String receiver=request.getParameter("receiver");
 			System.out.println("Deleting vid conf notification: "+sender+" "+receiver);
-			//NotificationDAO.deleteNotification();
+			Notification deleted = new Notification(sender,receiver,NotificationVariables.VIDEOCONF);
+			NotificationDAO.deleteNotification(deleted);
 		}
 		
 		else if(content.equals(NotificationVariables.MESSAGE)){
