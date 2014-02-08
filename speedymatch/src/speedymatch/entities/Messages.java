@@ -3,7 +3,7 @@ package speedymatch.entities;
 
 import java.util.Date;
 
-public class Messages {
+public class Messages implements Comparable<Messages> {
 	private String sender;
 	private String message;
 	private String receiver;
@@ -49,19 +49,19 @@ public class Messages {
 		this.receiver = receiver;
 	}
 
-//	@Override
-//	public int compareTo(Messages m) {
-//		int i = 0;
-//		if(this.getDate() < m.getDate()){
-//			i = -1;
-//		}
-//		else if(this.getDate() == m.getDate()){
-//			i = 0;
-//		}
-//		
-//		else if(this.getDate() > m.getDate()){
-//			i = 1;
-//		}
-//		return 0;
-//	}	
+	public int compareTo(Messages m) {
+		// TODO Auto-generated method stub
+		int i = 0;
+		if(this.getDate().before(m.getDate())) {
+			i = -1;
+		}
+		else if(this.getDate() == m.getDate()){
+			i = 0;
+		}
+	
+		else if(this.getDate().after(m.getDate())){
+			i = 1;
+		}
+		return i;
+	}
 }

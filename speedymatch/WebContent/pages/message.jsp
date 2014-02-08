@@ -14,18 +14,25 @@
 
 <title>Speedy Match Private Messaging</title>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-"
 <script>
 
 $(document).ready(function() {
-
 	$.ajaxSetup({
 		cache : false
 	});
-
+	var receiver = document.getElementById('receiver').value;
+	var url = "../Message?receiver="+receiver;
 	setInterval(function() {
-		$("#MessageContent").load('../Message');
+		$("#MessageContent").load(url);
 	}, 1000);
+	
+	 $("#postMessage").click(
+				function buttonClick(){
+				 var msg = document.getElementById('message').value;
+				$.ajaxSetup({ cache: false});
+				$.post("../Messages", {msg:msg, receiver:receiver});
+				document.getElementById('message').value = "";
+			}); 
 });
 
 </script>
@@ -46,15 +53,12 @@ $(document).ready(function() {
 			<h4 id="name"><%=receiver%></h4>
 		</div>
 		<div class="message">
-			<textarea id="MessageContent" disabled>
-	</textarea>
+			<div id="MessageContent" disabled></div>
 		</div>
 
-		<input type="text" class="tftextinput" name="msg" size="21"
-			maxlength="100" id="message"> <input type="hidden"
-			id="receiver" name="receiver" value="<%=receiver%>">
-		<button class="tfbutton" onclick="buttonClick()">send</button>
-
+		<input type="text" class="tftextinput" name="msg" size="21" maxlength="100" id="message">
+		<input type="hidden" id="receiver" name="receiver" value="<%=receiver%>">
+		<button class="tfbutton" id="postMessage" onclick="buttonClick()">send</button>
 	</center>
 	<%@ include file="footer.jsp"%>
 </body>

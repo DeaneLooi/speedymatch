@@ -88,6 +88,19 @@ public class GetNotifications extends HttpServlet {
 						+ n1.getSender() + "&receiver=" + n1.getReceiver()
 						+ "'>Reject</a>";
 				html += "</div>";
+			}
+
+				else if (n1.getNotification().equals(NotificationVariables.FRIEND)) {
+					 				System.out.println("add friendNotification has appear");
+					 				html += "<div style='background-color:lightgray;border-style:solid;border-color:white;border-width:1px;padding:5px'>";
+					 				html += "<p>" + n1.getSender()
+					 						+ " has requested to be your friend</p>";
+					 				html += "<a href='../AddFriend'>Accept</a>&nbsp;";
+					 				html += "<a href='../DeleteNotification?content="
+					 						+ NotificationVariables.FRIEND + "&sender="
+					 						+ n1.getSender() + "&receiver=" + n1.getReceiver()
+					 						+ "'>Reject</a>";
+					 				html += "</div>";
 
 			}
 
@@ -107,6 +120,13 @@ public class GetNotifications extends HttpServlet {
 						+ n1.getSender() + "&receiver=" + n1.getReceiver()
 						+ "'>Reject</a>";
 				html += "</div>";
+
+				html+="<div style='background-color:lightgray;border-style:solid;border-color:white;border-width:1px;padding:5px'>";
+				html+="<p>"+n1.getSender()+" has invited you to a video chat</p>";
+				html+="<a href='../DeleteNotification?content="+NotificationVariables.VIDEOCONFRDY+"&sender="+n1.getSender()+"&receiver="+n1.getReceiver()+"'>Accept</a>&nbsp;";
+				html+="<a href='../DeleteNotification?content="+NotificationVariables.VIDEOCONF+"&sender="+n1.getSender()+"&receiver="+n1.getReceiver()+"'>Reject</a>";
+				html+="</div>";		
+
 			}
 
 			else if (n1.getNotification().equals(NotificationVariables.MESSAGE)) {
@@ -121,6 +141,18 @@ public class GetNotifications extends HttpServlet {
 				html += "</div>";
 			}
 
+			else if (n1.getNotification().equals(NotificationVariables.MESSAGE)) {
+				 				System.out.println("add messageNotification has appear");
+				 				html += "<div style='background-color:lightgray;border-style:solid;border-color:white;border-width:1px;padding:5px'>";
+				 				html += "<p>" + n1.getSender() + " just messaged you</p>";
+				 				html += "<a href='../AddFriend'>Accept</a>&nbsp;";
+				 				html += "<a href='../DeleteNotification?content="
+				 						+ NotificationVariables.MESSAGE + "&sender="
+				 						+ n1.getSender() + "&receiver=" + n1.getReceiver()
+				 						+ "'>Reject</a>";
+				 				html += "</div>";
+				  			}
+			
 		}
 
 		writer.println(html);

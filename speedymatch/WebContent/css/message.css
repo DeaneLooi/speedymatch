@@ -22,7 +22,9 @@
     background-color:PowderBlue;
     resize:none;
     font-size: 13pt;
-    font-family: Impact,Charcoal, sans-serif
+    font-family: Impact,Charcoal, sans-serif;
+    text-align:left;
+    
 }
 
 #MessageBox{
