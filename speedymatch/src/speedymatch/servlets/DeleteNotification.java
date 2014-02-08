@@ -48,7 +48,9 @@ public class DeleteNotification extends HttpServlet {
 		}
 		
 		else if(content.equals(NotificationVariables.VIDEOCONF)){
-			System.out.println("Deleting vid conf notification");
+			String sender=request.getParameter("sender");
+			String receiver=request.getParameter("receiver");
+			System.out.println("Deleting vid conf notification: "+sender+" "+receiver);
 			//NotificationDAO.deleteNotification();
 		}
 		
