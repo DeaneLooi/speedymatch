@@ -46,7 +46,7 @@ public class VidChat extends HttpServlet {
 		//See if user online or not
 		HttpSession existingHttpSession = request.getSession();
 		Member existingClient = (Member)existingHttpSession.getAttribute("Member");
-		if (existingClient!=null){
+		//if (existingClient!=null){
 			Sessions existingSessions = new Sessions(existingHttpSession.getId(), existingClient.getUsername());
 			Set sessionArray = (Set) getServletContext().getAttribute("speedymatch.sessions");
 			Iterator sessionIt = sessionArray.iterator();
@@ -68,7 +68,7 @@ public class VidChat extends HttpServlet {
 //						return;
 //						}
 					}
-		}
+		//}
 	
 		String sender = request.getParameter("sender");
 		String receiver = request.getParameter("receiver");
