@@ -8,5 +8,4 @@ public class NotificationVariables {
 	public static String VIDEOCONF = "VideoConf";
 	public static String MESSAGE = "Message";
 	public static String VIDEOCONFRDY = "VIDEOCONFRDY";
-
 }
