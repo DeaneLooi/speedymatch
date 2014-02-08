@@ -68,6 +68,17 @@ public class DeleteNotification extends HttpServlet {
 			NotificationDAO.deleteNotification(msgDeleted);
 		}
 		
+		else if(content.equals(NotificationVariables.VIDEOCONFRDY)){
+			String sender=request.getParameter("sender");
+			String receiver=request.getParameter("receiver");
+			System.out.println("Updating vid conf notification: "+sender+" "+receiver);
+			Notification deleted = new Notification(sender,receiver,NotificationVariables.VIDEOCONF);
+			NotificationDAO.deleteNotification(deleted);
+			Notification vidconfrdy = new Notification(sender,receiver,NotificationVariables.VIDEOCONFRDY);
+			NotificationDAO.createNotification(vidconfrdy);
+			System.out.println("Ready for vid: "+sender+" "+receiver);
+		}
+		
 		response.sendRedirect("pages/notifications.jsp");
 	}
 

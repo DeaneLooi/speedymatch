@@ -6,6 +6,7 @@ import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.Set;
@@ -52,24 +53,29 @@ public class Message extends HttpServlet {
 		String receiver = (String) request.getParameter("receiver");
 
 		MessageDAO.searchMessages(receiver, sender);
-		
-		ArrayList<Messages> receivedmessages = MessageDAO.searchMessages(receiver, sender);
-		ArrayList<Messages> sentmessages = MessageDAO.searchMessages(sender, receiver);
+
+		ArrayList<Messages> receivedmessages = MessageDAO.searchMessages(
+				receiver, sender);
+		ArrayList<Messages> sentmessages = MessageDAO.searchMessages(sender,
+				receiver);
 		PrintWriter writer = response.getWriter();
 		String html = "";
 		String content = "";
-		
-		for(int i=0; i< receivedmessages.size();i++){
+
+		for (int i = 0; i < receivedmessages.size(); i++) {
 			sentmessages.add(receivedmessages.get(i));
 		}
-		
-		for(int i=0; i<sentmessages.size();i++){
-			content+="<p>"+sentmessages.get(i).getSender()+": "+sentmessages.get(i).getMessage()+"</p>";
+
+		Collections.sort(sentmessages);
+
+		for (int i = 0; i < sentmessages.size(); i++) {
+			content += "<p>" + sentmessages.get(i).getDate() + " "
+					+ sentmessages.get(i).getSender() + ": "
+					+ sentmessages.get(i).getMessage() + "</p>";
 		}
-		
-		html+= content;
+
+		html += content;
 		writer.println(html);
-		writer.println("fuck ur mum");
 		writer.close();
 	}
 
@@ -82,8 +88,8 @@ public class Message extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		Member m = (Member) request.getSession().getAttribute("member");
-		String sender = m.getUsername();
-		String receiver = (String) request.getAttribute("receiver2");
+		String receiver = m.getUsername();
+		String sender = (String) request.getParameter("receiver");
 		String message = (String) request.getParameter("msg");
 		Date date = new Date();
 
@@ -101,9 +107,21 @@ public class Message extends HttpServlet {
 			MessageDAO.createMessage(pmsg);
 
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			System.out.println("post message error");
 		}
 
+		return;
 	}
 
+	public static void main(String args[]) throws Exception {
+		String sender = "deane";
+		String receiver = "tanwaikit";
+		String msg = "hello deane i have a urgent message";
+		Date date = new Date();
+		String encryptedmessage = "";
+
+		encryptedmessage = Algorithms.encrypt(msg, "testingsecretkey");
+		Messages lalaa = new Messages(sender, receiver, encryptedmessage, date);
+		MessageDAO.createMessage(lalaa);
+	}
 }
