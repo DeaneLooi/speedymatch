@@ -19,13 +19,7 @@ public class Algorithms {
 	public Algorithms() throws NoSuchAlgorithmException {
 		super();
 	}
-	
-	public static void main(String[] args) throws Exception{
-		String encryptedData = Algorithms.encrypt("HEllo","SEcretKeyNOobKeY");
-		System.out.println(encryptedData);
-		System.out.println(Algorithms.decrypt(encryptedData, "SEcretKeyNOobKeY"));
-	}
-	
+
 	private static Key generateKey(String akey) {
 		final byte[] keyValue = new byte[akey.length()];
 		

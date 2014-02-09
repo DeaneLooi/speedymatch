@@ -43,8 +43,6 @@ public class MessageDAO {
 				currentCon = null;
 			}
 		}
-
-		System.out.println(n.getMessage());
 		return n;
 	}
 

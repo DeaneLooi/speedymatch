@@ -94,8 +94,6 @@ public class Message extends HttpServlet {
 		Date date = new Date();
 		String encryptedmessage = "";
 
-		System.out.println(sender);
-		System.out.println(receiver);
 		try {
 
 			encryptedmessage = Algorithms.encrypt(message, "testingsecretkey");
@@ -109,6 +107,30 @@ public class Message extends HttpServlet {
 
 		} catch (Exception ex) {
 			System.out.println("post message error");
+		}
+	}
+	
+	public static void main(String args[]){
+		String sender = "deane";
+		String receiver = "tanwaikit";
+		String message = "Hello i added you";
+		Date date = new Date();
+		String encryptedmessage = "";
+
+		try {
+
+			encryptedmessage = Algorithms.encrypt(message, "testingsecretkey");
+			Messages pmsg = new Messages(sender, receiver, message,
+					date);
+			MessageDAO.createMessage(pmsg);
+
+		} catch (Exception ex) {
+			System.out.println("post message error");
+			System.out.println(encryptedmessage);
+			System.out.println(sender);
+			System.out.println(receiver);
+			System.out.println(date);
+			
 		}
 	}
 }

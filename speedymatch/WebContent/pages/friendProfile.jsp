@@ -41,10 +41,6 @@
 	
 	Notification n = new Notification(memProfile.getUsername(),userProfile,NotificationVariables.ALERT);
 	NotificationDAO.createNotification(n);
-	
-	
-			
-
 	%>
 	<center class=content>
 		<!-- content here -->
@@ -97,8 +93,7 @@
 		else{%>
 		
 			<div class="medium btn primary" id="addFriend"><a href="${pageContext.request.contextPath}/AddFriend?username=<%=username%>&friendId=<%=userProfile%>">Add Friend</a></div>
-		
-		
+
 		<%	
 		}
 		%>

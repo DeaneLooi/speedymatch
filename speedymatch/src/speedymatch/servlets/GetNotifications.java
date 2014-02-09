@@ -94,20 +94,18 @@ public class GetNotifications extends HttpServlet {
 				html += "</div>";
 			}
 
-				else if (n1.getNotification().equals(NotificationVariables.FRIEND)) {
-					 				System.out.println("add friendNotification has appear");
+				else if (n1.getNotification().equals(NotificationVariables.DELETEFRIEND)) {
+					 				System.out.println("deleteFriendNotification has appear");
 					 				html += "<div style='background-color:lightgray;border-style:solid;border-color:white;border-width:1px;padding:5px'>";
 					 				html += "<p>" + n1.getSender()
-					 						+ " has requested to be your friend</p>";
-					 				html += "<a href='../AddFriend'>Accept</a>&nbsp;";
+					 						+ " has delete you as a friend</p>";
 					 				html += "<a href='../DeleteNotification?content="
-					 						+ NotificationVariables.FRIEND + "&sender="
+					 						+ NotificationVariables.DELETEFRIEND + "&sender="
 					 						+ n1.getSender() + "&receiver=" + n1.getReceiver()
-					 						+ "'>Reject</a>";
+					 						+ "'>OK</a>";
 					 				html += "</div>";
-
 			}
-
+			
 			else if (n1.getNotification().equals(
 					NotificationVariables.VIDEOCONF)) {
 

@@ -2,6 +2,7 @@ package speedymatch.utils;
 
 public class NotificationVariables {
 	
+	public static String DELETEFRIEND = "deleteFriend";
 	public static String ALERT = "Alert";
 	public static String CINEMA="Cinema";
 	public static String CINEMAACCEPT="CinemaAccept";

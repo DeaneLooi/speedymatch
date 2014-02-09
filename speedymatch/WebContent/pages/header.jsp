@@ -211,7 +211,6 @@
 								</h6></li>
 						</ul>
 					</div>
-
 				</li>
 				<%
 					}
@@ -249,12 +248,11 @@
 								<a href="loveMeter.jsp"><i class="icon-heart"></i>Love Meter</a>
 							</h4>
 						</li>
-						<li>
+						<!-- <li>
 							<h4>
 								<a href="recommendation.jsp"><i class="fa fa-thumbs-o-up"></i>Recommends</a>
 							</h4>
-						</li>
-
+						</li> -->
 					</ul>
 				</nav>
 			</section>

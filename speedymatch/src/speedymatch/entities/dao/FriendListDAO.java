@@ -24,8 +24,7 @@ public class FriendListDAO {
 			pstmt.executeUpdate();
 
 		} catch (Exception ex) {
-			System.out
-					.println("Create friend list failed: An error has occured! " + ex);
+			System.out.println("Create friend list failed: An error has occured! " + ex);
 		}
 
 		finally {
@@ -158,5 +157,4 @@ public class FriendListDAO {
 		}
 		return d;
 	}
-	
 }
