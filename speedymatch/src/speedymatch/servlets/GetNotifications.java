@@ -47,10 +47,7 @@ public class GetNotifications extends HttpServlet {
 				.retrieveNotifications(n);
 
 		for (int i = 0; i < notifications.size(); i++) {
-			System.out.println("retrieved notification = "
-					+ notifications.get(i).getSender());
-			System.out.println(notifications.get(i).getReceiver());
-			System.out.println(notifications.get(i).getNotification());
+			System.out.println("retrieved notification = "+notifications.get(i).getSender()+" "+notifications.get(i).getReceiver()+" "+notifications.get(i).getNotification());
 		}
 		PrintWriter writer = response.getWriter();
 
