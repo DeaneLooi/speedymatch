@@ -25,8 +25,7 @@ import speedymatch.utils.NotificationVariables;
 @WebServlet("/CinemaForm")
 public class CinemaForm extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	static Notification n = null;
-	private static String sessionID;
+	private static Notification n = null;
 	private static Object obj;
 	private static Object obj1;
        
@@ -122,7 +121,6 @@ public class CinemaForm extends HttpServlet {
 		obj1 = new Object();
 		obj = movieUrl;
 		obj1 = movieType;
-		sessionID = request.getSession().getId();
 		Notification n = new Notification(user,friend,NotificationVariables.CINEMA);
 		n = NotificationDAO.createNotification(n);
 		if(n!=null){
