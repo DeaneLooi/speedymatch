@@ -136,7 +136,7 @@
 							<th><span class="adjoined">Cost</span></th>
 							<td><%=pList.get(2)%></td>
 							<td><button style="width: 45px;"
-									class="medium primary btn six columns centered" href="#">
+									class="medium primary btn six columns centered">
 									<i class="fa fa-shopping-cart"></i>
 								</button></td>
 
