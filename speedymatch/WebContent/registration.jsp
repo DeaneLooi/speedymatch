@@ -121,7 +121,7 @@
             <h1>Registration</h1>
             <div id="wrapper">
                 <div id="steps">
-                    <form id="formElem" name="formElem" action="${pageContext.request.contextPath}/Register" method="post">
+                    <form id="formElem" name="formElem" action="${pageContext.request.contextPath}/Register" method="post" enctype="multipart/form-data">
                         <fieldset class="step">
                             <legend>Account</legend>
                             <p>
@@ -138,6 +138,10 @@
                             </p>
                             
                             ${regObj}
+                            <%
+                            
+                            request.getSession().removeAttribute("regObj");
+                            %>
                         </fieldset>
                         <fieldset class="step">
                             <legend>Personal Details</legend>
@@ -439,11 +443,9 @@
                                 <a href="#" target="_new">Learn more</a>
                             </p>
                             <p>
-                                <label for="comm">Communication</label>
-                                <select id="comm" name="comm">
-                               		<option value="email" selected>Email</option>
-                               		<option value="phone">Phone</option>
-                                </select>
+                                <label for="file">Profile Picture</label>
+                                <input type="file" id="file" name="file"/>
+                        
                             </p>
                         </fieldset>
 						<fieldset class="step">

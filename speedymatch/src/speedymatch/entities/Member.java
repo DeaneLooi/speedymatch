@@ -15,6 +15,8 @@ public class Member {
 	private String Lname;
 
 	private Date dob;
+	
+	private String profilePic;
 
 	private MemberSecurity memberSecurity;
 
@@ -25,7 +27,7 @@ public class Member {
 	}
 
 	public Member(String username, String passwd, String email, String Fname,
-			String Lname, Date dob) {
+			String Lname, Date dob,String profilePic) {
 
 		this.username = username;
 		this.passwd = passwd;
@@ -33,6 +35,7 @@ public class Member {
 		this.Fname = Fname;
 		this.Lname = Lname;
 		this.dob = dob;
+		this.profilePic = profilePic;
 	}
 
 	public Member(String username, String email, String fname, String lname,
@@ -91,6 +94,14 @@ public class Member {
 
 	public void setDob(Date dob) {
 		this.dob = dob;
+	}
+	
+	public String getProfilePic(){
+		return profilePic;
+	}
+	
+	public void setProfilePic(String profilePic){
+		this.profilePic = profilePic;
 	}
 
 	public MemberSecurity getMemberSecurity() {

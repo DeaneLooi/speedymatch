@@ -16,7 +16,7 @@ public class ProfileDAO {
 		ResultSet rs = null;
 
 		try {
-			String query = "select * from Profile INNER JOIN Member ON Member.username = ?";
+			String query = "select * from Profile INNER JOIN Member ON Member.username = Profile.username where Member.username = ?";
 			PreparedStatement pstmt = currentCon.prepareStatement(query);
 			pstmt.setString(1, profile.getUsername());
 			rs = pstmt.executeQuery();

@@ -27,20 +27,28 @@
 				speedymatch.utils.Algorithms,
 				speedymatch.entities.Notification,
 				speedymatch.entities.dao.NotificationDAO,
-				speedymatch.utils.NotificationVariables" %>
+				speedymatch.utils.NotificationVariables,
+				speedymatch.entities.Profile,
+				speedymatch.entities.dao.ProfileDAO" %>
 	<%
 	String userProfile = request.getParameter("username"); 
 	Member memProfile = new Member(userProfile,null);
 	memProfile = MemberDAO.retrieveAccount(memProfile);
 	Date dob = memProfile.getDob();
+	Profile profile = new Profile();
+	profile.setUsername(userProfile);
+	profile = ProfileDAO.retrieveProfile(profile);
 	
 	Notification n = new Notification(memProfile.getUsername(),userProfile,NotificationVariables.ALERT);
 	NotificationDAO.createNotification(n);
+	
+	
+			
 
 	%>
 	<center class=content>
 		<!-- content here -->
-		<a href="#"><img id=profilepic src="../images/male1.jpg" alt="Elina Melrose" class="first" height="500px" width="400px"></a>
+		<a href="#"><img id=profilepic src="<%=memProfile.getProfilePic()%>" alt="<%=memProfile.getUsername()%>" class="first" height="500px" width="400px"></a>
 		<section class="profile">
 		<div class="profileinfo">
 
@@ -66,8 +74,9 @@
 
 			<div class="gear">
 				<label class="primary label">Occupation:</label> <span
-					id="occupation" class="datainfo">Freelance Web Developer</span> 
+					id="occupation" class="datainfo"><%=profile.getOccupation() %></span> 
 			</div>
+
 		</div>
 		</section>
 		<%
@@ -88,10 +97,12 @@
 		else{%>
 		
 			<div class="medium btn primary" id="addFriend"><a href="${pageContext.request.contextPath}/AddFriend?username=<%=username%>&friendId=<%=userProfile%>">Add Friend</a></div>
-
+		
+		
 		<%	
 		}
 		%>
+		
 	</center> 
 		<%@ include file="footer.jsp"%>
 </body>

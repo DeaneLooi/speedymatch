@@ -56,7 +56,11 @@ java.util.ArrayList" %>
 							<input type="submit" value="send request" />	
 							
 						</div>
+						<br>
 						${movieObj}
+						<%
+						request.getSession().removeAttribute("movieObj");
+						%>
 						</form>
 						
 

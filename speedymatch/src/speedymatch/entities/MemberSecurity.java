@@ -17,14 +17,13 @@ public class MemberSecurity {
 	private String communicaton;
 
 	
-	public MemberSecurity(String salt, String token, String membership, Date regDate, char disabled, String communication){
+	public MemberSecurity(String salt, String token, String membership, Date regDate, char disabled){
 		
 		this.salt = salt;
 		this.token = token;
 		this.membership = membership;
 		this.regDate = regDate;
 		this.disabled = disabled;
-		this.communicaton = communication;
 		
 	}
 	

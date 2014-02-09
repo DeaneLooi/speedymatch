@@ -15,13 +15,13 @@ public class MemberDAO {
 	private static DBController db = new DBController();
 
 	public static Member registerAccount(Member member,
-			MemberSecurity memberSecurity) {
+			MemberSecurity memberSecurity,Profile profile) {
 		Connection currentCon = db.getConnection();
 		java.sql.Date dob = new java.sql.Date(member.getDob().getTime());
 		java.sql.Date regDate = new java.sql.Date(memberSecurity.getRegDate()
 				.getTime());
 		try {
-			String query = "insert into Member(username, passwd, email, Fname, Lname, dob) values(?,?,?,?,?,?)";
+			String query = "insert into Member(username, passwd, email, Fname, Lname, dob, profilePic) values(?,?,?,?,?,?,?)";
 			PreparedStatement pstmt = currentCon.prepareStatement(query);
 			// inserting values
 			pstmt.setString(1, member.getUsername());
@@ -36,6 +36,7 @@ public class MemberDAO {
 			pstmt.setString(4, member.getFname());
 			pstmt.setString(5, member.getLname());
 			pstmt.setDate(6, dob);
+			pstmt.setString(7, member.getProfilePic());
 
 			query = "insert into MemberSecurity(username, salt, token, membership, regDate, disabled, communication) values(?,?,?,?,?,?,?)";
 			PreparedStatement pstmt1 = currentCon.prepareStatement(query);
@@ -55,8 +56,6 @@ public class MemberDAO {
 			FriendList fl = new FriendList(member.getUsername(), null);
 			FriendListDAO.createFriendList(fl);
 
-			Profile profile = new Profile();
-			profile.setUsername(member.getUsername());
 			ProfileDAO.createProfile(profile);
 
 		} catch (Exception ex) {
@@ -95,11 +94,11 @@ public class MemberDAO {
 			while (rs.next()) {
 				m = new Member(member.getUsername(), rs.getString("passwd"),
 						rs.getString("email"), rs.getString("Fname"),
-						rs.getString("Lname"), rs.getDate("dob"));
+						rs.getString("Lname"), rs.getDate("dob"),rs.getString("profilePic"));
 				ms = new MemberSecurity(rs.getString("salt"),
 						rs.getString("token"), rs.getString("membership"),
 						rs.getDate("regDate"), rs.getString("disabled").charAt(
-								0), rs.getString("communication"));
+								0));
 				m.setEmail(Algorithms.decrypt(m.getEmail(), ms.getSalt()));
 				ms.setMembership(Algorithms.decrypt(ms.getMembership(),
 						ms.getSalt()));
@@ -234,7 +233,7 @@ public class MemberDAO {
 				currentCon = null;
 			}
 		}
-		if (e==null) {
+		if (e == null) {
 			check = true;
 		}
 

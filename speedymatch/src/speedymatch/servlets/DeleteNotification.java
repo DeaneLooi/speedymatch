@@ -35,42 +35,37 @@ public class DeleteNotification extends HttpServlet {
 
 		
 		String content = (String)request.getParameter("content");
+		String sender = (String)request.getParameter("sender");
+		String receiver = (String)request.getParameter("receiver");
 		
 		if(content.equals(NotificationVariables.ALERT)){
 			
 		}
 		
 		else if(content.equals(NotificationVariables.CINEMA)){
-			NotificationDAO.deleteNotification(CinemaForm.n);
+			Notification delete = new Notification(sender,receiver,NotificationVariables.CINEMA);
+			NotificationDAO.deleteNotification(delete);
 		}
 		
 		else if(content.equals(NotificationVariables.FRIEND)){
-			String sender=request.getParameter("sender");
-			String receiver=request.getParameter("receiver");
 			System.out.println("deleted friend request from : "+sender);
 			Notification delete = new Notification(sender,receiver,NotificationVariables.FRIEND);
 			NotificationDAO.deleteNotification(delete);
 		}
 		
 		else if(content.equals(NotificationVariables.VIDEOCONF)){
-			String sender=request.getParameter("sender");
-			String receiver=request.getParameter("receiver");
 			System.out.println("Deleting vid conf notification: "+sender+" "+receiver);
 			Notification deleted = new Notification(sender,receiver,NotificationVariables.VIDEOCONF);
 			NotificationDAO.deleteNotification(deleted);
 		}
 		
 		else if(content.equals(NotificationVariables.MESSAGE)){
-			String sender=request.getParameter("sender");
-			String receiver=request.getParameter("receiver");
 			System.out.println("message notification has been deleted from: "+sender);
 			Notification msgDeleted = new Notification(sender,receiver,NotificationVariables.MESSAGE);
 			NotificationDAO.deleteNotification(msgDeleted);
 		}
 		
 		else if(content.equals(NotificationVariables.VIDEOCONFRDY)){
-			String sender=request.getParameter("sender");
-			String receiver=request.getParameter("receiver");
 			System.out.println("Updating vid conf notification: "+sender+" "+receiver);
 			Notification deleted = new Notification(sender,receiver,NotificationVariables.VIDEOCONF);
 			NotificationDAO.deleteNotification(deleted);

@@ -71,10 +71,17 @@ public class GetNotifications extends HttpServlet {
 				html += "<div style='background-color:lightgray;border-style:solid;border-color:white;border-width:1px;padding:5px'>";
 				html += "<p>" + n1.getSender()
 						+ " has invited you to watch a movie</p>";
-				html += "<a href='../Cinema'>Accept</a>&nbsp;";
-				html += "<a href='../DeleteNotification?content=Cinema'>Reject</a>";
+				html += "<a href='../CinemaForm?content="+NotificationVariables.CINEMA+"&sender="+n1.getSender()+"&receiver="+n1.getReceiver()+"'>Accept</a>&nbsp;";
+				html += "<a href='../DeleteNotification?content="+NotificationVariables.CINEMA+"&sender="+n1.getSender()+"&receiver="+n1.getReceiver()+"'>Reject</a>";
 				html += "</div>";
 
+			}
+			
+			else if(n1.getNotification().equals(NotificationVariables.CINEMAACCEPT)){
+				html += "<div style='background-color:lightgray;border-style:solid;border-color:white;border-width:1px;padding:5px'>";
+				html += "<p>" + n1.getSender()
+						+ " has accepted your invite to watch a movie&nbsp;<a href='../CinemaForm?content="+NotificationVariables.CINEMAACCEPT+"&sender="+n1.getSender()+"&receiver="+n1.getReceiver()+"'>&#10004</a>&nbsp;</p>";
+				html += "</div>";
 			}
 
 			else if (n1.getNotification().equals(NotificationVariables.FRIEND)) {

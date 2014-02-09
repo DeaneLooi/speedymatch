@@ -17,6 +17,7 @@ import speedymatch.entities.Movie;
 import speedymatch.entities.Notification;
 import speedymatch.entities.dao.MovieDAO;
 import speedymatch.entities.dao.NotificationDAO;
+import speedymatch.utils.NotificationVariables;
 
 /**
  * Servlet implementation class CinemaForm
@@ -62,12 +63,34 @@ public class CinemaForm extends HttpServlet {
 		}
 		*/
 		
-		NotificationDAO.deleteNotification(n);
-
-		request.getSession().setAttribute("movieUrl", obj);
-		request.getSession().setAttribute("movieType", obj1);
+		String content = (String)request.getParameter("content");
+		String sender = (String)request.getParameter("sender");
+		String receiver = (String)request.getParameter("receiver");
 		
-		response.sendRedirect("pages/cinema.jsp");
+		if(content!=null){
+			if(content.equals(NotificationVariables.CINEMA)){
+				Notification n =  new Notification(sender,receiver,NotificationVariables.CINEMA);
+				NotificationDAO.deleteNotification(n);
+				
+				n = new Notification(receiver,sender,NotificationVariables.CINEMAACCEPT);
+				NotificationDAO.createNotification(n);
+				request.getSession().setAttribute("movieUrl", obj);
+				request.getSession().setAttribute("movieType", obj1);
+				
+				response.sendRedirect("pages/cinema.jsp");
+			}
+			
+			else if(content.equals(NotificationVariables.CINEMAACCEPT)){
+				Notification n =  new Notification(sender,receiver,NotificationVariables.CINEMAACCEPT);
+				NotificationDAO.deleteNotification(n);
+				
+				request.getSession().setAttribute("movieUrl", obj);
+				request.getSession().setAttribute("movieType", obj1);
+				
+				response.sendRedirect("pages/cinema.jsp");
+			}
+		}
+
 		
 		
 		
@@ -100,20 +123,20 @@ public class CinemaForm extends HttpServlet {
 		obj = movieUrl;
 		obj1 = movieType;
 		sessionID = request.getSession().getId();
-		Notification n = new Notification(user,friend,"Movie");
+		Notification n = new Notification(user,friend,NotificationVariables.CINEMA);
 		n = NotificationDAO.createNotification(n);
 		if(n!=null){
 			Object object = new Object();
 			object = "<p'>You have invited "+friend+" to watch "+movie+".";
 			request.getSession().setAttribute("movieObj", object);
-			response.sendRedirect("cinemaForm.jsp");
+			response.sendRedirect("pages/cinemaForm.jsp");
 		}
 		
 		else{
 			Object object = new Object();
 			object = "<p'>There was an error in the form";
 			request.getSession().setAttribute("movieObj", object);
-			response.sendRedirect("cinemaForm.jsp");
+			response.sendRedirect("pages/cinemaForm.jsp");
 		}
 
 		return;
