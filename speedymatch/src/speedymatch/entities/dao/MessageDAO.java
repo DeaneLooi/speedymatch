@@ -90,7 +90,6 @@ public class MessageDAO {
 	
 	public static boolean deleteMessages(){
 		
-		
 		Connection currentCon = db.getConnection();
 		
 		try {
@@ -114,5 +113,4 @@ public class MessageDAO {
 		}
 		return true;
 	}
-
 }

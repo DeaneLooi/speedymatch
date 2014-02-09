@@ -29,9 +29,10 @@ $(document).ready(function() {
 	 $("#postMessage").click(
 				function buttonClick(){
 				 var msg = document.getElementById('message').value;
+				 document.getElementById('message').value = "";
 				$.ajaxSetup({ cache: false});
-				$.post("../Messages", {msg:msg, receiver:receiver});
-				document.getElementById('message').value = "";
+				$.post("../Messages", {msg:msg});
+				alert(msg);
 			}); 
 });
 
@@ -59,6 +60,7 @@ $(document).ready(function() {
 		<input type="text" class="tftextinput" name="msg" size="21" maxlength="100" id="message">
 		<input type="hidden" id="receiver" name="receiver" value="<%=receiver%>">
 		<button class="tfbutton" id="postMessage" onclick="buttonClick()">send</button>
+
 	</center>
 	<%@ include file="footer.jsp"%>
 </body>

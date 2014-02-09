@@ -36,9 +36,6 @@
 	
 	Notification n = new Notification(memProfile.getUsername(),userProfile,NotificationVariables.ALERT);
 	NotificationDAO.createNotification(n);
-	
-	
-			
 
 	%>
 	<center class=content>
@@ -71,7 +68,6 @@
 				<label class="primary label">Occupation:</label> <span
 					id="occupation" class="datainfo">Freelance Web Developer</span> 
 			</div>
-
 		</div>
 		</section>
 		<%
@@ -92,12 +88,10 @@
 		else{%>
 		
 			<div class="medium btn primary" id="addFriend"><a href="${pageContext.request.contextPath}/AddFriend?username=<%=username%>&friendId=<%=userProfile%>">Add Friend</a></div>
-		
-		
+
 		<%	
 		}
 		%>
-		
 	</center> 
 		<%@ include file="footer.jsp"%>
 </body>

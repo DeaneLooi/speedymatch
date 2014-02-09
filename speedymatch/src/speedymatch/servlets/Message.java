@@ -88,13 +88,14 @@ public class Message extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		Member m = (Member) request.getSession().getAttribute("member");
-		String receiver = m.getUsername();
-		String sender = (String) request.getParameter("receiver");
+		String sender = m.getUsername();
+		String receiver = (String) request.getParameter("receiver");
 		String message = (String) request.getParameter("msg");
 		Date date = new Date();
-
 		String encryptedmessage = "";
 
+		System.out.println(sender);
+		System.out.println(receiver);
 		try {
 
 			encryptedmessage = Algorithms.encrypt(message, "testingsecretkey");
@@ -102,26 +103,12 @@ public class Message extends HttpServlet {
 			System.out.println(sender);
 			System.out.println(receiver);
 			System.out.println(date);
-			Messages pmsg = new Messages(sender, receiver, encryptedmessage,
+			Messages pmsg = new Messages(sender, receiver, message,
 					date);
 			MessageDAO.createMessage(pmsg);
 
 		} catch (Exception ex) {
 			System.out.println("post message error");
 		}
-
-		return;
-	}
-
-	public static void main(String args[]) throws Exception {
-		String sender = "deane";
-		String receiver = "tanwaikit";
-		String msg = "hello deane i have a urgent message";
-		Date date = new Date();
-		String encryptedmessage = "";
-
-		encryptedmessage = Algorithms.encrypt(msg, "testingsecretkey");
-		Messages lalaa = new Messages(sender, receiver, encryptedmessage, date);
-		MessageDAO.createMessage(lalaa);
 	}
 }
