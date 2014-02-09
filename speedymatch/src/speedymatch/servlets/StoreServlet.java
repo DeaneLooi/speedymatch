@@ -7,7 +7,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -43,11 +42,13 @@ public class StoreServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response)
 
 	throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		Connection conn = null;
@@ -92,6 +93,7 @@ public class StoreServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
 	}
 
 }
