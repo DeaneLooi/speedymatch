@@ -113,7 +113,6 @@ public class GetNotifications extends HttpServlet {
 
 			else if (n1.getNotification().equals(
 					NotificationVariables.VIDEOCONF)) {
-				System.out.println("Showing vidconf notofication.");
 
 				html += "<div style='background-color:lightgray;border-style:solid;border-color:white;border-width:1px;padding:5px'>";
 				html += "<p>" + n1.getSender()
