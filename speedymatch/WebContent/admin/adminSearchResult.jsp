@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 
 <%@ page import="java.util.*" %>
+<%@ page import = "speedymatch.entities.*,
+				   speedymatch.entities.dao.*"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
 
@@ -37,7 +39,20 @@
             %>
             <tr>
                 <td><b>Username</b></td>
-                <td><%=pList.get(0)%></td>
+                <td>
+                <%
+                session = request.getSession();
+        		String gname = "";
+        		if (session.getAttribute("member") != null) {
+        			Member member = (Member) session.getAttribute("member");
+        			gname = member.getUsername();
+        		}
+
+        		else {
+        			response.sendRedirect("../login.jsp");
+        		}
+				%>
+                <a href="profile.jsp?gname=<%=pList.get(0)%>"><%=pList.get(0)%></a></td>
             </tr>
             <tr>
                 <td><b>First Name</b></td>

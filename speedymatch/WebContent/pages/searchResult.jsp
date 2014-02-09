@@ -9,6 +9,7 @@
 </head>
 <body>
 <%@ include file="header.jsp"%>
+
 <center>
 <!-- content here -->
 <table width="700" align="center" border="1";>
@@ -30,10 +31,12 @@
                         count++;
                         ArrayList pList = (ArrayList) itr.next();
             %>
+            
             <tr>
                 <td><b>Username</b></td>
                 <td><%=pList.get(0)%></td>
             </tr>
+            
             <tr>
                 <td><b>Gender</b></td>
                 <td><%=pList.get(1)%></td>
