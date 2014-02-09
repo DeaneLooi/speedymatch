@@ -37,7 +37,7 @@ public class MessageDAO {
 				try {
 					currentCon.close();
 				} catch (Exception e) {
-
+					System.out.println(e);
 				}
 
 				currentCon = null;

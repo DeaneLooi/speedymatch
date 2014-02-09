@@ -26,16 +26,26 @@ $(document).ready(function() {
 		$("#MessageContent").load(url);
 	}, 1000);
 	
-	 $("#postMessage").click(
-				function buttonClick(){
-				 var msg = document.getElementById('message').value;
-				 document.getElementById('message').value = "";
-				$.ajaxSetup({ cache: false});
-				$.post("../Messages", {msg:msg});
-				alert(msg);
-			}); 
-});
+	$("#message").keyup(function (e) {
+	    if (e.keyCode == 13) {
+	    	var msg = document.getElementById('message').value;
+			 document.getElementById('message').value = "";
+			$.ajaxSetup({ cache: false});
+			$.post("../Messages", {msg:msg});
+			alert(msg);
+	    }
+	});
 
+	$("#postMessage").click(
+			function buttonClick(){
+			 var msg = document.getElementById('message').value;
+			 document.getElementById('message').value = "";
+			$.ajaxSetup({ cache: false});
+			$.post("../Messages", {msg:msg});
+			alert(msg);
+		}); 
+	
+});
 </script>
 </head>
 <body>
@@ -57,9 +67,9 @@ $(document).ready(function() {
 			<div id="MessageContent" disabled></div>
 		</div>
 
-		<input type="text" class="tftextinput" name="msg" size="21" maxlength="100" id="message">
+		<input type="text" class="tftextinput" name="msg" size="21" maxlength="100" id="message" autocomplete="off">
 		<input type="hidden" id="receiver" name="receiver" value="<%=receiver%>">
-		<button class="tfbutton" id="postMessage" onclick="buttonClick()">send</button>
+		<input type="button" class="tfbutton" id="postMessage" onclick="buttonClick()" value="send">
 
 	</center>
 	<%@ include file="footer.jsp"%>

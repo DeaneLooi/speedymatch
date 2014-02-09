@@ -29,16 +29,14 @@ public class DeleteFriend extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		//Check if user is online
-		HttpSession friendOnline = request.getSession();
-		Member friendOnline2 = (Member)friendOnline.getAttribute("member");
+		Member m = (Member)request.getSession().getAttribute("member");
+		String sender = m.getUsername();
 		
-		String username = request.getParameter("username");
 		String friendId = request.getParameter("friendId");
-		FriendList f = new FriendList(username);
+		FriendList f = new FriendList(sender);
 		FriendListDAO.deleteFriends(f, friendId);
 		
 		//See notification
-		String sender = (String)request.getParameter("sender");
 		String receiver = (String)request.getParameter("receiver");
 				
 		Notification n = new Notification(sender, receiver, NotificationVariables.FRIEND);
@@ -49,7 +47,7 @@ public class DeleteFriend extends HttpServlet {
 		
 		//alert that notification has been sent
 		Object alert = new Object();
-		alert="<script>alert('Reqeuest Sent')</script>";
+		alert="<script>alert('Request Sent')</script>";
 		request.getSession().setAttribute("alert", alert);
 		
 		response.sendRedirect("pages/friendProfile.jsp?username="+friendId);
