@@ -116,6 +116,8 @@ public class ProfileServlet extends HttpServlet {
 
 			pstmt.executeUpdate();
 
+			System.out.println("Successfully updated profile!");
+
 		} catch (Exception ex) {
 
 			System.out
@@ -138,6 +140,8 @@ public class ProfileServlet extends HttpServlet {
 		// update member
 		try {
 			Class.forName(driver).newInstance();
+			java.sql.Date birthDate = new java.sql.Date(member.getDob()
+					.getTime());
 			currentCon = DriverManager.getConnection(url + dbName, userName,
 					password);
 			System.out.println("Connected!");
@@ -147,10 +151,12 @@ public class ProfileServlet extends HttpServlet {
 			pstmt.setString(1, member.getEmail());
 			pstmt.setString(2, member.getFname());
 			pstmt.setString(3, member.getLname());
-			pstmt.setDate(4, (java.sql.Date) member.getDob());
+			pstmt.setDate(4, birthDate);
 			pstmt.setString(5, member.getUsername());
 
 			pstmt.executeUpdate();
+
+			System.out.println("Successfully updated member!");
 
 		} catch (Exception ex) {
 
