@@ -117,7 +117,7 @@ public class Message extends HttpServlet {
 	
 	//for testing out the DAOs
 	
-	/*public static void main(String args[]){
+	public static void main(String args[]){
 		String sender = "deane";
 		String receiver = "tanwaikit";
 		String message = "Hello i added you";
@@ -139,5 +139,5 @@ public class Message extends HttpServlet {
 			System.out.println(date);
 			
 		}
-	}*/
+	}
 }

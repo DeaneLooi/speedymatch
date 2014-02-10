@@ -61,7 +61,7 @@ $(document).ready(function() {
 			 var msg = document.getElementById('message').value;
 			 document.getElementById('message').value = "";
 			$.ajaxSetup({ cache: false});
-			$.post("../Messages", {msg:msg});
+			$.post("../Messages?receiver="+receiver, {msg:msg});
 			
 			//testing if the functions works
 			/* alert(msg); */

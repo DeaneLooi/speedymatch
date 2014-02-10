@@ -37,6 +37,8 @@ public class DeleteFriend extends HttpServlet {
 		String friendId = request.getParameter("friendId");
 		FriendList f = new FriendList(sender);
 		FriendListDAO.deleteFriends(f, friendId);
+		FriendList f1 = new FriendList(friendId);
+		FriendListDAO.deleteFriends(f1, sender);
 		
 		//See notification
 		String receiver = (String)request.getParameter("receiver");
@@ -47,10 +49,7 @@ public class DeleteFriend extends HttpServlet {
 		Notification nn = new Notification(sender,receiver,NotificationVariables.FRIEND);
 		NotificationDAO.createNotification(nn);
 		
-		//alert that notification has been sent
-		Object alert = new Object();
-		alert="<script>alert('Request Sent')</script>";
-		request.getSession().setAttribute("alert", alert);
+
 		
 		response.sendRedirect("pages/friendProfile.jsp?username="+friendId);
 	

@@ -91,11 +91,10 @@ public class GetNotifications extends HttpServlet {
 				html += "<div style='background-color:lightgray;border-style:solid;border-color:white;border-width:1px;padding:5px'>";
 				html += "<p>" + n1.getSender()
 						+ " has requested to be your friend</p>";
-				html += "<a href='../AddFriend'>Accept</a>&nbsp;";
 				html += "<a href='../DeleteNotification?content="
 						+ NotificationVariables.FRIEND + "&sender="
 						+ n1.getSender() + "&receiver=" + n1.getReceiver()
-						+ "'>Reject</a>";
+						+ "'>OK</a>";
 				html += "</div>";
 			}
 
@@ -108,7 +107,7 @@ public class GetNotifications extends HttpServlet {
 					 				System.out.println("deleteFriendNotification has appear");
 					 				html += "<div style='background-color:lightgray;border-style:solid;border-color:white;border-width:1px;padding:5px'>";
 					 				html += "<p>" + n1.getSender()
-					 						+ " has delete you as a friend</p>";
+					 						+ " has deleted you as a friend</p>";
 					 				html += "<a href='../DeleteNotification?content="
 					 						+ NotificationVariables.DELETEFRIEND + "&sender="
 					 						+ n1.getSender() + "&receiver=" + n1.getReceiver()
@@ -149,30 +148,9 @@ public class GetNotifications extends HttpServlet {
 				System.out.println("add messageNotification has appear");
 				html += "<div style='background-color:lightgray;border-style:solid;border-color:white;border-width:1px;padding:5px'>";
 				html += "<p>" + n1.getSender() + " just messaged you</p>";
-				html += "<a href='../AddFriend'>Accept</a>&nbsp;";
-				html += "<a href='../DeleteNotification?content="
-						+ NotificationVariables.MESSAGE + "&sender="
-						+ n1.getSender() + "&receiver=" + n1.getReceiver()
-						+ "'>Reject</a>";
+				html += "<a href='message.jsp?username="+n1.getSender()+"'>OK</a>&nbsp;";
 				html += "</div>";
 			}
-			
-			 /*Tan Wai Kit 
-			  * IS1201
-			  * 123696F */
-
-
-			else if (n1.getNotification().equals(NotificationVariables.MESSAGE)) {
-				 				System.out.println("add messageNotification has appear");
-				 				html += "<div style='background-color:lightgray;border-style:solid;border-color:white;border-width:1px;padding:5px'>";
-				 				html += "<p>" + n1.getSender() + " just messaged you</p>";
-				 				html += "<a href='../AddFriend'>Accept</a>&nbsp;";
-				 				html += "<a href='../DeleteNotification?content="
-				 						+ NotificationVariables.MESSAGE + "&sender="
-				 						+ n1.getSender() + "&receiver=" + n1.getReceiver()
-				 						+ "'>Reject</a>";
-				 				html += "</div>";
-				  			}
 			
 		}
 

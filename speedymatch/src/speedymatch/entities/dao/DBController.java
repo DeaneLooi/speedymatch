@@ -14,8 +14,8 @@ public class DBController {
 	
 	private Connection con;
 	//previous DB
-	//private String dbSource="//127.0.0.1:3306/speedymatch";
-	private String dbSource="//127.4.11.2:3306/speedymatch";
+	private String dbSource="//127.0.0.1:3306/speedymatch";
+/*	private String dbSource="//127.4.11.2:3306/speedymatch";*/
 	private String user="adming1vWayv";
 	private String password="2MVCBKUIFISG";
 	

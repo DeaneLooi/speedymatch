@@ -35,16 +35,20 @@ public class AddFriend extends HttpServlet {
 		String friendId = request.getParameter("friendId");
 		FriendList f = new FriendList(username);
 		FriendListDAO.addFriends(f, friendId);
+		FriendList f1 = new FriendList(friendId);
+		FriendListDAO.addFriends(f1, username);
 		
 		//See notification
 		String sender = (String)request.getParameter("sender");
 		String receiver = (String)request.getParameter("receiver");
 		
 		Notification n = new Notification(sender, receiver, NotificationVariables.FRIEND);
-		ArrayList<Notification> notifications = NotificationDAO.retrieveNotifications(n);
+		NotificationDAO.createNotification(n);
+		
+		response.sendRedirect("pages/friendProfile.jsp?username="+friendId);
 		
 		//user online
-		if(friendOnline2 != null) {
+/*		if(friendOnline2 != null) {
 			try {
 			Notification nn = new Notification(sender,receiver,NotificationVariables.FRIEND);
 			NotificationDAO.createNotification(nn);
@@ -70,7 +74,7 @@ public class AddFriend extends HttpServlet {
 			} catch (Exception ex) {
 				System.out.println("Error has occured!= " + ex);
 			}
-		}
+		}*/
 	}
 
 	/**
