@@ -7,11 +7,15 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import speedymatch.entities.Product;
+import speedymatch.entities.dao.ProductDAO;
 
 @WebServlet("/StoreServlet")
 public class StoreServlet extends HttpServlet {
@@ -30,11 +34,21 @@ public class StoreServlet extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws
-
-	ServletException, IOException {
+			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
+		try {
+
+			ArrayList<Product> product = ProductDAO.getProductList();
+			request.setAttribute("product", product);
+			request.getRequestDispatcher("pages/store.jsp").forward(request,
+					response);
+
+		}
+
+		catch (Throwable theException) {
+			System.out.println(theException);
+		}
 	}
 
 	/**
@@ -48,49 +62,49 @@ public class StoreServlet extends HttpServlet {
 	throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		Connection conn = null;
-		String url = "jdbc:mysql://127.0.0.1:3306/";
-		String dbName = "speedymatch";
-		String driver = "com.mysql.jdbc.Driver";
-		String userName = "adming1vWayv";
-		String password = "2MVCBKUIFISG";
+		/**
+		 * response.setContentType("text/html"); PrintWriter out =
+		 * response.getWriter(); Connection conn = null;
+		 * 
+		 * Statement st; try {
+		 * Class.forName("com.mysql.jdbc.Driver").newInstance(); conn =
+		 * DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/" +
+		 * "speedymatch", "adming1vWayv", "2MVCBKUIFISG");
+		 * System.out.println("Connected!");
+		 * 
+		 * ArrayList al = null; ArrayList pid_list = new ArrayList(); String
+		 * query = "select productName, productDesc, productCost from Product";
+		 * System.out.println("query " + query); st = conn.createStatement();
+		 * ResultSet rs = st.executeQuery(query);
+		 * 
+		 * while (rs.next()) { al = new ArrayList();
+		 * 
+		 * al.add(rs.getString(1)); al.add(rs.getString(2));
+		 * al.add(rs.getString(3));
+		 * 
+		 * System.out.println("al :: " + al); pid_list.add(al);
+		 * 
+		 * }
+		 * 
+		 * request.getSession().setAttribute("piList", pid_list);
+		 * 
+		 * response.sendRedirect("pages/store.jsp");
+		 * 
+		 * conn.close(); System.out.println("Disconnected!"); } catch (Exception
+		 * e) { e.printStackTrace(); }
+		 **/
 
-		Statement st;
 		try {
-			Class.forName(driver).newInstance();
-			conn = DriverManager
-					.getConnection(url + dbName, userName, password);
-			System.out.println("Connected!");
 
-			ArrayList al = null;
-			ArrayList pid_list = new ArrayList();
-			String query = "select productName, productDesc, productCost from Product";
-			System.out.println("query " + query);
-			st = conn.createStatement();
-			ResultSet rs = st.executeQuery(query);
+			ArrayList<Product> product = ProductDAO.getProductList();
+			request.setAttribute("product", product);
+			request.getRequestDispatcher("pages/store.jsp").forward(request,
+					response);
 
-			while (rs.next()) {
-				al = new ArrayList();
+		}
 
-				al.add(rs.getString(1));
-				al.add(rs.getString(2));
-				al.add(rs.getString(3));
-
-				System.out.println("al :: " + al);
-				pid_list.add(al);
-
-			}
-
-			request.getSession().setAttribute("piList", pid_list);
-
-			response.sendRedirect("pages/store.jsp");
-
-			conn.close();
-			System.out.println("Disconnected!");
-		} catch (Exception e) {
-			e.printStackTrace();
+		catch (Throwable theException) {
+			System.out.println(theException);
 		}
 
 	}

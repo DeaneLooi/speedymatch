@@ -119,18 +119,18 @@ public class GetNotifications extends HttpServlet {
 			else if (n1.getNotification().equals(
 					NotificationVariables.VIDEOCONF)) {
 
-				html += "<div style='background-color:lightgray;border-style:solid;border-color:white;border-width:1px;padding:5px'>";
-				html += "<p>" + n1.getSender()
-						+ " has invited you to a video chat</p>";
-				html += "<a href='../DeleteNotification?content="
-						+ NotificationVariables.VIDEOCONFRDY + "&sender="
-						+ n1.getSender() + "&receiver=" + n1.getReceiver()
-						+ "'>Accept</a>&nbsp;";
-				html += "<a href='../DeleteNotification?content="
-						+ NotificationVariables.VIDEOCONF + "&sender="
-						+ n1.getSender() + "&receiver=" + n1.getReceiver()
-						+ "'>Reject</a>";
-				html += "</div>";
+//				html += "<div style='background-color:lightgray;border-style:solid;border-color:white;border-width:1px;padding:5px'>";
+//				html += "<p>" + n1.getSender()
+//						+ " has invited you to a video chat</p>";
+//				html += "<a href='../DeleteNotification?content="
+//						+ NotificationVariables.VIDEOCONFRDY + "&sender="
+//						+ n1.getSender() + "&receiver=" + n1.getReceiver()
+//						+ "'>Accept</a>&nbsp;";
+//				html += "<a href='../DeleteNotification?content="
+//						+ NotificationVariables.VIDEOCONF + "&sender="
+//						+ n1.getSender() + "&receiver=" + n1.getReceiver()
+//						+ "'>Reject</a>";
+//				html += "</div>";
 
 				html+="<div style='background-color:lightgray;border-style:solid;border-color:white;border-width:1px;padding:5px'>";
 				html+="<p>"+n1.getSender()+" has invited you to a video chat</p>";
