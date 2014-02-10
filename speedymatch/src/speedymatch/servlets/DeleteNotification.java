@@ -72,6 +72,7 @@ public class DeleteNotification extends HttpServlet {
 			Notification vidconfrdy = new Notification(sender,receiver,NotificationVariables.VIDEOCONFRDY);
 			NotificationDAO.createNotification(vidconfrdy);
 			System.out.println("Ready for vid: "+sender+" "+receiver);
+			response.sendRedirect("pages/VidConIFrame.jsp");
 		}
 		
 		response.sendRedirect("pages/notifications.jsp");
