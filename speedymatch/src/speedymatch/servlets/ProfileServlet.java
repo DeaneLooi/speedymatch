@@ -89,7 +89,7 @@ public class ProfileServlet extends HttpServlet {
 		String userName = "adming1vWayv";
 		String password = "2MVCBKUIFISG";
 
-		// Update Profile
+		// Update Profile try 1
 		try {
 			Class.forName(driver).newInstance();
 			currentCon = DriverManager.getConnection(url + dbName, userName,
@@ -137,7 +137,95 @@ public class ProfileServlet extends HttpServlet {
 			}
 		}
 
-		// update member
+		// update profile try 2
+		try {
+			Class.forName(driver).newInstance();
+			currentCon = DriverManager.getConnection(url + dbName, userName,
+					password);
+			System.out.println("Connected!");
+			String query = "UPDATE Profile SET age = ?, gender = ?, eduLevel = ?, hobby = ?, height = ?, weight = ?, race = ?, religion = ?, child = ?, horo = ?, occupation = ?, smoking = ?, drinking = ?, relaStatus = ? WHERE username = ?";
+			PreparedStatement pstmt = currentCon.prepareStatement(query);
+			pstmt = currentCon.prepareStatement(query);
+			pstmt.setInt(1, Integer.parseInt(request.getParameter("age")));
+			pstmt.setString(2, request.getParameter("gender"));
+			pstmt.setString(3, request.getParameter("eduLevel"));
+			pstmt.setString(4, request.getParameter("hobby"));
+			pstmt.setInt(5, Integer.parseInt(request.getParameter("height")));
+			pstmt.setInt(6, Integer.parseInt(request.getParameter("weight")));
+			pstmt.setString(7, request.getParameter("race"));
+			pstmt.setString(8, request.getParameter("religion"));
+			pstmt.setString(9, request.getParameter("child"));
+			pstmt.setString(10, request.getParameter("horo"));
+			pstmt.setString(11, request.getParameter("occupation"));
+			pstmt.setString(12, request.getParameter("smoking"));
+			pstmt.setString(13, request.getParameter("drinking"));
+			pstmt.setString(14, request.getParameter("relaStatus"));
+			pstmt.setString(15, profile.getUsername());
+
+			pstmt.executeUpdate();
+
+			System.out.println("Successfully updated profile!");
+
+		} catch (Exception ex) {
+
+			System.out
+					.println("Update Profile failed: An Exception has occurred! "
+							+ ex);
+			profile = null;
+
+		} finally {
+
+			if (currentCon != null) {
+				try {
+					currentCon.close();
+				} catch (Exception e) {
+				}
+
+				currentCon = null;
+			}
+		}
+
+		// update member try 1
+		try {
+			Class.forName(driver).newInstance();
+			java.sql.Date birthDate = new java.sql.Date(member.getDob()
+					.getTime());
+			currentCon = DriverManager.getConnection(url + dbName, userName,
+					password);
+			System.out.println("Connected!");
+			String query = "UPDATE Member SET email = ?, Fname = ?, Lname = ?, dob = ? WHERE username = ?";
+			PreparedStatement pstmt = currentCon.prepareStatement(query);
+			pstmt = currentCon.prepareStatement(query);
+			pstmt.setString(1, request.getParameter("email"));
+			pstmt.setString(2, request.getParameter("fname"));
+			pstmt.setString(3, request.getParameter("lname"));
+			pstmt.setDate(4, birthDate);
+			pstmt.setString(5, member.getUsername());
+
+			pstmt.executeUpdate();
+
+			System.out.println("Successfully updated member!");
+
+		} catch (Exception ex) {
+
+			System.out
+					.println("Update Member failed: An Exception has occurred! "
+							+ ex);
+			member = null;
+
+		} finally {
+
+			if (currentCon != null) {
+				try {
+					currentCon.close();
+				} catch (Exception e) {
+				}
+
+				currentCon = null;
+			}
+		}
+
+		// update member try 2
 		try {
 			Class.forName(driver).newInstance();
 			java.sql.Date birthDate = new java.sql.Date(member.getDob()
