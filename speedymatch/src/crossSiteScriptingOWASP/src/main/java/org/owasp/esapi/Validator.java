@@ -13,7 +13,7 @@
  * @author Jeff Williams <a href="http://www.aspectsecurity.com">Aspect Security</a>
  * @created 2007
  */
-package org.owasp.esapi;
+package crossSiteScriptingOWASP.src.main.java.org.owasp.esapi;
 
 import java.io.File;
 import java.io.InputStream;
@@ -24,8 +24,8 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.owasp.esapi.errors.IntrusionException;
-import org.owasp.esapi.errors.ValidationException;
+import crossSiteScriptingOWASP.src.main.java.org.owasp.esapi.errors.IntrusionException;
+import crossSiteScriptingOWASP.src.main.java.org.owasp.esapi.errors.ValidationException;
 
 
 /**

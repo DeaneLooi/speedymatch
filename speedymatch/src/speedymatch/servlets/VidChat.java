@@ -62,13 +62,18 @@ public class VidChat extends HttpServlet {
 	
 		try {
 			String safe = ESAPI.encoder().encodeForURL( request.getParameter( "sender" ) );
+			String safe1 = ESAPI.encoder().encodeForURL( request.getParameter( "receiver" ) );
 		} catch (EncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Object obj = new Object();
+			obj="<script>alert('Please try again.')</script>";
+			request.getSession().setAttribute("alert",obj);
+			response.sendRedirect("pages/profile.jsp");
 		}
 		
 		String sender = request.getParameter("sender");
 		String receiver = request.getParameter("receiver");
+		boolean isValidURL = ESAPI.validator().isValidInput("URLContext", sender, "URL", 255, false); 
+				 
 		System.out.println("Sender = "+sender+" Receiver = "+receiver);
 		
 		///finding whether it accept liao or not
@@ -77,6 +82,8 @@ public class VidChat extends HttpServlet {
 		
 		if (!notifications.isEmpty()) // receiver accept?
 		{
+			if (isValidURL) {  
+			
 			for (int i=0; i<notifications.size(); i++){
 				System.out.println("ready for vid conf: "+notifications.get(i).getSender()+" "+notifications.get(i).getReceiver());
 				}
@@ -84,8 +91,16 @@ public class VidChat extends HttpServlet {
 			NotificationDAO.deleteNotification(oldNote);
 			System.out.println("Deleted vidchat notification cuz accepted liao");
 			response.sendRedirect("pages/VidConIFrame.jsp");
+			}
+			else {
+				Object obj = new Object();
+				obj="<script>alert('Please try again.')</script>";
+				request.getSession().setAttribute("alert",obj);
+				response.sendRedirect("pages/profile.jsp");
+			}
 		}
 		else {
+			if (isValidURL) {
 		Notification newNote = new Notification(sender,receiver,NotificationVariables.VIDEOCONF);
 		NotificationDAO.createNotification(newNote);
 //		//Alert msg for successful requesting
@@ -93,7 +108,15 @@ public class VidChat extends HttpServlet {
 //		obj="<script>alert('Please wait for your partner.')</script>";
 //		request.getSession().setAttribute("alert",obj);
 		response.sendRedirect("pages/VidConIFrame.jsp");
+			}
+			else {
+				Object obj = new Object();
+				obj="<script>alert('Please try again.')</script>";
+				request.getSession().setAttribute("alert",obj);
+				response.sendRedirect("pages/profile.jsp");
+			}
 		}
+		
 	}
 
 
