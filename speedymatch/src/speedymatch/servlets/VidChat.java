@@ -77,11 +77,12 @@ public class VidChat extends HttpServlet {
 		///finding whether it accept liao or not
 		Notification n = new Notification(sender,receiver,NotificationVariables.VIDEOCONFRDY);
 		ArrayList<Notification> notifications = NotificationDAO.retrieveNotifications(n);
-		for (int i=0; i<notifications.size(); i++){
-		System.out.println("ready for vid conf: "+notifications.get(i).getSender()+" "+notifications.get(i).getReceiver());
-		}
+		
 		if (!notifications.isEmpty()) // receiver accept?
 		{
+			for (int i=0; i<notifications.size(); i++){
+				System.out.println("ready for vid conf: "+notifications.get(i).getSender()+" "+notifications.get(i).getReceiver());
+				}
 			Notification oldNote = new Notification(sender, receiver,NotificationVariables.VIDEOCONFRDY);
 			NotificationDAO.deleteNotification(oldNote);
 			System.out.println("Deleted vidchat notification cuz accepted liao");
@@ -90,11 +91,11 @@ public class VidChat extends HttpServlet {
 		else {
 		Notification newNote = new Notification(sender,receiver,NotificationVariables.VIDEOCONF);
 		NotificationDAO.createNotification(newNote);
-		//Alert msg for successful requesting
-		Object obj = new Object();
-		obj="<script>alert('Request Successful')</script>";
-		request.getSession().setAttribute("alert",obj);
-		response.sendRedirect("pages/profile.jsp?");
+//		//Alert msg for successful requesting
+//		Object obj = new Object();
+//		obj="<script>alert('Please wait for your partner.')</script>";
+//		request.getSession().setAttribute("alert",obj);
+		response.sendRedirect("pages/VidConIFrame.jsp");
 		}
 	}
 
