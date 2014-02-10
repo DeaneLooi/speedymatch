@@ -60,19 +60,19 @@ public class VidChat extends HttpServlet {
 //					}
 		//}
 	
-		try {
-			String safe = ESAPI.encoder().encodeForURL( request.getParameter( "sender" ) );
-			String safe1 = ESAPI.encoder().encodeForURL( request.getParameter( "receiver" ) );
-		} catch (EncodingException e) {
-			Object obj = new Object();
-			obj="<script>alert('Please try again.')</script>";
-			request.getSession().setAttribute("alert",obj);
-			response.sendRedirect("pages/profile.jsp");
-		}
+//		try {
+//			String safe = ESAPI.encoder().encodeForURL( request.getParameter( "sender" ) );
+//			String safe1 = ESAPI.encoder().encodeForURL( request.getParameter( "receiver" ) );
+//		} catch (EncodingException e) {
+//			Object obj = new Object();
+//			obj="<script>alert('Please try again.')</script>";
+//			request.getSession().setAttribute("alert",obj);
+//			response.sendRedirect("pages/profile.jsp");
+//		}
 		
 		String sender = request.getParameter("sender");
 		String receiver = request.getParameter("receiver");
-		boolean isValidURL = ESAPI.validator().isValidInput("URLContext", sender, "URL", 255, false); 
+//		boolean isValidURL = ESAPI.validator().isValidInput("URLContext", sender, "URL", 255, false); 
 				 
 		System.out.println("Sender = "+sender+" Receiver = "+receiver);
 		
@@ -82,7 +82,7 @@ public class VidChat extends HttpServlet {
 		
 		if (!notifications.isEmpty()) // receiver accept?
 		{
-			if (isValidURL) {  
+			if (true) {  
 			
 			for (int i=0; i<notifications.size(); i++){
 				System.out.println("ready for vid conf: "+notifications.get(i).getSender()+" "+notifications.get(i).getReceiver());
@@ -100,7 +100,7 @@ public class VidChat extends HttpServlet {
 			}
 		}
 		else {
-			if (isValidURL) {
+			if (true) {
 		Notification newNote = new Notification(sender,receiver,NotificationVariables.VIDEOCONF);
 		NotificationDAO.createNotification(newNote);
 //		//Alert msg for successful requesting
