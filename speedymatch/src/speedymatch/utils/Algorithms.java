@@ -12,6 +12,14 @@ import speedymatch.entities.Messages;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
+/*Tan Wai Kit 
+ * IS1201
+ * 123696F */
+
+/*Deane Looi
+ * IS1201*/
+
+
 public class Algorithms {
 	
 	private static final String ELSA = "AES";

@@ -23,6 +23,11 @@ import speedymatch.entities.Messages;
 import speedymatch.entities.dao.MessageDAO;
 import speedymatch.utils.Algorithms;
 
+/*Tan Wai Kit 
+ * IS1201
+ * 123696F */
+
+
 /**
  * Servlet implementation class Message
  */
@@ -110,7 +115,9 @@ public class Message extends HttpServlet {
 		}
 	}
 	
-	public static void main(String args[]){
+	//for testing out the DAOs
+	
+	/*public static void main(String args[]){
 		String sender = "deane";
 		String receiver = "tanwaikit";
 		String message = "Hello i added you";
@@ -120,9 +127,9 @@ public class Message extends HttpServlet {
 		try {
 
 			encryptedmessage = Algorithms.encrypt(message, "testingsecretkey");
-			Messages pmsg = new Messages(sender, receiver, message,
+			Messages n = new Messages(sender, receiver, message,
 					date);
-			MessageDAO.createMessage(pmsg);
+			MessageDAO.createMessage(n);
 
 		} catch (Exception ex) {
 			System.out.println("post message error");
@@ -132,5 +139,5 @@ public class Message extends HttpServlet {
 			System.out.println(date);
 			
 		}
-	}
+	}*/
 }

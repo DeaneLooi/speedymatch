@@ -1,6 +1,8 @@
+/*Tan Wai Kit
+IS1201
+123696F*/
+
 @CHARSET "ISO-8859-1";
-
-
 
 #receiverName{
 	position:relative;
@@ -11,7 +13,6 @@
 	position:relative;
 	top:-10px;
 }
-
 
 #MessageContent{
 	margin:0px;

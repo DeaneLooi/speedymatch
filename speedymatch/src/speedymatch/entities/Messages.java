@@ -1,4 +1,6 @@
-
+/*Tan Wai Kit
+IS1201
+123696F*/
 package speedymatch.entities;
 
 import java.util.Date;

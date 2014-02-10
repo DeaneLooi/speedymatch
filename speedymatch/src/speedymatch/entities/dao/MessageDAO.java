@@ -1,3 +1,7 @@
+/*Tan Wai Kit
+IS1201
+123696F*/
+
 package speedymatch.entities.dao;
 
 import java.sql.Connection;
@@ -16,12 +20,10 @@ public class MessageDAO {
 	public static Messages createMessage(Messages n) {
 		Connection currentCon = db.getConnection();
 		java.sql.Date date = new java.sql.Date(n.getDate().getTime());
-
 		try {
-			String query = "insert into Message(sender,receiver,message,date)"
-					+ "values(?,?,?,?)";
+			String query = "insert into Message(sender,receiver,message,date) values(?,?,?,?)";
 			PreparedStatement pstmt = currentCon.prepareStatement(query);
-
+			// inserting values
 			pstmt.setString(1, n.getSender());
 			pstmt.setString(2, n.getReceiver());
 			pstmt.setString(3, n.getMessage());
@@ -30,21 +32,23 @@ public class MessageDAO {
 			pstmt.executeUpdate();
 
 		} catch (Exception ex) {
-			System.out.println("message not sent: An error has occured!" + ex);
+
+			System.out.println("message not sent! " + ex);
 			n = null;
+
 		} finally {
+
 			if (currentCon != null) {
 				try {
 					currentCon.close();
 				} catch (Exception e) {
-					System.out.println(e);
 				}
 
 				currentCon = null;
 			}
 		}
 		return n;
-	}
+	} 
 
 	public static ArrayList<Messages> searchMessages(String receiver, String username) {
 		Connection currentCon = db.getConnection();

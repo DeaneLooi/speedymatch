@@ -81,6 +81,11 @@ public class GetNotifications extends HttpServlet {
 				html += "</div>";
 			}
 
+			 /*Tan Wai Kit 
+			  * IS1201
+			  * 123696F */
+
+			
 			else if (n1.getNotification().equals(NotificationVariables.FRIEND)) {
 				System.out.println("add friendNotification has appear");
 				html += "<div style='background-color:lightgray;border-style:solid;border-color:white;border-width:1px;padding:5px'>";
@@ -94,7 +99,12 @@ public class GetNotifications extends HttpServlet {
 				html += "</div>";
 			}
 
-				else if (n1.getNotification().equals(NotificationVariables.DELETEFRIEND)) {
+			 /*Tan Wai Kit 
+			  * IS1201
+			  * 123696F */
+
+			
+			else if (n1.getNotification().equals(NotificationVariables.DELETEFRIEND)) {
 					 				System.out.println("deleteFriendNotification has appear");
 					 				html += "<div style='background-color:lightgray;border-style:solid;border-color:white;border-width:1px;padding:5px'>";
 					 				html += "<p>" + n1.getSender()
@@ -129,6 +139,11 @@ public class GetNotifications extends HttpServlet {
 				html+="</div>";		
 
 			}
+			
+			 /*Tan Wai Kit 
+			  * IS1201
+			  * 123696F */
+
 
 			else if (n1.getNotification().equals(NotificationVariables.MESSAGE)) {
 				System.out.println("add messageNotification has appear");
@@ -141,6 +156,11 @@ public class GetNotifications extends HttpServlet {
 						+ "'>Reject</a>";
 				html += "</div>";
 			}
+			
+			 /*Tan Wai Kit 
+			  * IS1201
+			  * 123696F */
+
 
 			else if (n1.getNotification().equals(NotificationVariables.MESSAGE)) {
 				 				System.out.println("add messageNotification has appear");
@@ -157,7 +177,6 @@ public class GetNotifications extends HttpServlet {
 		}
 
 		writer.println(html);
-
 		writer.close();
 	}
 
