@@ -13,12 +13,12 @@
  * @author Jeff Williams <a href="http://www.aspectsecurity.com">Aspect Security</a>
  * @created 2007
  */
-package org.owasp.esapi;
+package crossSiteScriptingOWASP.src.main.java.org.owasp.esapi;
 
 import java.io.IOException;
 
-import org.owasp.esapi.codecs.Codec;
-import org.owasp.esapi.errors.EncodingException;
+import crossSiteScriptingOWASP.src.main.java.org.owasp.esapi.codecs.Codec;
+import crossSiteScriptingOWASP.src.main.java.org.owasp.esapi.errors.EncodingException;
 
 
 /**

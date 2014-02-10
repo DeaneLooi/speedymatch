@@ -2,28 +2,18 @@ package speedymatch.servlets;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-
-
-
-
-
-
-
-import speedymatch.entities.Member;
 import speedymatch.entities.Notification;
-import speedymatch.entities.Sessions;
 import speedymatch.entities.dao.NotificationDAO;
 import speedymatch.utils.NotificationVariables;
+import crossSiteScriptingOWASP.src.main.java.org.owasp.esapi.ESAPI;
+import crossSiteScriptingOWASP.src.main.java.org.owasp.esapi.errors.EncodingException;
 
 /**
  * Servlet implementation class VidChat
@@ -70,6 +60,13 @@ public class VidChat extends HttpServlet {
 //					}
 		//}
 	
+		try {
+			String safe = ESAPI.encoder().encodeForURL( request.getParameter( "sender" ) );
+		} catch (EncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		String sender = request.getParameter("sender");
 		String receiver = request.getParameter("receiver");
 		System.out.println("Sender = "+sender+" Receiver = "+receiver);

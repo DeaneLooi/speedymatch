@@ -13,9 +13,9 @@
  * @author Jeff Williams <a href="http://www.aspectsecurity.com">Aspect Security</a>
  * @created 2007
  */
-package org.owasp.esapi;
+package crossSiteScriptingOWASP.src.main.java.org.owasp.esapi;
 
-import org.owasp.esapi.errors.AccessControlException;
+import crossSiteScriptingOWASP.src.main.java.org.owasp.esapi.errors.AccessControlException;
 
 
 
