@@ -42,6 +42,9 @@ public class GetNotification extends HttpServlet {
 			Member m = (Member) request.getSession().getAttribute("member");
 			Notification n = new Notification(null,m.getUsername(),null);
 			ArrayList<Notification> notifications = NotificationDAO.retrieveNotifications(n);
+			for (int i=0; i<notifications.size(); i++) {
+				
+			}
 /*			int notificationCount = 0;
 			for(int i=0; i<notifications.size();i++){
 				Notification notification = notifications.get(i);

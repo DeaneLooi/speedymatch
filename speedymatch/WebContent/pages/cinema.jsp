@@ -9,10 +9,10 @@
 <body>
 <%@ include file="header.jsp" %>
 
-<video width="400" height="300" controls>
-  <source src="${movieUrl}" type="${movieType}">
-Your browser does not support the video tag.
-</video>
+<embed width="420" height="345"
+src ="${movieUrl}"
+type="application/x-shockwave-flash">
+</embed>
 		
 <%
 request.getSession().removeAttribute("movieUrl");

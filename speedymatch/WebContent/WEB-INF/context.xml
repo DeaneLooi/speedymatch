@@ -23,6 +23,6 @@
 		/> -->
 	<Resource name="jdbc/SpeedyMatchDB" auth="Container" type="javax.sql.DataSource"
 		username="adming1vWayv" password="2MVCBKUIFISG" driverClassName="com.mysql.jdbc.Driver"
-		url="jdbc:mysql://127.0.0.1:3306/speedymatch" maxActive="8" maxIdle="4" />
-
+		url="127.4.11.2:3306" maxActive="8" maxIdle="4" />
+<!-- url="jdbc:mysql://127.0.0.1:3306/speedymatch" -->
 </Context>

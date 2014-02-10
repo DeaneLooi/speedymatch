@@ -60,7 +60,7 @@ public class GetNotifications extends HttpServlet {
 				html += "<div style='background-color:lightgray;border-style:solid;border-color:white;border-width:1px;padding:5px'>";
 				html += "<p>"
 						+ n1.getSender()
-						+ " has visited your profile&nbsp;<a href='../DeleteNotification?content=Alert'>&#x2717</a></p>";
+						+ " has visited your profile&nbsp;<a href='../DeleteNotification?content="+NotificationVariables.ALERT+"&sender="+n1.getSender()+"&receiver="+n1.getReceiver()+"'>&#x2717</a></p>";
 				html += "</div>";
 			}
 
