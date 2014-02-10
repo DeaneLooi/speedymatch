@@ -9,9 +9,7 @@
 <body>
 <%@ include file="header.jsp" %>
 
-<embed width="420" height="345"
-src ="${movieUrl}"
-type="application/x-shockwave-flash">
+<embed width="600" height="800" src ="${movieUrl}" type="application/x-shockwave-flash">
 </embed>
 		
 <%

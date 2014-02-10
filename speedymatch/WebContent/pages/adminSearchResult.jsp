@@ -53,6 +53,8 @@
         		}
 				%>
                 <a href="profile.jsp?gname=<%=pList.get(0)%>"><%=pList.get(0)%></a></td>
+                
+          
             </tr>
             <tr>
                 <td><b>First Name</b></td>

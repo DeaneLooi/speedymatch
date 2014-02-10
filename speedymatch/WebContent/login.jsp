@@ -102,7 +102,7 @@
 					<label for="password"><i class="fa fa-lock"></i>&nbsp;Password</label> 
 					<input type="password" class="password input" name="password" placeholder="Password">
 				</p>
-					<div id="facebook" class="medium info btn icon-right icon-facebook-squared"><a href="#">log in with</a></div>
+					<!-- <div id="facebook" class="medium info btn icon-right icon-facebook-squared"><a href="#">log in with</a></div> -->
 					<div class="medium primary btn"><input type="submit" value="log in"></div>
 					<br>
 					<a id="pass" href="forgotPass.jsp">Forgot password?</a>

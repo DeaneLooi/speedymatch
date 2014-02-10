@@ -16,58 +16,33 @@
 <link rel="stylesheet" href="../css/message.css">
 
 <title>Speedy Match Private Messaging</title>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="../js/jquery-1.9.1.js"></script>
 <script>
+	//auto retrieve messages from DB
+	$(document).ready(function() {
+		$.ajaxSetup({
+			cache : false
+		});
+		var receiver = document.getElementById('receiver').value;
+		var url = "../Message?receiver=" + receiver;
+		setInterval(function() {
+			$("#MessageContent").load(url);
+		}, 1000);
 
-//auto retrieve messages from DB
-$(document).ready(function() {
-	$.ajaxSetup({
-		cache : false
-	});
-	var receiver = document.getElementById('receiver').value;
-	var url = "../Message?receiver="+receiver;
-	setInterval(function() {
-		$("#MessageContent").load(url);
-	}, 1000);
-	
-	//Pressing enter key instead of clicking of post
-	$("#message").keypress(function (e) {
-	    if (e.keyCode == 13) {
-	    	
-	    	var msg = document.getElementById('message').value;
-			 document.getElementById('message').value = "";
-			$.ajaxSetup({ cache: false});
-			$.post("../Messages", {msg:msg});
-			
-			//testing if the function works
-			/*  alert(msg);  */
-	    }
-	    
-	    else {
-	    	return false;
-	    }
-	});
-	
-	$("#message").keypress(function(event) {
-		if (event.which == 13) {
-			event.preventDefault();
-			$.scriptcam.sendMessage($('#message').val());
-			$('#message').val('');
-		}
-	});
+		$("#postMessage").click(function() {
+			var msg = document.getElementById('message').value;
+			document.getElementById('message').value = "";
+			$.ajaxSetup({
+				cache : false
+			});
+			$.post(url, {
+				msg : msg
+			});
 
-	$("#postMessage").click(
-			function buttonClick(){
-			 var msg = document.getElementById('message').value;
-			 document.getElementById('message').value = "";
-			$.ajaxSetup({ cache: false});
-			$.post("../Messages?receiver="+receiver, {msg:msg});
-			
 			//testing if the functions works
 			/* alert(msg); */
-		}); 
-	
-});
+		});
+	});
 </script>
 </head>
 <body>
@@ -89,9 +64,11 @@ $(document).ready(function() {
 			<div id="MessageContent" disabled></div>
 		</div>
 
-		<input type="text" class="tftextinput" name="msg" size="21" maxlength="100" id="message" autocomplete="off">
-		<input type="hidden" id="receiver" name="receiver" value="<%=receiver%>">
-		<input type="button" class="tfbutton" id="postMessage" onclick="buttonClick()" value="send">
+		<input type="text" class="tftextinput" name="msg" size="21"
+			maxlength="100" id="message" autocomplete="off"> <input
+			type="hidden" id="receiver" name="receiver" value="<%=receiver%>">
+		<input type="button" class="tfbutton" id="postMessage"
+			onclick="buttonClick()" value="send">
 
 	</center>
 	<%@ include file="footer.jsp"%>

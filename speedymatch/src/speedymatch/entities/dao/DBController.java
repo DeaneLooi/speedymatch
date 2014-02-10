@@ -14,10 +14,10 @@ public class DBController {
 	
 	private Connection con;
 	//previous DB
-	private String dbSource="//127.0.0.1:3306/speedymatch";
-/*	private String dbSource="//127.4.11.2:3306/speedymatch";*/
+/*	private String dbSource="//127.0.0.1:3306/speedymatch";
+	private String dbSource="//127.4.11.2:3306/speedymatch";
 	private String user="adming1vWayv";
-	private String password="2MVCBKUIFISG";
+	private String password="2MVCBKUIFISG";*/
 	
 	
 	public DBController(){
@@ -44,7 +44,7 @@ public class DBController {
 	
 	public Connection getConnection(){ 
 
-		String url = ""; 
+/*		String url = ""; 
 		try { 
 			url = "jdbc:mysql:"+dbSource; 
 			con=DriverManager.getConnection(url,user,password);
@@ -54,38 +54,38 @@ public class DBController {
 			System.out.println("Connection failed ->"+ dbSource); 
 			System.out.println(e); 
 		} 
-		return con;
+		return con;*/
 		
-//		Context initCtx = null;
-//		try {
-//			initCtx = new InitialContext();
-//		} catch (NamingException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		Context envCtx = null;
-//		try {
-//			envCtx = (Context) initCtx.lookup("java:comp/env");
-//		} catch (NamingException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		DataSource ds = null;
-//		try {
-//			ds = (DataSource)
-//			  envCtx.lookup("jdbc/SpeedyMatchDB");
-//		} catch (NamingException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//
-//		try {
-//			con = ds.getConnection();
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		return con;
+		Context initCtx = null;
+		try {
+			initCtx = new InitialContext();
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Context envCtx = null;
+		try {
+			envCtx = (Context) initCtx.lookup("java:comp/env");
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		DataSource ds = null;
+		try {
+			ds = (DataSource)
+			  envCtx.lookup("jdbc/SpeedyMatchDB");
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		try {
+			con = ds.getConnection();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return con;
 	} 
 	
 	public void terminate() {

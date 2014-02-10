@@ -52,12 +52,16 @@ public class Message extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/xml");
 		response.setHeader("Cache-Control", "no-cache");
+		
+		System.out.println("something");
 
 		Member m = (Member) request.getSession().getAttribute("member");
-		String sender = m.getUsername();
+		String sender = "";
+		if(m!=null){
+			sender = m.getUsername();
+		}
 		String receiver = (String) request.getParameter("receiver");
 
-		MessageDAO.searchMessages(receiver, sender);
 
 		ArrayList<Messages> receivedmessages = MessageDAO.searchMessages(
 				receiver, sender);
@@ -97,16 +101,17 @@ public class Message extends HttpServlet {
 		String receiver = (String) request.getParameter("receiver");
 		String message = (String) request.getParameter("msg");
 		Date date = new Date();
+		System.out.println(sender);
+		System.out.println(receiver);
+		System.out.println(date);
 		String encryptedmessage = "";
 
 		try {
 
 			encryptedmessage = Algorithms.encrypt(message, "testingsecretkey");
 			System.out.println(encryptedmessage);
-			System.out.println(sender);
-			System.out.println(receiver);
-			System.out.println(date);
-			Messages pmsg = new Messages(sender, receiver, message,
+		
+			Messages pmsg = new Messages(sender, receiver, encryptedmessage,
 					date);
 			MessageDAO.createMessage(pmsg);
 
@@ -118,16 +123,16 @@ public class Message extends HttpServlet {
 	//for testing out the DAOs
 	
 	public static void main(String args[]){
-		String sender = "deane";
+		String sender = "greentea";
 		String receiver = "tanwaikit";
-		String message = "Hello i added you";
+		String message = "Hello i hate you";
 		Date date = new Date();
 		String encryptedmessage = "";
 
 		try {
 
 			encryptedmessage = Algorithms.encrypt(message, "testingsecretkey");
-			Messages n = new Messages(sender, receiver, message,
+			Messages n = new Messages(sender, receiver, encryptedmessage,
 					date);
 			MessageDAO.createMessage(n);
 
