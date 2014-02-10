@@ -45,16 +45,20 @@
 	
 	Notification n = new Notification(memProfile.getUsername(),userProfile,NotificationVariables.ALERT);
 	NotificationDAO.createNotification(n);
+	
+	String email = memProfile.getEmail();
+	String occ = profile.getOccupation();
+	String pic = memProfile.getProfilePic();
 	%>
 	<center class=content>
 		<!-- content here -->
-		<a href="#"><img id=profilepic src="<%=memProfile.getProfilePic()%>" alt="<%=memProfile.getUsername()%>" class="first" height="500px" width="400px"></a>
+		<a href="#"><img id=profilepic src="<%=pic%>" alt="<%=userProfile%>" class="first" height="500px" width="400px"></a>
 		<section class="profile">
 		<div class="profileinfo">
 
 			<div class="gear">
 				<label class="primary label">E-Mail:</label> <span id="email"
-					class="datainfo"><%=memProfile.getEmail()%></span> 
+					class="datainfo"><%=email%></span> 
 			</div>
 
 			<div class="gear">
@@ -74,7 +78,7 @@
 
 			<div class="gear">
 				<label class="primary label">Occupation:</label> <span
-					id="occupation" class="datainfo"><%=profile.getOccupation() %></span> 
+					id="occupation" class="datainfo"><%=occ%></span> 
 			</div>
 
 		</div>
