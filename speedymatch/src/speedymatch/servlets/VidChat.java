@@ -44,15 +44,15 @@ public class VidChat extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {;
 		//See if user online or not
-		HttpSession existingHttpSession = request.getSession();
-		Member existingClient = (Member)existingHttpSession.getAttribute("Member");
-		//if (existingClient!=null){
-			Sessions existingSessions = new Sessions(existingHttpSession.getId(), existingClient.getUsername());
-			Set sessionArray = (Set) getServletContext().getAttribute("speedymatch.sessions");
-			Iterator sessionIt = sessionArray.iterator();
-					while(sessionIt.hasNext()) {
-					Sessions sess = (Sessions)sessionIt.next();
-					System.out.println("Client id ="+sess.getClientId());
+//		HttpSession existingHttpSession = request.getSession();
+//		Member existingClient = (Member)existingHttpSession.getAttribute("Member");
+//		//if (existingClient!=null){
+//			Sessions existingSessions = new Sessions(existingHttpSession.getId(), existingClient.getUsername());
+//			Set sessionArray = (Set) getServletContext().getAttribute("speedymatch.sessions");
+//			Iterator sessionIt = sessionArray.iterator();
+//					while(sessionIt.hasNext()) {
+//					Sessions sess = (Sessions)sessionIt.next();
+//					System.out.println("Client id ="+sess.getClientId());
 //					if(sess.getClientId().equals(existingClient.getUsername()) && !sess.getSessionId().equals(existingHttpSession.getId())){
 //						Object obj = new Object();
 //						obj = "<p style='color:red'>*Your account is already logged in</p>";
@@ -67,23 +67,25 @@ public class VidChat extends HttpServlet {
 //						request.getRequestDispatcher("secured/templateNewHome.jsp").forward(request, response);
 //						return;
 //						}
-					}
+//					}
 		//}
 	
 		String sender = request.getParameter("sender");
 		String receiver = request.getParameter("receiver");
 		System.out.println("Sender = "+sender+" Receiver = "+receiver);
+		
 		///finding whether it accept liao or not
 		Notification n = new Notification(sender,receiver,NotificationVariables.VIDEOCONFRDY);
 		ArrayList<Notification> notifications = NotificationDAO.retrieveNotifications(n);
-		
-		if (false) // receiver online and accept
+		for (int i=0; i<notifications.size(); i++){
+		System.out.println("ready for vid conf: "+notifications.get(i).getSender()+" "+notifications.get(i).getReceiver());
+		}
+		if (!notifications.isEmpty()) // receiver accept?
 		{
 			Notification oldNote = new Notification(sender, receiver,NotificationVariables.VIDEOCONFRDY);
 			NotificationDAO.deleteNotification(oldNote);
-			System.out.println("Deleted notification");
-			//response.sendRedirect("pages/VidConIFrame.jsp");
-			
+			System.out.println("Deleted vidchat notification cuz accepted liao");
+			response.sendRedirect("pages/VidConIFrame.jsp");
 		}
 		else {
 		Notification newNote = new Notification(sender,receiver,NotificationVariables.VIDEOCONF);
