@@ -82,18 +82,20 @@ public class ProfileServlet extends HttpServlet {
 				occupation, smoking, drinking, relaStatus);
 		Member member = new Member(username, email, fname, lname, dateOB);
 
-		Connection currentCon = null;
-		String url = "jdbc:mysql://127.0.0.1:3306/";
-		String dbName = "speedymatch";
-		String driver = "com.mysql.jdbc.Driver";
-		String userName = "adming1vWayv";
-		String password = "2MVCBKUIFISG";
+		DBController db = new DBController();
+		Connection currentCon = db.getConnection();
+		/*
+		 * String url = "jdbc:mysql://127.0.0.1:3306/"; String dbName =
+		 * "speedymatch"; String driver = "com.mysql.jdbc.Driver"; String
+		 * userName = "adming1vWayv"; String password = "2MVCBKUIFISG";
+		 */
 
 		// Update Profile try 1
 		try {
-			Class.forName(driver).newInstance();
-			currentCon = DriverManager.getConnection(url + dbName, userName,
-					password);
+			/*
+			 * Class.forName(driver).newInstance(); currentCon =
+			 * DriverManager.getConnection(url + dbName, userName, password);
+			 */
 			System.out.println("Connected!");
 			String query = "UPDATE Profile SET age = ?, gender = ?, eduLevel = ?, hobby = ?, height = ?, weight = ?, race = ?, religion = ?, child = ?, horo = ?, occupation = ?, smoking = ?, drinking = ?, relaStatus = ? WHERE username = ?";
 			PreparedStatement pstmt = currentCon.prepareStatement(query);
@@ -139,9 +141,11 @@ public class ProfileServlet extends HttpServlet {
 
 		// update profile try 2
 		try {
-			Class.forName(driver).newInstance();
-			currentCon = DriverManager.getConnection(url + dbName, userName,
-					password);
+			/*
+			 * Class.forName(driver).newInstance(); currentCon =
+			 * DriverManager.getConnection(url + dbName, userName, password);
+			 */
+			currentCon = db.getConnection();
 			System.out.println("Connected!");
 			String query = "UPDATE Profile SET age = ?, gender = ?, eduLevel = ?, hobby = ?, height = ?, weight = ?, race = ?, religion = ?, child = ?, horo = ?, occupation = ?, smoking = ?, drinking = ?, relaStatus = ? WHERE username = ?";
 			PreparedStatement pstmt = currentCon.prepareStatement(query);
@@ -187,11 +191,14 @@ public class ProfileServlet extends HttpServlet {
 
 		// update member try 1
 		try {
-			Class.forName(driver).newInstance();
+			/*
+			 * Class.forName(driver).newInstance(); currentCon =
+			 * DriverManager.getConnection(url + dbName, userName, password);
+			 */
+			currentCon = db.getConnection();
 			java.sql.Date birthDate = new java.sql.Date(member.getDob()
 					.getTime());
-			currentCon = DriverManager.getConnection(url + dbName, userName,
-					password);
+
 			System.out.println("Connected!");
 			String query = "UPDATE Member SET email = ?, Fname = ?, Lname = ?, dob = ? WHERE username = ?";
 			PreparedStatement pstmt = currentCon.prepareStatement(query);
@@ -227,11 +234,15 @@ public class ProfileServlet extends HttpServlet {
 
 		// update member try 2
 		try {
-			Class.forName(driver).newInstance();
+			/*
+			 * Class.forName(driver).newInstance(); currentCon =
+			 * DriverManager.getConnection(url + dbName, userName, password);
+			 */
+			currentCon = db.getConnection();
+
 			java.sql.Date birthDate = new java.sql.Date(member.getDob()
 					.getTime());
-			currentCon = DriverManager.getConnection(url + dbName, userName,
-					password);
+
 			System.out.println("Connected!");
 			String query = "UPDATE Member SET email = ?, Fname = ?, Lname = ?, dob = ? WHERE username = ?";
 			PreparedStatement pstmt = currentCon.prepareStatement(query);
