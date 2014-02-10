@@ -12,6 +12,7 @@
     <filter-name>AccessFilter</filter-name>
     <url-pattern>/pages/*</url-pattern>
   </filter-mapping>
+  
   <error-page>
     <location>/pages/error.jsp</location>
   </error-page>
