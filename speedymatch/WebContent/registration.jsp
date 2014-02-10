@@ -51,7 +51,7 @@
 <script src="gumby/js/libs/modernizr-2.6.2.min.js"></script>
 
 <link rel="stylesheet" href="css/registrationForm.css" type="text/css" media="screen"/>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.4.2.js"></script>
 <script type="text/javascript" src="js/sliding.form.js"></script>
 
 </head>

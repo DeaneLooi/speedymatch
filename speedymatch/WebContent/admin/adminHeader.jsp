@@ -41,7 +41,7 @@
 	href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
 	rel="stylesheet">
 
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="../js/jquery-1.9.1.js"></script>
 <script src="../gumby/js/libs/modernizr-2.6.2.min.js"></script>
 </head>
 
