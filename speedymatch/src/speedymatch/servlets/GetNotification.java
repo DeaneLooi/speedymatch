@@ -43,7 +43,9 @@ public class GetNotification extends HttpServlet {
 			Notification n = new Notification(null,m.getUsername(),null);
 			ArrayList<Notification> notifications = NotificationDAO.retrieveNotifications(n);
 			for (int i=0; i<notifications.size(); i++) {
-				
+				if (notifications.get(i).getNotification().equals(NotificationVariables.VIDEOCONFRDY)) {
+					notifications.remove(i);
+				}
 			}
 /*			int notificationCount = 0;
 			for(int i=0; i<notifications.size();i++){
