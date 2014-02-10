@@ -177,8 +177,9 @@ public class ProfileServlet extends HttpServlet {
 			}
 		}
 
-		ProfileDAO.updateProfile(profile);
-		MemberDAO.updateMember(member);
+		/*
+		 * ProfileDAO.updateProfile(profile); MemberDAO.updateMember(member);
+		 */
 
 		/*
 		 * member.setPasswd(cpw); MemberDAO.changePassword(member);
