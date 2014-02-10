@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import speedymatch.entities.dao.DBController;
+
 @WebServlet("/AdminSearch")
 public class AdminSearch extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -44,20 +46,22 @@ ServletException, IOException {
 
 throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		DBController db = new DBController();
 		response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        Connection conn = null;
-        String url = "jdbc:mysql://127.0.0.1:3306/";
+        Connection conn = db.getConnection();
+       // Connection conn = null;
+       /* String url = "jdbc:mysql://127.0.0.1:3306/";
         String dbName = "speedymatch";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "adming1vWayv";
         String password = "2MVCBKUIFISG";
-        
+*/        
         Statement st;
         try {
-            Class.forName(driver).newInstance();
+            /*Class.forName(driver).newInstance();
             conn = DriverManager.getConnection(url + dbName, userName, password);
-            System.out.println("Connected!");
+            System.out.println("Connected!");*/
             String username = request.getParameter("username");
  
             ArrayList al = null;
