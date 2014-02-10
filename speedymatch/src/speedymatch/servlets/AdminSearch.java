@@ -95,7 +95,7 @@ throws ServletException, IOException {
             
             request.getSession().setAttribute("piList", pid_list);
             
-            response.sendRedirect("admin/adminSearchResult.jsp");
+            response.sendRedirect("pages/adminSearchResult.jsp");
            // RequestDispatcher view = request.getRequestDispatcher("/admin/adminSearchResult.jsp");
            // view.forward(request, response);
             conn.close();

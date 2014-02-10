@@ -36,6 +36,7 @@
 <link rel="stylesheet" href="../gumby/css/gumby.css">
 <link rel="stylesheet" href="../css/homepage.css">
 <link rel="stylesheet" href="../css/alert.css">
+<link rel="stylesheet" href="../css/adminSearch.css">
 <!-- <link rel="stylesheet" href="css/style.css"> -->
 
 <!--icons font awesome  -->
@@ -118,9 +119,19 @@
 
 				<li class="nav-fields"><h4>
 						<a href="search.jsp"><i class="fa fa-search"></i>&nbsp;Search</a>
-					</h4></li>
+					</h4>
+					<div class="dropdown">
+						<ul>
 
-
+							<li><h5>
+									<a href="search.jsp">Advance Search</a>
+								</h5></li>
+							<li><h5>
+									<a href="adminHomepage.jsp">Search</a>
+								</h5></li>
+						</ul>
+					</div>
+					</li>
 
 				<li class="nav-fields" id="friendsTab">
 					<h4>
