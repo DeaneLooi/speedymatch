@@ -3,12 +3,14 @@ package speedymatch.entities.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Date;
 
 import speedymatch.entities.FriendList;
 import speedymatch.entities.Member;
 import speedymatch.entities.MemberSecurity;
 import speedymatch.entities.Profile;
 import speedymatch.utils.Algorithms;
+import speedymatch.utils.RandomStringGenerator;
 
 public class MemberDAO {
 
@@ -299,5 +301,15 @@ public class MemberDAO {
 	 * 
 	 * }
 	 */
+	
+	public static void main(String args[]){
+		Date date = new Date();
+		String salt = RandomStringGenerator.getRandomString(16);
+		Member m = new Member("admin","","email","Admin","Account",date,"profilepic");
+		MemberSecurity ms = new MemberSecurity(salt,"token","Admin",date,'D');
+		Profile profile = new Profile();
+		profile.setUsername("admin");
+		MemberDAO.registerAccount(m, ms, profile);
+	}
 
 }

@@ -4,21 +4,17 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import speedymatch.entities.*;
-import speedymatch.entities.dao.AdminSearchDAO;
-import speedymatch.entities.dao.MemberDAO;
+import speedymatch.entities.dao.DBController;
 
 /**
  * Servlet implementation class Search
@@ -49,21 +45,14 @@ public class Search extends HttpServlet {
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+		HttpServletResponse response) throws ServletException, IOException {
+		DBController db = new DBController();
 		response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        Connection conn = null;
-        String url = "jdbc:mysql://127.0.0.1:3306/";
-        String dbName = "speedymatch";
-        String driver = "com.mysql.jdbc.Driver";
-        String userName = "adming1vWayv";
-        String password = "2MVCBKUIFISG";
+        Connection conn = db.getConnection();
         
         Statement st;
         try {
-            Class.forName(driver).newInstance();
-            conn = DriverManager.getConnection(url + dbName, userName, password);
-            System.out.println("Connected!");
             
 				String gender = request.getParameter("gen");
 				String smoking = request.getParameter("smoke");
