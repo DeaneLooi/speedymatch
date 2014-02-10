@@ -39,7 +39,8 @@ public class DeleteNotification extends HttpServlet {
 		String receiver = (String)request.getParameter("receiver");
 		
 		if(content.equals(NotificationVariables.ALERT)){
-			
+			Notification delete = new Notification(sender,receiver,NotificationVariables.ALERT);
+			NotificationDAO.deleteNotification(delete);
 		}
 		
 		else if(content.equals(NotificationVariables.CINEMA)){

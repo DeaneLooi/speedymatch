@@ -31,8 +31,9 @@ $(document).ready(function() {
 	}, 1000);
 	
 	//Pressing enter key instead of clicking of post
-	$("#message").keyup(function (e) {
+	$("#message").keypress(function (e) {
 	    if (e.keyCode == 13) {
+	    	
 	    	var msg = document.getElementById('message').value;
 			 document.getElementById('message').value = "";
 			$.ajaxSetup({ cache: false});
@@ -45,6 +46,14 @@ $(document).ready(function() {
 	    else {
 	    	return false;
 	    }
+	});
+	
+	$("#message").keypress(function(event) {
+		if (event.which == 13) {
+			event.preventDefault();
+			$.scriptcam.sendMessage($('#message').val());
+			$('#message').val('');
+		}
 	});
 
 	$("#postMessage").click(

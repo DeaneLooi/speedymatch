@@ -101,7 +101,7 @@
 			<a class="toggle" gumby-trigger="#nav1 > .row > ul" href="#"><i
 				class="icon-menu"></i></a>
 			<h3 class="four columns logo">
-				<a id="logoName" href="profile.jsp"> <img
+				<a id="logoName" href="friendProfile.jsp?username=<%=username%>"> <img
 					src="../images/SpeedyMatch.png" gumby-retina />speedymatch
 				</a>
 			</h3>

@@ -35,6 +35,7 @@
 				speedymatch.entities.Profile,
 				speedymatch.entities.dao.ProfileDAO" %>
 	<%
+	Member member = (Member)request.getSession().getAttribute("member");
 	String userProfile = request.getParameter("username"); 
 	Member memProfile = new Member(userProfile,null);
 	memProfile = MemberDAO.retrieveAccount(memProfile);
@@ -43,8 +44,11 @@
 	profile.setUsername(userProfile);
 	profile = ProfileDAO.retrieveProfile(profile);
 	
-	Notification n = new Notification(memProfile.getUsername(),userProfile,NotificationVariables.ALERT);
-	NotificationDAO.createNotification(n);
+	if(!member.getUsername().equals(userProfile)){
+		Notification n = new Notification(member.getUsername(),userProfile,NotificationVariables.ALERT);
+		NotificationDAO.createNotification(n);
+	}
+
 	
 	String email = memProfile.getEmail();
 	String occ = profile.getOccupation();
@@ -85,12 +89,16 @@
 		</section>
 		<%
 		boolean checkFriend = false;
+		boolean checkUrself = false;
+		if(userProfile.equals(member.getUsername())){
+			checkUrself = true;
+		}
 		for(int i=0; i<friends.size();i++){ 
 			if(friends.get(i).equals(userProfile)){
 				checkFriend = true;
 			}
 		}
-		if(checkFriend){%>
+		if(checkFriend&&!checkUrself){%>
 		
 		<div class="medium gear" id="addFriend">
 		<label class="primary label"><i class="icon-check"></i>Friends</label>
@@ -98,11 +106,15 @@
 		<%
 		}
 		
-		else{%>
+		else if(!checkFriend&&!checkUrself){%>
 		
 			<div class="medium btn primary" id="addFriend"><a href="${pageContext.request.contextPath}/AddFriend?username=<%=username%>&friendId=<%=userProfile%>">Add Friend</a></div>
 
 		<%	
+		}
+		
+		else if(checkUrself){
+			
 		}
 		%>
 		
