@@ -39,7 +39,11 @@ $(document).ready(function() {
 			$.post("../Messages", {msg:msg});
 			
 			//testing if the function works
-			/* alert(msg); */
+			/*  alert(msg);  */
+	    }
+	    
+	    else {
+	    	return false;
 	    }
 	});
 
